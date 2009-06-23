@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        	<groupId>com.adobe.ac.samples.lcds_autowired_spring_hibernate</groupId>
+  			<artifactId>lcds_autowired_spring_hibernate</artifactId>
+  			<version>1.0-SNAPSHOT</version>
+	</parent>
+     <groupId>${project.parent.groupId}</groupId>
+    <artifactId>lcds_service_config</artifactId>
+    <name>${project.parent.groupId} ${project.parent.artifactId} lcds_service_config</name>
+    <description>This very small project hold the lcds service configuration files (services-config.xml and remoting-config.xml) that are required
+    to package a java blazeds back-end application and to compile the associated flex front-end.
+    That's where we'll declare our use of flex-contrib SpringAutowiringBootstrapService.</description>
+    <packaging>pom</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make shared resources</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/main/assembly/resources.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+     <properties>
+     <maven.test.skip>true</maven.test.skip>
+    </properties> 
+</project>

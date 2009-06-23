@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Xavier Agnetti</author>
+        <title>flex-cairngorm-flexunit-archetype</title>
+    </properties>
+     
+    <body>
+        <section name="Flex-cairngorm-flexunit-archetype">
+			
+			<p>
+			 An Adobe Consulting Maven Archetype : flex-cairngorm-flexunit-archetype.
+  			</p>
+  			<p>
+  			flex-cairngorm-flexunit-archetype helps you generate a Flex front-end project built with Cairngorm, using Test Driven Development.
+  			</p>
+        </section> 
+    </body>
+</document>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 verticalAlign="bottom"
+		 horizontalGap="0" width="100%">
+	
+	<mx:Script>
+		<![CDATA[
+		import com.adobe.ac.samples.view.pmodel.MainModel;   		
+   		[Bindable]
+		public var pModel:MainModel; // injected in the view
+   	]]>
+	</mx:Script>
+	
+	<mx:HBox
+		verticalAlign="bottom"
+		horizontalGap="0" width="65%">
+		
+		<mx:Box
+			width="10"
+			/>
+		<mx:Box
+			width="70"
+			height="50"
+			styleName="panelTitleLogo"/>
+		
+		<mx:Label
+			text="Todo List"
+			styleName="panelTitleStyle"
+			width="80%"
+			/>
+	</mx:HBox>
+	
+	<mx:HBox
+		verticalAlign="bottom"
+		horizontalGap="0" width="25%">
+		<mx:Label
+			text="Powered by Adobe"
+			styleName="panelTitleSubStyle"
+			useHandCursor="true"
+			buttonMode="true"
+			mouseChildren= "false"
+			click="navigateToURL( new URLRequest( 'http://www.adobe.com' ) )"
+			textAlign="right"/>
+		<mx:Label
+			text="TXI"
+			styleName="acPanelTitleSubStyle"
+			useHandCursor="true"
+			buttonMode="true"
+			mouseChildren= "false"
+			click="navigateToURL( new URLRequest( 'http://www.adobe.com' ) )"
+			textAlign="right"/>
+	</mx:HBox>
+	
+	<mx:HBox
+		verticalAlign="bottom"
+		horizontalGap="0" width="10%">
+		
+		
+		<s:List id="locales" height="30" width="80%"
+				selectionChanged="pModel.switchLocale(locales.selectedItem)"
+				selectedItem="{pModel.currentLocale}"
+				dataProvider="{pModel.availableLocales}" right="10" top="10"/>
+		
+		<!--
+		<mx:ComboBox id="locales" 
+		valueCommit="pModel.switchLocale(locales.selectedItem)" 
+		dataProvider="{pModel.availableLocales}" right="10" top="10"/>
+		-->
+		
+	</mx:HBox>
+	
+</mx:HBox>
+

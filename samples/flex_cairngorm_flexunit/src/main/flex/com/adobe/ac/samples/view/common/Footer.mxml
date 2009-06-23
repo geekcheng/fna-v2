@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox  xmlns:mx="http://www.adobe.com/2006/mxml"
+      verticalAlign="middle"
+      horizontalAlign="right"
+      horizontalGap="0" 
+      width="100%" height="40"
+      paddingRight="20">
+	               
+       <mx:Label
+         text=" A fna archetype: cairngorm-flexunit-archetype"
+         styleName="panelTitleSubStyle"
+         height="40"
+         width="35%" 
+         useHandCursor="true"
+         buttonMode="true"
+         mouseChildren= "false"
+         textAlign="right"
+         click="navigateToURL( new URLRequest( 'http://code.google.com/p/fna/wiki/blazedsAutowiredSpringHibernateArchetype' ) )"
+         />
+                  
+</mx:HBox>

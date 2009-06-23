@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+   xmlns:mx="http://www.adobe.com/2006/mxml"
+   xmlns:todo="com.adobe.ac.samples.view.todo.*"
+   width="100%" height="100%"
+   verticalScrollPolicy="off"
+   horizontalScrollPolicy="off"
+   verticalGap="2"
+   >
+	
+	 <mx:Script>
+   	<![CDATA[
+	 	import com.adobe.ac.samples.view.pmodel.MainModel;
+	 	
+   		[Bindable]
+		public var todoPModel:MainModel; // injected in the view
+   	]]>
+   </mx:Script>
+   
+   <mx:Label
+      text="Todo Edition"
+      />
+
+   <mx:HRule
+      styleName="HRule"
+      width="100%" 
+      />
+   
+                 <mx:Form width="100%" height="100%" defaultButton="{saveButton}">
+        			
+        			<mx:FormItem label="ID:" width="127" styleName="FormItemLabel">
+            			<mx:TextInput width="100%" id="idText"
+                          text="{todoPModel.todoItem.id}" editable="false" enabled="false"
+                          styleName="FormItemValue"/>
+        			</mx:FormItem>
+        			
+        			<mx:FormItem label="Title:" width="90%" styleName="FormItemLabel">
+            			<mx:TextInput width="90%" id="titleText" 
+            				minHeight="160" height="100%"
+            				styleName="FormItemValue"
+            				editable="{todoPModel.isItemSelected}"
+                          	text="{todoPModel.todoItem.title}"
+                           	change="todoPModel.todoItem.title = titleText.text"/>
+        			</mx:FormItem>
+    			
+    			</mx:Form>
+				               
+                <mx:ControlBar id="generalControlButtons" height="20%" verticalAlign="top">
+                   <mx:Button label="Save" id="saveButton" 
+                   	enabled="{todoPModel.isItemSelected}"
+                   	click="todoPModel.saveItem()"
+                   	textAlign="center" />
+                   
+        		   <mx:Button label="Delete" click="todoPModel.removeItem()"
+        				 enabled="{todoPModel.isItemSelected}"  />
+                </mx:ControlBar>            
+</mx:VBox>

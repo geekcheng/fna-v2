@@ -1,0 +1,15 @@
+<projectDescription>
+  <name>blazeds-autowired-spring-hibernate-archetype</name>
+  <comment>An archetype for generating a template for a flex front end application communicating with the backend 
+  through Adobe's blazeds messaging, the backend relies on a spring hibernate architecture, 
+  the serialized actionscript object are generated through xdoclet.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

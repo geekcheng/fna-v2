@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><project name="A Fna Project">
+  <bannerLeft>
+    <src>images/fna-header-left.jpg</src>
+    <href>http://fna.googlecode.com/svn/trunk/fna/site/mvn_archetypes/index.html</href>
+  </bannerLeft>
+  <bannerRight>
+    <src>images/fna-header-rigth.jpg</src>
+    <href>http://www.adobe.com/consulting/</href>
+  </bannerRight>
+  <poweredBy>
+    <logo img="http://www.jroller.com/francoisledroff/resource/adobemax_little.jpg" name="MAX" href="http://max.adobe.com/" />
+  </poweredBy>
+  <skin>
+    <groupId>com.adobe.ac</groupId>
+    <artifactId>maven-fna-skin</artifactId>
+    <version>1.2</version>
+  </skin>
+  <body>
+    <links>
+      <item name="Adobe Consulting" href="http://www.adobe.com/consulting/" />
+      <item name="Fna" href="http://fna.googlecode.com/svn/trunk/fna/site/index.html" />
+    </links>
+    <menu name="Fna">
+      <item name="Fna" href="../index.html" />
+    </menu>
+    <menu name="Introduction">
+      <item name="About" href="index.html" />
+    </menu>
+    <menu name="Archetypes">
+      <item name="blazeds-autowired-spring-hibernate-archetype" href="blazeds-autowired-spring-hibernate-archetype/index.html" />
+      <item name="flex-cairngorm-stubbed-crud-archetype" href="flex-cairngorm-stubbed-crud-archetype/index.html" />
+      <item name="flex-cairngorm-flexunit-archetype" href="flex-cairngorm-flexunit-archetype/index.html" />
+      <item name="flex-library-archetype" href="flex-library-archetype/index.html" />
+    </menu>
+    <menu ref="reports" />
+    <menu name="MAX">
+      <item name="Register to Max" href="http://max.adobe.com/" />
+    </menu>
+  </body>
+</project>

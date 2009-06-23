@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox  xmlns:mx="http://www.adobe.com/2006/mxml"
+      verticalAlign="bottom"
+      horizontalGap="0" 
+      width="100%" height="40">
+	
+	 <mx:Script>
+   	<![CDATA[
+   		import mx.effects.Glow;
+   		[Bindable]
+		public var appStatus:String; // injected in the view
+		
+		private function set appStatusChange( value : String ) : void
+		{			
+			var glow : Glow = new Glow( statusLabel )
+			glow.color = 0;
+			glow.play();	
+		}
+   	]]>
+   </mx:Script>
+   
+   <mx:Binding
+   	source="{ appStatus }"
+   	destination="appStatusChange"
+   	/>
+      
+   	 <mx:Label
+   	 	id="statusLabel"
+   	 	 styleName="statusPanelTitleSubStyle"
+   	 	 horizontalCenter="left"
+         text="{appStatus}"
+         width="65%"         
+         height="40"         
+         />
+         
+       <mx:Label
+         text=" A fna archetype: cairngorm-crud"
+         styleName="panelTitleSubStyle"
+         height="40"
+         width="35%" 
+         useHandCursor="true"
+         buttonMode="true"
+         mouseChildren= "false"
+         click="navigateToURL( new URLRequest( 'http://code.google.com/p/fna/wiki/blazedsAutowiredSpringHibernateArchetype' ) )"
+         />
+                  
+</mx:HBox>

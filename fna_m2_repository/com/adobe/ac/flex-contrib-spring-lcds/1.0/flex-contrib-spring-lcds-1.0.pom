@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.adobe.ac</groupId>
+
+   <version>1.0</version>
+  
+    <artifactId>flex-contrib-spring-lcds</artifactId>
+    <packaging>jar</packaging>
+    <name>flex-contrib-spring-lcds</name>
+    <description>
+	lcds spring integration
+     </description>
+     
+	<url>http://fna.googlecode.com/svn/trunk/fna/site/${project.artifactId}/index.html</url>
+  
+   <distributionManagement>
+    <repository>
+    	<id>fna-disk-repository</id>
+       <name>fna-repository</name>
+     	<url>file:///workspaces/fna/fna_m2_repository</url>
+    </repository>
+    <site>
+      <id>fna-disk-site</id>
+      <url>file:///workspaces/fna/site/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
+  
+   <scm>
+    <connection>scm:svn:http://fna.googlecode.com/svn/trunk/fna/${project.artifactId}</connection>
+    <developerConnection>scm:svn:https://fna.googlecode.com/svn/trunk/fna/${project.artifactId}</developerConnection>
+    <url>http://fna.googlecode.com/svn/trunk/fna/${project.artifactId}</url>
+  </scm>
+ 
+  <developers>
+		<developer>
+			<name>Francois Le Droff</name>
+			<id>ledroff</id>
+			<email>francois.le.droff-at-gmail.com</email>
+			<url>http://www.droff.com</url>
+			<organization>Adobe Consulting</organization>
+		</developer>
+		 </developers>	
+		 
+    <contributors>
+    	
+       
+   
+    </contributors>
+
+    <licenses>
+        <license>
+            <name>LGPL</name>
+            <url></url>
+        </license>
+    </licenses>
+   
+   <properties>
+        <spring.version>2.5.5</spring.version>
+        <blazeds.version>3.0.1.1755</blazeds.version>
+        <aspectj.version>1.6.0</aspectj.version>
+        <spring.security.version>2.0.3</spring.security.version>
+        <lcds.version>2.6.1</lcds.version>
+    </properties>
+    
+    <dependencies>
+    
+         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+ 		<!-- blazeds dependencies -->
+		 <dependency>
+           <groupId>com.adobe.ac</groupId>
+  		<artifactId>flex-contrib-spring</artifactId>
+  		<version>1.2</version>
+        </dependency>
+
+		 <!-- blazeds dependencies -->
+
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-common</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-core</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-remoting</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+	  
+	  <!-- lcds -->
+	   <dependency>
+            <groupId>com.adobe.lcds</groupId>
+            <artifactId>flex-messaging-data</artifactId>
+            <version>${lcds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.lcds</groupId>
+            <artifactId>flex-messaging-data-req</artifactId>
+            <version>${lcds.version}</version>
+        </dependency>
+
+		<!-- spring -->
+
+	       <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+       
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core-tiger</artifactId>
+            <version>${spring.security.version}</version>
+             <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-support</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <aggregate>false</aggregate>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <todoitem id="-1" title="cosa da fare 1"/>
+    <todoitem id="-2" title="cosa da fare 2"/>
+    <todoitem id="-3" title="cosa da fare 3"/>
+    <todoitem id="-4" title="cosa da fare 4"/>
+    <todoitem id="-5" title="cosa da fare 5"/>
+</dataset>

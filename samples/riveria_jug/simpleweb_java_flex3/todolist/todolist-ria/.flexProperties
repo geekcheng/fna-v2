@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexProperties flexServerFeatures="4" flexServerType="2" serverContextRoot="/todolist-web" serverRoot="${TODOLIST_ROOT}/todolist-web/src/main/webapp" serverRootURL="http://localhost:8080/todolist-web/" toolCompile="true" useServerFlexSDK="false" version="1"/>

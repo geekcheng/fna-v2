@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" mouseChildren="false">    
+    <mx:Script>
+        <![CDATA[
+        	import com.adobe.ac.samples.vo.UserVO;
+        	
+        	[Bindable]
+        	private var currentUser : UserVO;
+        	
+        	override public function set data(value:Object):void
+        	{
+        	   super.data = value;
+        	   currentUser = UserVO( data );
+        	}
+        ]]>
+    </mx:Script>
+
+    <mx:Canvas
+        width="16" height="16"
+        styleName="{ currentUser.isOnline ? 'onlineIcon' : 'offlineIcon' }"
+        />
+    
+    <mx:Label
+        width="100%"
+        text="{ currentUser.firstname + ' ' + currentUser.lastname }" 
+        />
+    
+</mx:HBox>

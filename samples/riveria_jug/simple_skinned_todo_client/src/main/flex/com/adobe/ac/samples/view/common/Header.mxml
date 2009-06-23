@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	verticalAlign="bottom"
+    horizontalGap="0" width="100%">
+
+   	<mx:HBox
+      verticalAlign="bottom"
+      horizontalGap="0" width="65%">
+
+	<mx:Box
+      	 width="10"
+         />
+	 <mx:Box
+      	 width="70"
+         height="50"
+         styleName="panelTitleLogo"/>
+
+      <mx:Label
+         text="Todo List"
+         styleName="panelTitleStyle"
+         width="80%"
+         />
+     </mx:HBox>
+        
+     <mx:HBox
+      verticalAlign="bottom"
+      horizontalGap="0" width="35%">
+      <mx:Label
+         text="Powered by Adobe"
+         styleName="panelTitleSubStyle"
+         useHandCursor="true"
+         buttonMode="true"
+         mouseChildren= "false"
+         click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"
+         textAlign="right"/>
+      <mx:Label
+         text="TXI"
+         styleName="acPanelTitleSubStyle"
+         useHandCursor="true"
+         buttonMode="true"
+         mouseChildren= "false"
+         click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"
+         textAlign="right"/>
+   		</mx:HBox>
+   		
+</mx:HBox>
+         
+  

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+         	<groupId>com.adobe.ac.samples.bash</groupId>
+  			<artifactId>bash</artifactId>
+  			<version>1.0</version>
+    </parent>
+    <artifactId>bash_java_webapp</artifactId>
+    <packaging>war</packaging>
+    <name>${project.parent.groupId} ${project.parent.artifactId} bash_java_webapp</name>
+	<description>
+	This project hold the web application files 
+	(mainly configuration and deployment file). 
+	It will package all the above project into a single coherent war
+	 ready to deploy and test (launching mvn:jetty-exploded for instance)</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.ac</groupId>
+            <artifactId>flex-contrib-spring</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>bash_blazeds_service_config</artifactId>
+            <version>${project.version}</version>
+            <classifier>resources</classifier>
+            <type>zip</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>bash_java_core</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>bash_java_service_api</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+        
+
+        <!-- blazeds dependencies -->
+
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-common</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-core</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-remoting</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-opt</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.blazeds</groupId>
+            <artifactId>flex-messaging-proxy</artifactId>
+            <version>${blazeds.version}</version>
+        </dependency>-->
+
+        <!-- used by FlexSession in core -->
+        <dependency>
+            <groupId>backport-util-concurrent</groupId>
+            <artifactId>backport-util-concurrent</artifactId>
+            <version>${backport-util-concurrent.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>${commons-httpclient.version}</version>
+        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>concurrent</groupId>-->
+<!--            <artifactId>concurrent</artifactId>-->
+<!--            <version>${concurrent.version}</version>-->
+<!--        </dependency>-->
+
+        <!-- end of blazeds dependencies -->
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-swf</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>bash_flex_app</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>swf</type>
+                                    <destFileName>index.swf</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>unpack-config</id>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/flex</outputDirectory>
+                            <includeArtifacIds>bash_blazeds_service_config</includeArtifacIds>
+                            <includeGroupIds>${project.groupId}</includeGroupIds>
+                            <includeClassifiers>resources</includeClassifiers>
+                            <excludeTransitive>true</excludeTransitive>
+                            <excludeTypes>jar,swf</excludeTypes>
+                            <includes>**/*.xml</includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>info.flex-mojos</groupId>
+                <artifactId>flex-compiler-mojo</artifactId>
+                <version>${flex-mojos.version}</version>
+                <extensions>true</extensions>
+            </plugin>
+
+            <!-- deployment plugin -->
+            <!-- jboss plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jboss-maven-plugin</artifactId>
+                <version>1.3.1</version>
+                <configuration>
+                    <jbossHome>${jboss.home}</jbossHome>
+                    <serverName>${jboss.server.name}</serverName>
+                    <hostName>${jboss.host.name}</hostName>
+                    <port>${jboss.port}</port>
+                </configuration>
+            </plugin>
+            <!-- jetty plugin -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <contextPath>${project.build.finalName}</contextPath>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+            <!-- tomcat plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <configuration>
+                    <url>${tomcat.manager.url}</url>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <aggregate>false</aggregate>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jdepend-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>net.sf.dtddoc</groupId>
+                <artifactId>dtddoc-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/web-app*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+    <properties>
+        <backport-util-concurrent.version>2.2</backport-util-concurrent.version>
+        <concurrent.version>1.3.3</concurrent.version>
+
+        <blazeds.version>3.0.1.1755</blazeds.version>
+        <jstl.version>1.1.2</jstl.version>
+
+        <!--  deployment properties -->
+
+        <!-- tomcat server properties
+            by default :
+            * Tomcat manager URL of http://localhost:8080/manager
+            * Authentication details of username admin and no password
+            * Context path of /${project.build.finalName} -->
+        <tomcat.manager.url>http://localhost:8080/manager</tomcat.manager.url>
+
+        <jetty.version>6.1.11</jetty.version>
+
+        <!-- the jboss server properties -->
+        <jboss.home>apps/jboss/jboss-4.0.3SP1</jboss.home>
+        <jboss.server.name>all</jboss.server.name>
+        <jboss.host.name>localhost</jboss.host.name>
+        <jboss.port>8080</jboss.port>
+
+        <livecycle.server>jboss</livecycle.server>
+        <webapp.server>jboss</webapp.server>
+    </properties>
+</project>

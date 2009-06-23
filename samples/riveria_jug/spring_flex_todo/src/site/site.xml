@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Flex N Spring - MAX 2008">
+	
+  	<bannerLeft>
+    	<src>images/FlexNSpring.jpg</src>
+    	<href>http://code.google.com/p/fna/</href>
+  	</bannerLeft>
+  	<bannerRight>
+		<name>Adobe Consulting</name>
+		<href>http://www.adobe.com/consulting/</href>
+	</bannerRight>
+	<body>
+		<links>
+			<item name="Fna" href="http://code.google.com/p/fna/" />
+			<item name="François Le Droff's Blog" href="http://blogs.adobe.com/francoisledroff/" />
+			<item name="Maven 2" href="http://maven.apache.org/" />
+		</links>
+
+
+	<menu name="Introduction">
+	    <item name="About" href="index.html" />
+ 	</menu>
+    <menu name="Modules">
+    	<item name="bash_java_core" href="bash_java_core/index.html" />
+    	<item name="bash_java_service_api" href="bash_java_service_api/index.html" />
+    	<item name="bash_blazeds_service_config" href="bash_blazeds_service_config/index.html" />
+    	<item name="bash_flex_remoted_objects" href="bash_flex_remoted_objects/index.html" />
+    	<item name="bash_flex_app" href="bash_flex_app/index.html" />
+    	<item name="bash_java_webapp" href="bash_java_webapp/index.html" />
+    </menu>	
+    
+    <menu ref="reports"/>
+
+	</body>
+
+	<poweredBy>
+		<logo name="Maven" href="http://maven.apache.org/" img="http://maven.apache.org/images/logos/maven-feather.png" />
+	</poweredBy>
+
+</project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel
+	title="Master View"
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	layout="vertical"
+	width="300"
+	height="350">
+	
+	<mx:Script>
+	    <![CDATA[
+	    	import com.adobe.ac.samples.vo.UserVO;
+         	import com.adobe.ac.samples.view.master.model.MasterViewPresentationModel;
+	    	
+	    	[Bindable]
+	    	public var model : MasterViewPresentationModel;    		
+	    ]]>
+	</mx:Script>
+	
+	<mx:List
+       width="100%"
+       height="100%"
+ 		 dataProvider="{ model.users }"
+		 change="model.selectedUser = UserVO( List( event.target ).selectedItem )"
+		 />
+	
+	<mx:ComboBox
+	    width="100%"
+	    labelField="label"
+	    selectedIndex="{ model.selectedUser.isOnline ? 0 : 1 }"
+	    enabled="{ model != null &amp;&amp; model.selectedUser != null }"
+	    change="model.changeOnlineState( ComboBox( event.target ).selectedIndex )">
+	    <mx:dataProvider>
+	        <mx:Object label="online" />
+	        <mx:Object label="offline" />
+	    </mx:dataProvider>
+	</mx:ComboBox>
+	
+</mx:Panel>

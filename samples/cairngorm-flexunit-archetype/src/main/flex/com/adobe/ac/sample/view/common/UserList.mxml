@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:List xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:itemrenderer="com.adobe.ac.sample.view.common.itemrenderer.*"
+	xmlns:master="com.adobe.ac.sample.view.master.*"
+	height="100%" width="100%" 
+	borderStyle="none"
+	dataProvider="{ usersContainer.users }"
+	selectable="false"
+	>
+	<mx:Script>
+		<![CDATA[
+			import com.adobe.ac.sample.model.users.IUsersContainer;
+			
+			[Bindable]
+			public var usersContainer : IUsersContainer;
+		]]>
+	</mx:Script>
+	
+	<mx:itemRenderer>
+	
+		<mx:Component>
+	
+			<itemrenderer:UserProfileItemRenderer/>
+	
+		</mx:Component>
+	
+	</mx:itemRenderer>
+	
+</mx:List>

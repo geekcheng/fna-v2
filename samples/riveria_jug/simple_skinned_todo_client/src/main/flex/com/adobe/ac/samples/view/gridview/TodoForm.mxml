@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:todo="com.adobe.ac.samples.view.gridview.*"
+	xmlns:common="com.adobe.ac.samples.view.common.*"
+	creationComplete="onCreationComplete()"
+	styleName="mainPanel"
+	width="80%"
+	height="80%"
+	minHeight="400"
+	minWidth="300"
+	>
+	
+	<mx:Script>
+		<![CDATA[
+	 		import com.adobe.ac.samples.view.pmodel.MainModel;
+	 		import mx.collections.ListCollectionView;
+   		import mx.effects.Glow;
+   	
+   		[Bindable]
+		public var pModel:MainModel; // injected in the view
+		
+		public function onCreationComplete():void
+		{
+    		pModel.refreshList();
+		}
+   	]]>
+	</mx:Script>
+	
+	<common:Header/>         
+	<mx:HRule styleName="HRule" width="100%"/>
+	
+	<mx:HDividedBox
+		width="100%" height="100%"
+		horizontalGap="30"
+		paddingTop="5"
+		paddingBottom="30"
+		paddingLeft="25"
+		paddingRight="25">
+		
+		<todo:TodoListEditor
+			width="65%"
+			id="listPanel"
+			todoPModel="{pModel}"
+			/>
+		
+		<todo:TodoItemEditor
+			width="35%"
+			id="itemPanel"
+			todoPModel="{pModel}"
+			/>
+		
+	</mx:HDividedBox>
+	
+	<mx:HRule styleName="HRule" width="100%"/> 
+	<common:Footer appStatus="{pModel.status}"/>
+	
+</mx:Panel>

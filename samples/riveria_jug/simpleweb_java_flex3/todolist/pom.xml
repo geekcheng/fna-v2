@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.adobe.fna.samples.riveria_jug.simpleweb_java_flex3</groupId>
+  <artifactId>todolist</artifactId>
+  <packaging>pom</packaging>
+  <name>Fna! riveria_jug.simpleweb_java_flex3</name>
+  <version>1.0-SNAPSHOT</version>
+  <url>http://fna.googlecode.com/svn/trunk/fna/site/samples/riveria_jug/simpleweb_java_flex3/index.html</url>
+  <licenses>
+    <license>
+      <name>Apache</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <distributionManagement>
+    <repository>
+    	<id>fna-disk-repository</id>
+       <name>fna-repository</name>
+     	<url>file:///workspaces/fna/fna_m2_repository</url>
+    </repository>
+  </distributionManagement>
+  <issueManagement>
+    <system>Google Code Issue Tracking</system>
+    <url>http://code.google.com/p/fna/issues/list</url>
+  </issueManagement> 
+  <developers>
+		<developer>
+			<name>Francois Le Droff</name>
+			<id>ledroff</id>
+			<email>francois.le.droff-at-gmail.com</email>
+			<url>http://www.droff.com</url>
+			<organization>Adobe Consulting</organization>
+		</developer>		
+    </developers>
+  <description>
+  A fully working sample for the riveria_jug event 
+</description>
+  <organization>
+  	<name>Project Contributors / Adobe </name>
+  	<url>http://www.adobe.com</url>
+  </organization>
+  
+   <modules>
+    <module>todolist-config</module>
+    <module>todolist-java</module>
+    <module>todolist-lib</module>
+    <module>todolist-ria</module>
+    <module>todolist-web</module>
+  </modules>
+
+  
+  <properties>
+		<flex.sdk.version>3.2.0.3958</flex.sdk.version>
+		<!-- flex.sdk.version>4.0.0.7219</flex.sdk.version -->
+        <flexunit.version>0.9</flexunit.version>
+        <blazeds.version>3.2.0.3978</blazeds.version>
+        <flex-mojos.version>3.2.0</flex-mojos.version>
+		<flashPlayerCommand>${env.FLASH_EXE}</flashPlayerCommand> <!--must be in the systempath -->
+  </properties>
+
+ <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.2-beta-2</version>
+                </plugin>
+				 <plugin>
+          <groupId>org.sonatype.flexmojos</groupId>
+          <artifactId>flexmojos-maven-plugin</artifactId>
+		  <version>${flex-mojos.version}</version>
+        </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+			</plugins>
+ 
+  </build>
+  
+  <reporting>
+        <plugins>
+        	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>2.0-beta-5</version>
+				<configuration>
+					<xdocDirectory>${basedir}/src/site/xdocs</xdocDirectory>
+	           </configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.1.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+ 
+</project>

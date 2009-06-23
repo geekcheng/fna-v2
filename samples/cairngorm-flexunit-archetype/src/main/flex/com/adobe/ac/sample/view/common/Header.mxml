@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	verticalAlign="middle"
+    horizontalGap="0" width="100%">
+
+   	<mx:HBox
+      verticalAlign="middle"
+      horizontalGap="0" 
+      width="65%"
+      paddingLeft="10">
+
+	 <mx:Box
+      	 width="70"
+         height="50"
+         styleName="panelTitleLogo"/>
+
+      <mx:Label
+         text="Cairngorm BuddyList"
+         styleName="panelTitleStyle"
+         width="80%"
+         />
+
+     </mx:HBox>
+        
+     <mx:HBox
+      verticalAlign="middle"
+      horizontalGap="0" 
+      width="35%"
+      horizontalAlign="right"
+      paddingRight="20"
+      >
+
+	      <mx:Label
+	         text="Powered by Adobe"
+	         styleName="panelTitleSubStyle"
+	         useHandCursor="true"
+	         buttonMode="true"
+	         mouseChildren= "false"
+	         click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"
+	         textAlign="right"
+	         />
+	
+	      <mx:Label
+	         text="Consulting"
+	         styleName="acPanelTitleSubStyle"
+	         useHandCursor="true"
+	         buttonMode="true"
+	         mouseChildren= "false"
+	         click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"
+	         textAlign="right"
+	         />
+
+	</mx:HBox>
+
+</mx:HBox>

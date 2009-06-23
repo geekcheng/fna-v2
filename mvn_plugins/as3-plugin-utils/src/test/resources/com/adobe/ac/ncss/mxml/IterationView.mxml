@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel 
+   xmlns:mx="http://www.adobe.com/2006/mxml"
+   xmlns:ns1="com.adobe.ac.anthology.view.iteration.*"
+   xmlns:component="com.adobe.ac.anthology.utils.components.*"
+   title="MyIterations" 
+   horizontalAlign="left"
+   visible="{ model.selectedRelease != null }">
+
+    <mx:Script>
+    <![CDATA[
+       import com.adobe.ac.anthology.model.object.Iteration;
+       import com.adobe.ac.anthology.model.AnthologyModelLocator;
+       import com.adobe.ac.anthology.model.ProjectModel;
+      import com.adobe.cairngorm.business.ServiceLocator;
+      import com.adobe.ac.anthology.control.event.iteration.*;
+      import com.adobe.ac.anthology.utils.FormTools;
+      
+      [Bindable]
+      private var model : ProjectModel = AnthologyModelLocator.instance.projectModel;
+      
+      private function addIteration() : void
+ 	   {
+ 	      model.selectedRelease.addIteration( new Iteration() );
+ 	   }
+ 	   
+ 	   private function changeIteration() : void
+ 	   {
+ 	      model.selectedIteration = dg.selectedItem as Iteration;
+ 	   }
+
+    ]]>
+    </mx:Script>
+    <mx:HBox height="320"> 
+    
+    <ns1:DetailedIterationWithControl
+       id="detailedIterationForm"
+       iteration="{ model.selectedIteration }" />
+	     
+    <mx:VRule
+       height="100%"
+       strokeColor="#DDDDDD"/>   
+ 
+    <mx:VBox
+       paddingTop="15"
+       paddingLeft="15"
+       paddingRight="15"
+       paddingBottom="15">
+     
+      <mx:Text text="List of Iterations"/>
+      
+      <component:ScrawlGrid
+            id="dg"
+            dataProvider="{ model.selectedRelease.iterations }"
+            width="200" height="220"
+            change="changeIteration()">
+            
+         <component:columns>
+               
+            <mx:DataGridColumn
+               dataField="iterationNumber"
+               headerText="#"/>
+               
+            <mx:DataGridColumn
+               dataField="startDate"
+               headerText="Start Date"
+               editable="false"/>
+               
+            <mx:DataGridColumn 
+               dataField="endDate" 
+               headerText="End Date"/>
+               
+         </component:columns>
+         
+      </component:ScrawlGrid>
+      
+      <mx:HBox width="200">
+      
+         <mx:Button label="Add Iteration"
+            click="addIteration()"/>
+            
+      </mx:HBox>
+  
+    </mx:VBox>
+ 
+  </mx:HBox>   
+</mx:Panel>

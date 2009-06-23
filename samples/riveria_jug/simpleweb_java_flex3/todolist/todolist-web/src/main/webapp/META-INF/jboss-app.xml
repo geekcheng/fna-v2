@@ -1,0 +1,7 @@
+<jboss-app>     
+	<loader-repository>org.myapp:loader=SomeClassloader
+		<loader-repository-config>
+			java2ParentDelegation=false
+		</loader-repository-config>
+	</loader-repository>
+</jboss-app>

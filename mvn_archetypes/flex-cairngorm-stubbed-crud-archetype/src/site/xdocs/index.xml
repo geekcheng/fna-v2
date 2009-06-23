@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>flex-cairngorm-stubbed-crud-archetype</title>
+    </properties>
+     
+    <body>
+        <section name="flex-cairngorm-stubbed-crud-archetype">
+			
+			<p>
+  An Adobe Consulting Maven Archetype for generating 
+  a  flex front end application : 
+  a cairngorm CRUD application whose remote delegate calls are stubbed
+    		</p>
+ 
+        </section>
+
+ 
+    </body>
+</document>

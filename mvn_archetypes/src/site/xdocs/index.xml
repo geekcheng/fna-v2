@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>Fna Maven Archetypes</title>
+    </properties>
+     
+    <body>
+        <section name="Fna Maven Archetypes">
+			
+			<p>
+			 A set of Adobe Consulting Maven Archetypes
+  			</p>
+        </section>
+
+        <section name="Hybrid Application Archetypes">
+        
+        <p>A subset of Java/Flex, i.e. full stack archetypes:</p>
+        
+        <subsection name="blazeds-autowired-spring-hibernate-archetype">
+        <p>
+  			Blazeds-autowired-spring-hibernate-archetype generates a multi-module maven project :
+  			a flex front-end application communicating with the backend through Adobe's BlazeDS messaging.
+  			The back-end relies on a spring/hibernate architecture.
+  			This archetype features 
+  			<ul>  			
+  			<li> a flex application architecture with cairngorm </li>
+  			<li> AS3 VOs code generation through Java5 @ActionScript and @ActionScriptProperty flex-annotation</li>
+  			<li> a BlazeDS flex-contrib-spring SpringAutowiringBootstrapService configuration </li>
+  			</ul>
+  			
+         </p>        
+        </subsection>
+        
+        </section>
+        
+        <section name="Flex Application Archetypes">
+        
+        <subsection name="flex-cairngorm-stubbed-crud-archetype">
+        <p>
+  			An Adobe Consulting Maven Archetype for generating 
+  			a flex front end application : a cairngorm CRUD application 
+  			whose remote delegate calls are stubbed
+         </p>        
+         
+        </subsection>    
+        
+        <subsection name="flex-cairngorm-flexunit-archetype">
+        <p>
+        flex-cairngorm-flexunit-archetype helps you generate a Flex front-end project 
+        built with Cairngorm, using Test Driven Development.
+         </p>        
+         
+        </subsection>    
+        
+        </section>
+        
+        <section name="Flex Library Archetypes">
+        
+        <subsection name="flex-library-archetype">
+        <p>
+  			An Adobe Consulting Maven Archetype for generating 
+  			a simple unit tested flex library (a swc)
+         </p>        
+         
+        </subsection>    
+      
+        </section>
+        
+        <section name="Others">
+        
+        <subsection name="Wish List/In progress">
+        <p>
+  			<ul>
+  			<li> a AIR maven archetype </li>
+  			<li> a Flex LCDS maven archetype </li>
+  			<li> a Flex merapi maven archetype </li>
+  			<li> a Flex application sample/archetype with flash selenium</li>
+  			<li> a Flex application sample/archetype with flexmonkey </li>
+  			<li> add flexcover results within maven reports...</li>
+  			</ul>
+         </p>        
+         
+        </subsection>    
+      
+        </section>
+ 
+    </body>
+</document>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="data-service" 
+    class="flex.data.DataService">
+
+    <adapters>
+        <adapter-definition id="actionscript" class="flex.data.adapters.ASObjectAdapter" default="true"/>
+        <adapter-definition id="java-dao" class="flex.data.adapters.JavaAdapter"/>
+    </adapters>
+
+   <destination id="todo">
+   
+      <adapter ref="java-dao" />
+   
+      <properties>
+   			<!-- FIXME LCDS datamanagement Autowiring is still to do !!! -->
+         <source>com.adobe.ac.samples.lcds.service.TodoAssembler</source>
+         <scope>application</scope>
+         <cache-items>true</cache-items>
+         <use-transactions>true</use-transactions>
+         <auto-sync-enabled>true</auto-sync-enabled>
+   
+         <metadata>
+            <identity property="id" />
+         </metadata>
+   
+         <network>
+            <session-timeout>20</session-timeout>
+            <paging enabled="true" pageSize="24" />
+            <throttle-inbound policy="ERROR" max-frequency="500"/>
+            <throttle-outbound policy="REPLACE" max-frequency="500"/>
+         </network>
+   
+      </properties>
+   
+   </destination>
+   
+</service>

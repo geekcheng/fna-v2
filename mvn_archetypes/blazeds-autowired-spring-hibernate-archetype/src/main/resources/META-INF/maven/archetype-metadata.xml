@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="blazeds-xdoclet-spring-hibernate">
+
+	<fileSets>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>bat</directory>
+				<includes>
+					<include>*.bat</include>
+				</includes>
+		</fileSet>
+		
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/site</directory>
+				<includes>
+					<include>**/*.apt</include>
+					<include>**/*.jpg</include>
+					<include>**/*.png</include>
+					<include>**/*.xml</include>
+					<include>**/*.vm</include>
+				</includes>
+		</fileSet>
+	</fileSets>
+	
+	<modules>
+		<module id="blazeds_service_config" dir="blazeds_service_config"
+			name="blazeds_service_config">
+			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8" packaged="false">
+					<directory>src/main/assembly</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8" packaged="false">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="flex_app" dir="flex_app" name="flex_app">
+			<fileSets>
+				<fileSet filtered="false" encoding="UTF-8" packaged="false">
+					<directory>src/main/flex</directory>
+					<includes>
+						<include>**/*.png</include>
+						<include>**/*.css</include>
+						<include>**/*.fla</include>
+						<include>**/*.swf</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8" packaged="false">
+					<directory>src/main/flex</directory>
+					<includes>
+						<include>index.mxml</include>
+						<include>TestRunner.mxml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/main/flex</directory>
+					<excludes>
+						<exclude>index.mxml</exclude>
+						<exclude>TestRunner.mxml</exclude>
+						<exclude>**/*.png</exclude>
+						<exclude>**/*.css</exclude>
+						<exclude>**/*.fla</exclude>
+						<exclude>**/*.swf</exclude>
+					</excludes>
+					<includes>
+						<include>**/*.as</include>
+						<include>**/*.mxml</include>						
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8" packaged="false">
+					<directory>src/test/flex</directory>
+					<includes>
+						<include>AllTests.as</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/test/flex</directory>
+					<excludes>
+						<exclude>AllTests.as</exclude>
+					</excludes>
+					<includes>
+						<include>**/*.as</include>
+						<include>**/*.mxml</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="flex_remoted_objects" dir="flex_remoted_objects"
+			name="flex_remoted_objects">			
+		</module>
+
+		<module id="java_core" dir="java_core" name="java_core">
+			<fileSets>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false" encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="java_service_api" dir="java_service_api"
+			name="java_service_api">
+			<fileSets>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="false"
+					encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="java_webapp" dir="java_webapp" name="java_webapp">
+			<fileSets>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true"
+					encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8"  packaged="false">
+					<directory>src/main/webapp</directory>
+					<includes>
+						<include>**/*.properties</include>
+						<include>**/*.xml</include>
+						<include>**/*.js</include>
+						<include>**/*.css</include>
+						<include>**/*.html</include>
+						<include>**/*.jsp</include>
+						<include>**/*.swf</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+	</modules>
+</archetype-descriptor>
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component:ScrawlGrid xmlns:mx="http://www.adobe.com/2006/mxml"
+   xmlns:component="com.adobe.ac.anthology.utils.components.*">
+   <!--
+       lalala 
+       -->
+   <mx:Script>
+      <![CDATA[
+         import com.adobe.ac.anthology.model.object.Iteration;
+         
+         import mx.collections.ArrayCollection;
+         
+         
+         private var _selectedIteration : Iteration;
+         
+         public function set selectedIteration(value : Iteration) : void
+         {
+           for (var i : uint = 0; i < (dataProvider as ArrayCollection).length; i++) {
+         		var currentId : uint = dataProvider[i].id;
+         		if (currentId == value.id) {
+         			selectedItem = dataProvider[i];
+         			return;
+         		}	
+         	}
+         }
+         
+         private function displayTitle(item : Object, column : DataGridColumn) : String
+         {
+            var i  : Iteration = Iteration( item );
+            
+            return "#" + i.iterationNumber.toString() + " " + i.status;
+         }
+         
+      ]]>
+   </mx:Script>
+   
+   <component:columns>
+   
+      <mx:DataGridColumn dataField="iterationNumber" headerText="Iterations" labelFunction="displayTitle"/>
+      
+   </component:columns>   
+   
+</component:ScrawlGrid>

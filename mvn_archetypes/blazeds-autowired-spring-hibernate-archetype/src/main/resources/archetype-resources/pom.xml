@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<version>${version}</version>
+	<packaging>pom</packaging>
+	<name>${groupId} ${artifactId}</name>
+	<url>http://www.your-url-here.com</url>
+	<description>
+	Your blazeds spring hibernate application 
+	made from blazeds-autowired-spring-hibernate-archetype
+	</description>
+	<distributionManagement>
+    <site>
+      <id>on-your-disk</id>
+      <url>file:///workspaces/fna/samples/${artifactId}/target/site</url>
+    </site>
+	</distributionManagement>
+	<developers>
+		<developer>
+			<name>Your Name here</name>
+			<id>yourIdHere</id>
+			<email>you@your.domain</email>
+			<url>http://www.your-url-here.com/you</url>
+			<organization>YourOrganization</organization>
+		</developer>		
+    </developers>
+	<licenses>
+		<license>
+			<name>Your License</name>
+			<url>http://www.your-url-here.com/license</url>
+		</license>
+	</licenses>
+
+    <modules>
+    	<module>blazeds_service_config</module>
+        <module>java_service_api</module>
+        <module>flex_remoted_objects</module>
+        <module>flex_app</module>
+        <module>java_core</module>
+        <module>java_webapp</module>
+    </modules>
+
+    <properties>
+        <flex.sdk.version>3.0.0.477</flex.sdk.version>
+        <flexunit.version>0.9</flexunit.version>
+        <cairngorm.version>2.2.1</cairngorm.version>
+		<flexUnit.version>0.9</flexUnit.version>
+        <flex-mojos.version>2.0M6</flex-mojos.version>
+        <spring.version>2.5.5</spring.version>
+        <aspectj.version>1.6.0</aspectj.version>
+        <spring.security.version>2.0.3</spring.security.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.2-beta-2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <reporting>
+        <plugins>
+        	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>2.0-beta-5</version>
+				<configuration>
+					<xdocDirectory>${basedir}/src/site/xdocs</xdocDirectory>
+	           </configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <repositories>
+        <repository>
+            <id>fna-repository</id>
+            <name>fna-repository</name>
+            <url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://svn.sonatype.org/flexmojos/repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>aixcept</id>
+            <url>http://maven.aixcept.net/repository</url>
+        </repository>
+        <repository>
+            <id>c5-public-repository</id>
+            <url>http://mvn.carbonfive.com/public</url>
+        </repository>
+        <repository>
+            <id>jboss-maven2-release-repository</id>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flex-mojos-repository</id>
+            <name>flex-mojos-repository</name>
+            <url>http://svn.sonatype.org/flexmojos/repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fna-repository</id>
+            <name>fna-repository</name>
+            <url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

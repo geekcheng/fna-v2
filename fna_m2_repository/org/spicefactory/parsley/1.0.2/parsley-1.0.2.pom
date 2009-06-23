@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.spicefactory</groupId>
+	<artifactId>parsley</artifactId>
+	<version>1.0.2</version>
+	<packaging>swc</packaging>
+	<name>org.spicefactory parsley</name>
+	<url>http://www.your-url-here.com</url>
+	<description>
+	org.spicefactory parsley
+	</description>
+	<distributionManagement>
+		<repository>
+			<id>txi_releases</id>
+			<name>txi_releases</name>
+			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/txi</url>
+		</repository>
+    <site>
+      <id>cairngormdataa_mvn_site</id>
+      <url>${cc.server.path}/apps/java/apache-tomcat-6.0.18-ac-cc/webapps/mvn_site/cairngormdataa</url>
+    </site>
+	</distributionManagement>
+	<developers>
+		<developer>
+			<name>Your Name here</name>
+			<id>yourIdHere</id>
+			<email>you@your.domain</email>
+			<url>http://www.your-url-here.com/you</url>
+			<organization>YourOrganization</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Your License</name>
+			<url>http://www.your-url-here.com/license</url>
+		</license>
+	</licenses>
+
+	<properties>
+		<flex.sdk.version>[3.0.0.477,3.2.0.3958]</flex.sdk.version>
+		<flexUnit.version>0.9</flexUnit.version>
+		<flex-mojos.version>2.0</flex-mojos.version>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		    <cc.server.path>file://</cc.server.path>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>spicelib</artifactId>
+			<version>1.1.0</version>
+			<type>swc</type>
+		</dependency>
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>cinnamon</artifactId>
+			<version>0.3.1</version>
+			<type>swc</type>
+		</dependency>
+
+		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
+		<!--
+			flexUnit is now on opensource.adobe.com , the swc are on fna
+			repository
+		-->
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexUnit.version}</version>
+			<type>swc</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunitoptional</artifactId>
+			<version>${flexUnit.version}</version>
+			<type>swc</type>
+		</dependency>
+		<dependency>
+			<groupId>info.flex-mojos</groupId>
+			<artifactId>testing-support</artifactId>
+			<version>${flex-mojos.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>info.flex-mojos</groupId>
+				<artifactId>flex-compiler-mojo</artifactId>
+				<version>${flex-mojos.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<includeSources>
+						<param>${project.build.sourceDirectory}</param>
+					</includeSources>
+					<locales>
+						<param>en_US</param>
+					</locales>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	   <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <!--  not mature enough yet plugin>
+                <groupId>info.flex-mojos</groupId>
+                <artifactId>asdoc-mojo</artifactId>
+                <version>${flex-mojos.version}</version>
+            </plugin -->
+            <plugin>
+				<groupId>com.adobe.ac</groupId>
+				<artifactId>as3Ncss-maven-plugin</artifactId>
+				<version>LATEST</version>
+			</plugin>
+			<!--
+				buggy plugin> <groupId>info.flex-mojos</groupId>
+				<artifactId>asdoc-mojo</artifactId> </plugin
+			-->
+			<plugin>
+				<groupId>com.adobe.ac</groupId>
+				<artifactId>flex-pmd-maven-plugin</artifactId>
+				<version>LATEST</version>
+				<configuration>
+					<ruleSet>all_flex.xml</ruleSet>
+				</configuration>
+			</plugin>
+        </plugins>
+    </reporting>
+</project>

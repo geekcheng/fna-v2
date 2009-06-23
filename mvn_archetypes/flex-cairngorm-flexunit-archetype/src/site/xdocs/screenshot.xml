@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Xavier Agnetti</author>
+        <title>flex-cairngorm-flexunit-archetype</title>
+    </properties>   
+    <body>
+        <section name="Screenshot">
+			<p>
+			 The following is a screenshot of the flex project that this
+			 archetype generates.
+  			</p>
+            <img align="left" alt="Screenshot of this sample app" src="images/screenshot.png"/>
+        </section>
+    </body>
+</document>
