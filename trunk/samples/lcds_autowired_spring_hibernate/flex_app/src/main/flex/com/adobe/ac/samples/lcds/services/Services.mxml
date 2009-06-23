@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EnterpriseServiceLocator xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="com.adobe.cairngorm.enterprise.business.*">
+   
+   <mx:DataService
+      id="todo"
+      destination="todo"
+      autoCommit="false"
+      />
+      
+</EnterpriseServiceLocator>

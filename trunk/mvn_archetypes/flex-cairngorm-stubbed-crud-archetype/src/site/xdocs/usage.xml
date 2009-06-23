@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>flex-cairngorm-stubbed-crud-archetype</title>
+    </properties>
+     
+    <body>
+        <section name="Usage">
+			
+			<p>
+			 flex-cairngorm-stubbed-crud-archetype is a plain classic maven archetype (v2).
+			 Just add fna repository (http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository/)
+			 to your repositories list.
+  			</p>
+  			
+  			<p>Once installed in your local archetype catalog, in order to create
+  			a project from your local archetype repository, 
+  			you may use the following syntax:
+  			</p>
+  			<p>
+  			mvn archetype:generate -DartifactId=your-artifactId -DarchetypeCatalog=local
+  			</p>
+  			
+  			
+        </section>
+
+ 
+    </body>
+</document>

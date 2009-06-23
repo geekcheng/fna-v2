@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:itemrenderer="${package}.view.common.itemrenderer.*"
+	xmlns:core="${package}.view.core.*"
+	xmlns:common="${package}.view.common.*"
+	title="Buddy List"
+	layout="vertical"
+	width="250"
+	height="350" 
+	>
+	
+	<mx:Script>
+	    <![CDATA[
+	    	import ${package}.view.buddylist.model.BuddyListPresentationModel;
+	    	
+	    	[Bindable]
+	    	public var model : BuddyListPresentationModel;
+	    ]]>
+	</mx:Script>
+
+	<mx:RadioButtonGroup
+		id="group"
+		change="model.switchUserVisibility()"
+		/>
+	
+	<mx:HBox>
+		
+		<mx:RadioButton
+			label="Online"
+			groupName="group"
+         enabled="{ model != null }"
+         selected="{ ! model.showAll }"
+			/>
+		
+		<mx:RadioButton
+			label="All"
+			groupName="group"
+         enabled="{ model != null }"
+         selected="{ model.showAll }"
+			/>
+
+	</mx:HBox>
+
+	<common:UserList
+		usersContainer="{ model }"
+		/>
+               		
+</mx:Panel>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="flex-library-archetype">
+
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8" packaged="false">
+			<directory>.settings</directory>
+			<includes>
+				<include>*</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8" packaged="false">
+			<directory></directory>
+			<includes>
+				<include>.actionScriptProperties</include>
+				<include>.flexLibProperties</include>
+				<include>.flexProperties</include>
+				<include>.project</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/site</directory>
+			<includes>
+				<include>**/*.apt</include>
+				<include>**/*.jpg</include>
+				<include>**/*.png</include>
+				<include>**/*.xml</include>
+				<include>**/*.vm</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/main/flex</directory>
+			<includes>
+				<include>**/*.png</include>
+				<include>**/*.css</include>
+				<include>**/*.fla</include>
+				<include>**/*.swf</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>src/main/flex</directory>
+			<excludes>
+				<exclude>**/*.png</exclude>
+				<exclude>**/*.css</exclude>
+				<exclude>**/*.fla</exclude>
+				<exclude>**/*.swf</exclude>
+			</excludes>
+			<includes>
+				<include>**/*.as</include>
+				<include>**/*.mxml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true" encoding="UTF-8">
+			<directory>src/test/flex</directory>
+			<includes>
+				<include>**/*.as</include>
+				<include>**/*.mxml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.txt</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.txt</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+</archetype-descriptor>
+

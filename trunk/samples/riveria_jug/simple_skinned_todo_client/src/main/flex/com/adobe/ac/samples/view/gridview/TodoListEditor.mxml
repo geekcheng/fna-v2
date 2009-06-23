@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+   xmlns:mx="http://www.adobe.com/2006/mxml"
+   xmlns:todo="com.adobe.ac.samples.view.gridview.*"
+   width="100%" height="100%"
+   verticalScrollPolicy="off"
+   horizontalScrollPolicy="off"
+   verticalGap="2"
+   >
+	<mx:Script>
+   	<![CDATA[
+		import com.adobe.ac.samples.view.pmodel.MainModel;   		
+   		[Bindable]
+		public var todoPModel:MainModel; // injected in the view
+   	]]>
+   </mx:Script>
+   
+    <mx:Label
+      text="Todo List Management"
+      />
+
+   <mx:HRule
+      styleName="HRule"
+      width="100%" 
+      />
+   
+       
+          	<mx:DataGrid id="todoDatagrid" width="100%" height="100%" dataProvider="{todoPModel.todoList}" 
+        	change="todoPModel.selectItem(todoDatagrid.selectedItem)">
+            <mx:columns>
+                <mx:DataGridColumn headerText="ID" dataField="id" width="30" />
+                <mx:DataGridColumn headerText="Title" dataField="title"/>
+                <mx:DataGridColumn headerText="" dataField="id" width="20" >
+                   	<mx:itemRenderer><mx:Component>
+                    	<todo:TodoItemDeleteButton todoPModel="{outerDocument.todoPModel}"/>
+                   	</mx:Component></mx:itemRenderer>
+                </mx:DataGridColumn>
+            </mx:columns>
+        	</mx:DataGrid>
+            <mx:ControlBar>
+            	<mx:Button label="Refresh" click="todoPModel.refreshList()" />
+                <mx:Button label="New" click="todoPModel.newItem()" />
+             </mx:ControlBar>
+
+</mx:VBox>
+ 

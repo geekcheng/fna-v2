@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:model="model.*" 
+	xmlns:control="${package}.control.*"
+	xmlns:buddylist="${package}.view.buddylist.*" 
+	xmlns:usersearch="${package}.view.usersearch.*"
+	xmlns:master="${package}.view.master.*"
+	xmlns:services="${package}.services.*"
+	xmlns:common="${package}.view.common.*"
+	xmlns:view="${package}.view.*"
+	xmlns:local="*" 
+	layout="vertical" 	
+	horizontalAlign="center" 
+	verticalAlign="top" 
+   	minHeight="600"
+   	minWidth="850"
+   	verticalScrollPolicy="off"
+   	horizontalScrollPolicy="off"	
+	>
+	
+   <mx:Script>
+   	<![CDATA[
+   	    import ${package}.view.common.model.UsersManagementPresentationModel;
+   		import ${package}.model.ModelLocator;
+   		
+   		[Bindable]
+   		private var usersManager : UsersManagementPresentationModel = ModelLocator.instance.usersManager;
+   	]]>
+   </mx:Script>
+
+   <mx:Style
+      source="/css/default.css"
+      />
+
+   <control:Controller
+      />
+   
+   <services:MyServiceLocator
+      />
+   
+   <view:UserManagement
+   	 usersManager="{ usersManager } "
+   	 />
+
+</mx:Application>

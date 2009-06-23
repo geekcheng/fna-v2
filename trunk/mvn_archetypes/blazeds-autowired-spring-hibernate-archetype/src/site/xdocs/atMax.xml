@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>Blazeds-autowired-spring-hibernate-archetype</title>
+    </properties>
+     
+    <body>
+        <section name="At MAX">
+			
+			<p>
+			 Blazeds-autowired-spring-hibernate-archetype will be showcase at
+			 MAX at the "Flex For Java Architects" Lab
+			 </p>
+  			  			
+  			<img alt="MAX" src="images/max.jpg"/>
+  			
+ 
+        </section>
+
+       
+ 
+    </body>
+</document>

@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.adobe.ac</groupId>
+  <artifactId>blazeds-autowired-spring-hibernate-archetype</artifactId>
+  <packaging>maven-archetype</packaging>
+  <name>An Adobe Consulting Maven Archetype - blazeds-autowired-spring-hibernate-archetype</name>
+  <version>1.1</version>
+  <url>http://code.google.com/p/fna/</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License V3</name>
+      <url>http://www.gnu.org/licenses/lgpl.html</url>
+    </license>
+  </licenses>
+  <distributionManagement>
+    <repository>
+    	<id>fna-repository</id>
+       <name>fna-repository</name>
+     	<url>file:///workspaces/fna/fna_m2_repository</url>
+    </repository>
+  </distributionManagement>
+  <developers>
+		<developer>
+			<name>Francois Le Droff</name>
+			<id>ledroff</id>
+			<email>francois.le.droff@gmail.com</email>
+			<url>http://www.droff.com</url>
+			<organization>Adobe Consulting</organization>
+		</developer>		
+    </developers>
+  <description>An Adobe Consulting Maven Archetype for generating a template for a flex front end application communicating with the backend 
+through Adobe's blazeds messaging, the backend relies on a spring hibernate architecture</description>
+  <build>
+   
+  <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>${maven-archetype-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>${maven-archetype-plugin.version}</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>${maven-archetype-plugin.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+    
+    </build>
+    <properties>
+    <maven-archetype-plugin.version>2.0-alpha-3</maven-archetype-plugin.version>
+    </properties>
+    
+</project>

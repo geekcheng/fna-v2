@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:itemrenderer="com.adobe.ac.sample.view.common.itemrenderer.*"
+	xmlns:common="com.adobe.ac.sample.view.common.*"
+	title="User Search"
+	layout="vertical"
+	width="300"
+	height="350"
+	>
+
+	<mx:Script>
+		<![CDATA[
+         import com.adobe.ac.sample.view.usersearch.model.UserSearchPresentationModel;
+
+			[Bindable]
+			public var model : UserSearchPresentationModel;
+		]]>
+	</mx:Script>	
+	<mx:HBox>
+	
+		<mx:TextInput
+		    id="_searchInput"
+		    width="188"
+		    enabled="{ model != null }"
+		    change="model.search( _searchInput.text )"
+		    />
+
+	</mx:HBox>
+	
+	<common:UserList
+		usersContainer="{ model }"
+		/>
+	
+</mx:Panel>

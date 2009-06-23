@@ -1,0 +1,8 @@
+<users>
+   <user firstname="Xavier" lastname="Agnetti" online="true"/>
+   <user firstname="Francois" lastname="Le Droff" online="true"/>
+   <user firstname="Sam" lastname="Woodman" online="false"/>
+   <user firstname="Steven" lastname="Webster" online="true"/>
+   <user firstname="Ali" lastname="McLeod" online="false"/>
+   <user firstname="Peter" lastname="Martin" online="true"/>
+</users>

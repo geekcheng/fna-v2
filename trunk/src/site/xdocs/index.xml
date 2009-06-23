@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>Fna </title>
+    </properties>
+     
+    <body>
+        <section name="Fna !">
+			
+			<p>Fna is a new open source project initiated by Adobe Consulting.
+			</p>
+			
+			<p>
+			Fna is a set of samples, mavenized flex open source contributions 
+			(cf. <a href="flex-contrib-spring/index.html">flex-contrib-spring</a> and
+			<a href="event-source/index.html">event-source</a>,
+			 a FlexUnit extension for testing cairngorm event dispatching)
+			and <a href="mvn_archetypes/index.html">maven archetypes</a> 
+			that uses open source tools/frameworks built 
+			on the Java and Flex platform to help you develop RIA applications 
+			quickly and efficiently.. 
+  			</p>
+  		</section>
+  		<section name="Fna ?">
+  			<p>
+			Fna? Why ? What is that name?
+			</p>
+			<p>
+			Well, Fna is not <a href="http://appfuse.org/">Appfuse</a>.
+			</p>
+			
+		</section>
+  		<section name="News">
+			<p>
+			Note that 
+			<a href="mvn_archetypes/blazeds-autowired-spring-hibernate-archetype/index.html">
+			blazeds-autowired-spring-hibernate-archetype</a> will be presented 
+			<a href="mvn_archetypes/blazeds-autowired-spring-hibernate-archetype/index.html"> 
+			at MAX at the "Flex For Java Architects" Lab</a>
+			 </p>
+        </section>
+
+    </body>
+</document>

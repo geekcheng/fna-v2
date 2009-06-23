@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor name="flex-cairngorm-flexunit-archetype">
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8" packaged="false">
+			<directory>.settings</directory>
+			<includes>
+				<include>*</include>
+			</includes>
+		</fileSet>	
+		<fileSet filtered="true" encoding="UTF-8" packaged="false">
+			<directory>libs</directory>
+			<includes>
+				<include>*.txt</include>
+			</includes>
+		</fileSet>	
+		<fileSet filtered="true" encoding="UTF-8" packaged="false">
+			<directory></directory>
+			<includes>
+				<include>.actionScriptProperties</include>
+				<include>.flexProperties</include>
+				<include>.project</include>
+				<include>src/main/flex/Main.mxml</include>
+				<include>src/main/flex/TestRunner.mxml</include>
+				<include>src/main/flex/com/adobe/ac/model/IDomainModel.as</include>
+				<include>src/main/flex/com/adobe/ac/model/IPresentationModel.as</include>
+				<include>src/test/flex/AllTests.as</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true"
+			encoding="UTF-8">
+			<directory>src/main/flex</directory>
+			<excludes>
+				<exclude>Main.mxml</exclude>
+				<exclude>com/adobe/ac/model/IDomainModel.as</exclude>
+				<exclude>com/adobe/ac/model/IPresentationModel.as</exclude>
+			</excludes>
+			<includes>
+				<include>**/*.as</include>
+				<include>**/*.mxml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" packaged="true"
+			encoding="UTF-8">
+			<directory>src/test/flex</directory>
+			<includes>
+				<include>**/*.as</include>
+				<include>**/*.mxml</include>
+			</includes>
+			<excludes>
+				<exclude>AllTests.as</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.png</include>
+				<include>**/*.css</include>
+				<include>**/*.fla</include>
+				<include>**/*.swf</include>
+				<include>**/*.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" packaged="false">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.png</include>
+				<include>**/*.css</include>
+				<include>**/*.fla</include>
+				<include>**/*.swf</include>
+				<include>**/*.xml</include>
+			</includes>
+		</fileSet>
+	</fileSets>	
+</archetype-descriptor>

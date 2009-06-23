@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <groupId>com.adobe.ac</groupId>
+  <artifactId>flex-cairngorm-flexunit-archetype</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20080602.143305</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20080602143305</lastUpdated>
+  </versioning>
+</metadata>

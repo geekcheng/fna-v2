@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+    layout="vertical" verticalAlign="middle" horizontalAlign="center"
+    xmlns:todo="com.adobe.ac.samples.view.gridview.*"
+    xmlns:model="com.adobe.ac.samples.model.*"
+    preinitialize="onPreinitialize()"
+   	width="90%"
+   	height="95%"
+   	minHeight="600"
+   	minWidth="850"
+   	verticalScrollPolicy="off"
+   	horizontalScrollPolicy="off"
+>   
+ 	
+ <mx:Style source="default.css"/>
+ 	
+ 	<mx:Script>
+ 		<![CDATA[
+ 			import com.adobe.ac.samples.view.PController;
+ 
+  			[Bindable]
+ 			public var todoPresentationController : PController;
+ 			
+ 			public function onPreinitialize():void
+ 			{
+  				todoPresentationController = PController.init(); // the todoForm Presentation Model
+ 			} 
+ 		]]>
+ 	</mx:Script> 	
+ 
+    <todo:TodoForm label="TodoList" id="todoListView" pModel="{todoPresentationController.mainModel}"/>
+    
+</mx:Application>

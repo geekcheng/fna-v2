@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>todolist</artifactId>
+		<groupId>com.adobe.fna.samples.riveria_jug.simpleweb_java_flex3</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>todolist-ria</artifactId>
+	<packaging>swf</packaging>
+	<name>todolist-ria</name>
+
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>${basedir}/target/generated-resources</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin> <!-- Flex (SWC and SWF) compilation -->
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<targetPlayer>10.0.0</targetPlayer>
+					<contextRoot>todolist-web</contextRoot>
+					<debug>false</debug>
+					<compiledLocales>
+						<locale>en_US</locale>
+						<locale>pt_BR</locale>
+						<locale>fr_FR</locale>
+					</compiledLocales>
+					<resourceBundlePath>${basedir}/src/main/locales/{locale}</resourceBundlePath>
+					<allowSourcePathOverlap>true</allowSourcePathOverlap>
+					<contextRoot>todo_web</contextRoot>
+					<showWarnings>true</showWarnings>
+					<sourceFile>index.mxml</sourceFile>
+					<!--
+						cf. https://issues.sonatype.org/browse/FLEXMOJOS-15
+						<coverageViewerPath>C:/apps/flex/flexcover-0.81/air_app/CoverageViewer/CoverageViewer.exe
+						</coverageViewerPath>
+					-->
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-config</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+							<includeGroupIds>${project.groupId}</includeGroupIds>
+							<includeArtifactIds>todolist-config</includeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>todolist-config</artifactId>
+			<version>${project.version}</version>
+			<classifier>resources</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>todolist-lib</artifactId>
+			<version>${project.version}</version>
+			<type>swc</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+			<exclusions>
+				<exclusion>
+					<!-- automation pt and fr resource bunldes not available on all flex sdk -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>automation</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- automation_agent pt and fr resource bunldes not available on all flex sdk  -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>automation_agent</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- datavisualization pt and fr resource bunldes not available on all flex sdk  -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>datavisualization</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- datavisualization pt and fr resource bunldes not available on all flex sdk  -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>qtp_air</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<version>10-${flex.sdk.version}</version>
+			<type>swc</type>
+		</dependency>
+
+	</dependencies>
+
+</project>

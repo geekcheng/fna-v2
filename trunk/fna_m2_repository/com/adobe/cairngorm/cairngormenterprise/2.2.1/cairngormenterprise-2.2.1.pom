@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>com.adobe.cairngorm</groupId>
+	<artifactId>cairngormenterprise</artifactId>
+	<version>2.2.1</version>
+	<packaging>swc</packaging>
+	<name>com.adobe.cairngormenterprise cairngormenterprise</name>
+	<url>http://opensource.adobe.com/wiki/display/cairngorm/Cairngorm</url>
+	<description>
+	cairngormenterprise
+	</description>
+	<distributionManagement>
+	<repository>
+    	<id>fna-disk-repository</id>
+       <name>fna-repository</name>
+     	<url>file:///workspaces/fna/fna_m2_repository</url>
+    </repository>
+    </distributionManagement>
+	<licenses>
+		<license>
+			<name>Adobe License</name>
+			<url>http://opensource.adobe.com/wiki/display/cairngorm/License</url>
+		</license>
+	</licenses>
+       
+    <properties>
+        <flex.sdk.version>[3.0.0.477,3.2.0.3958]</flex.sdk.version>
+        <flexUnit.version>0.9</flexUnit.version>
+        <flex-mojos.version>2.0</flex-mojos.version>
+        <lcds.version>[2.1,2.6.1]</lcds.version>
+    </properties>
+
+    
+    <dependencies>
+ 		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+		 <dependency>
+            <groupId>com.adobe.cairngorm</groupId>
+            <artifactId>cairngorm</artifactId>
+            <version>2.2.1</version>
+            <type>swc</type>
+        </dependency>   
+        
+       <dependency>
+            <groupId>com.adobe.lcds</groupId>
+            <artifactId>fds_rb</artifactId>
+            <version>${lcds.version}</version>
+            <type>rb.swc</type>
+            <classifier>en_US</classifier>
+         </dependency>         
+          <dependency>
+            <groupId>com.adobe.lcds</groupId>
+            <artifactId>fds</artifactId>
+            <version>${lcds.version}</version>
+            <type>swc</type>
+        </dependency>            
+        
+
+		<!-- flexUnit is now on opensource.adobe.com ,
+			the swc are on fna repository -->
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexUnit.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.flex-mojos</groupId>
+			<artifactId>testing-support</artifactId>
+			<version>${flex-mojos.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+    </dependencies>
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory >
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+		<plugins>
+			<plugin>
+				<groupId>info.flex-mojos</groupId>
+                <artifactId>flex-compiler-mojo</artifactId>
+                <version>${flex-mojos.version}</version>
+                <extensions>true</extensions>
+				<configuration>
+					<includeSources>
+						<param>${project.build.sourceDirectory}</param>
+					</includeSources>
+					<locales>
+						<param>en_US</param>
+					</locales>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <!--  not mature enough yet plugin>
+                <groupId>info.flex-mojos</groupId>
+                <artifactId>asdoc-mojo</artifactId>
+                <version>${flex-mojos.version}</version>
+            </plugin -->
+			<!--
+				not mature enough yet plugin> <groupId>info.flex-mojos</groupId>
+				<artifactId>asdoc-mojo</artifactId>
+				<version>${flex-mojos.version}</version> </plugin
+			-->
+			<plugin>
+				<groupId>com.adobe.ac</groupId>
+				<artifactId>as3Ncss-maven-plugin</artifactId>
+				<version>1.1</version>
+			</plugin>
+			<plugin>
+				<groupId>com.adobe.ac</groupId>
+				<artifactId>flex-pmd-maven-plugin</artifactId>
+				<version>0.5.4-SNAPSHOT</version>
+				<configuration>
+					<ruleSet>all_flex.xml</ruleSet>
+				</configuration>
+			</plugin>
+        </plugins>
+    </reporting>
+</project>

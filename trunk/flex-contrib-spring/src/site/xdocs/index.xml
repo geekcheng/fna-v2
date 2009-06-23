@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>flex-contrib-spring</title>
+    </properties>
+     
+    <body>
+        <section name="flex-contrib-spring">
+			
+	<p>
+	flex-contrib-spring is a remix (initiated by Marcello Teodori, Thanks a lot Marcello) 
+	of different flex remoting and spring integration contributions available on the web :
+	</p>
+	<ul>
+	<li>
+	<a href="http://marceloverdijk.blogspot.com/2008/01/code-by-convention-with-flex-and-spring.html">
+	http://marceloverdijk.blogspot.com/2008/01/code-by-convention-with-flex-and-spring.html</a>
+	</li>
+	<li>
+	<a href="http://histos.typepad.com/blog/2008/06/integrating-blaze-data-services-and-spring-security.html">
+	http://histos.typepad.com/blog/2008/06/integrating-blaze-data-services-and-spring-security.html</a>
+	</li>
+	<li>
+	<a href="http://www.machine501.com/blog/2008/06/01/blazeds-and-springacegi-security-part/">
+	http://www.machine501.com/blog/2008/06/01/blazeds-and-springacegi-security-part/</a>
+	</li>
+	<li>
+	<a href="http://coenraets.org/flex-spring/">http://coenraets.org/flex-spring/</a>
+	</li>
+	
+  	</ul>
+ 
+    </section>
+
+        
+ 
+    </body>
+</document>

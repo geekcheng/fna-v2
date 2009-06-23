@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:todo="com.adobe.ac.samples.view.gridview.*"
+	xmlns:common="com.adobe.ac.samples.view.common.*"
+	styleName="mainPanel"
+	width="80%"
+	height="80%"
+	minHeight="400"
+	minWidth="300"
+	>
+	
+	<mx:Script>
+		<![CDATA[
+	 	import com.adobe.ac.samples.view.pmodel.MainModel;
+   	
+   		[Bindable]
+		public var pModel:MainModel; // injected in the view
+		
+   	]]>
+	</mx:Script>
+	
+	<common:Header pModel="{pModel}"/>         
+	<mx:HRule styleName="HRule" width="100%"/>
+			
+	<todo:TodoForm label="TodoList" id="todoListView" pModel="{pModel}"/>
+	
+	<mx:HRule styleName="HRule" width="100%"/> 
+	<common:Footer appStatus="{pModel.status}"/>
+	
+</mx:Panel>

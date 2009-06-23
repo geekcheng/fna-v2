@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.adobe.cairngorm</groupId>
+	<artifactId>event-source</artifactId>
+	<version>1.1</version>
+	<packaging>swc</packaging>
+	<name>com.adobe.cairngorm event-source</name>
+	<description>
+		A maven remix of Tom Sugden flexUnit extensions for cairngorm
+		testing :
+		http://blogs.adobe.com/tomsugden/2008/01/eventfultestcase_a_flexunit_ex.html
+	</description>
+
+	<url>
+		http://fna.googlecode.com/svn/trunk/fna/site/${project.artifactId}/index.html
+	</url>
+
+	<distributionManagement>
+		<repository>
+			<id>fna-disk-repository</id>
+			<name>fna-repository</name>
+			<url>file:///workspaces/fna/fna_m2_repository</url>
+		</repository>
+		<site>
+			<id>fna-disk-site</id>
+			<url>file:///workspaces/fna/site/${project.artifactId}</url>
+		</site>
+	</distributionManagement>
+
+
+	<scm>
+		<connection>
+			scm:svn:http://fna.googlecode.com/svn/trunk/fna/${project.artifactId}
+		</connection>
+		<developerConnection>
+			scm:svn:https://fna.googlecode.com/svn/trunk/fna/${project.artifactId}
+		</developerConnection>
+		<url>
+			http://fna.googlecode.com/svn/trunk/fna/${project.artifactId}
+		</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Tom Sugden</name>
+			<id>tsugden</id>
+			<email>tsugden-at-adobe.com</email>
+			<url>http://blogs.adobe.com/tomsugden/</url>
+			<organization>Adobe Consulting</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License V3</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+		</license>
+	</licenses>
+
+	<properties>
+		<flex.sdk.version>[3.0.0.477,3.2.0.3958]</flex.sdk.version>
+		<flexunit.version>0.9</flexunit.version>
+		<cairngorm.version>2.2.1</cairngorm.version>
+		<flexUnit.version>0.9</flexUnit.version>
+		<flex-mojos.version>2.0</flex-mojos.version>
+	</properties>
+
+
+	<repositories>
+		<repository>
+			<id>flex-mojos-repository</id>
+			<url>http://svn.sonatype.org/flexmojos/repository/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>fna-repository</id>
+			<name>fna-repository</name>
+			<url>
+				http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository/
+			</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>flex-mojos-repository</id>
+			<url>http://svn.sonatype.org/flexmojos/repository/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+
+
+	<!-- flex sdk dependencies -->
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
+		<dependency>
+			<groupId>com.adobe.cairngorm</groupId>
+			<artifactId>cairngorm</artifactId>
+			<version>${cairngorm.version}</version>
+			<type>swc</type>
+		</dependency>
+
+		<!-- flexUnit is now on opensource.adobe.com ,
+			the swc are on fna repository -->
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexUnit.version}</version>
+			<type>swc</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunitoptional</artifactId>
+			<version>${flexUnit.version}</version>
+			<type>swc</type>
+		</dependency>
+		<dependency>
+			<groupId>info.flex-mojos</groupId>
+			<artifactId>testing-support</artifactId>
+			<version>${flex-mojos.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>info.flex-mojos</groupId>
+				<artifactId>flex-compiler-mojo</artifactId>
+				<version>${flex-mojos.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<locales>
+						<param>en_US</param>
+					</locales>
+					<sourcePaths>
+						<path>${project.build.sourceDirectory}</path>
+					</sourcePaths>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>info.flex-mojos</groupId>
+				<artifactId>asdoc-mojo</artifactId>
+				<version>${flex-mojos.version}</version>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

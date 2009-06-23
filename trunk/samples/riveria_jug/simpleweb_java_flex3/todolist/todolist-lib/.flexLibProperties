@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="org.sonatype.flexmojos.todolist.business.ITodoService"/>
+    <classEntry path="org.sonatype.flexmojos.todolist.business.TodoService"/>
+    <classEntry path="org.sonatype.flexmojos.todolist.domain.TodoItem"/>
+    <classEntry path="org.sonatype.flexmojos.todolist.domain.TodoItemBase"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="META-INF/MANIFEST.MF" sourcePath="META-INF/MANIFEST.MF"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

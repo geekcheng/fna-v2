@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="A Fna Project">
+
+	<skin>
+    	<groupId>com.adobe.ac</groupId>
+    	<artifactId>maven-fna-skin</artifactId>
+    	<version>1.2</version>
+  	</skin>
+  
+  	<bannerLeft>
+    	<src>images/fna-header-left.jpg</src>
+    	<href>http://fna.googlecode.com/svn/trunk/fna/site/index.html</href>
+  	</bannerLeft>
+  	<bannerRight>
+		<src>images/fna-header-rigth.jpg</src>
+		<href>http://www.adobe.com/consulting/</href>
+	</bannerRight>
+	<body>
+		<links>
+			<item name="Adobe Consulting" href="http://www.adobe.com/consulting/" />
+			<item name="Fna" href="http://fna.googlecode.com/svn/trunk/fna/site/index.html" />
+		</links>
+
+	<menu name="Fna">
+	    <item name="Fna" href="../index.html" />
+ 	</menu>
+
+	<menu name="Introduction">
+	    <item name="About" href="index.html" />
+ 	</menu>
+  	
+    <menu ref="reports"/>
+
+	<menu name="MAX">
+	    <item name="Register to Max" href="http://max.adobe.com/" />
+ 	</menu>
+ 	</body>
+ 	
+ 	<poweredBy>
+		<logo name="MAX" href="http://max.adobe.com/" img="http://www.jroller.com/francoisledroff/resource/adobemax_little.jpg" />
+	</poweredBy>
+ 
+
+</project>

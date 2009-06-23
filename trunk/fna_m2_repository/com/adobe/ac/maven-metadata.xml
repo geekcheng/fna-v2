@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <plugins>
+    <plugin>
+      <name>as3Ncss Maven Mojo</name>
+      <prefix>as3Ncss</prefix>
+      <artifactId>as3Ncss-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>flex-pmd-maven-plugin Maven Mojo</name>
+      <prefix>flex-pmd</prefix>
+      <artifactId>flex-pmd-maven-plugin</artifactId>
+    </plugin>
+    <plugin>
+      <name>As3 Maven plugin Utils</name>
+      <prefix>as3utils</prefix>
+      <artifactId>as3-plugin-utils</artifactId>
+    </plugin>
+    <plugin>
+      <name>An Adobe Consulting Maven Archetype - flex-cairngorm-flexunit-archetype</name>
+      <prefix>flex-cairngorm-flexunit-archetype</prefix>
+      <artifactId>flex-cairngorm-flexunit-archetype</artifactId>
+    </plugin>
+    <plugin>
+      <name>An Adobe Consulting Maven Archetype - blazeds-autowired-spring-hibernate-archetype</name>
+      <prefix>blazeds-autowired-spring-hibernate-archetype</prefix>
+      <artifactId>blazeds-autowired-spring-hibernate-archetype</artifactId>
+    </plugin>
+    <plugin>
+      <name>An Adobe Consulting Maven Archetype - flex-cairngorm-stubbed-crud-archetype</name>
+      <prefix>flex-cairngorm-stubbed-crud-archetype</prefix>
+      <artifactId>flex-cairngorm-stubbed-crud-archetype</artifactId>
+    </plugin>
+    <plugin>
+      <name>An Adobe Consulting Maven Archetype - flex-library-archetype</name>
+      <prefix>flex-library-archetype</prefix>
+      <artifactId>flex-library-archetype</artifactId>
+    </plugin>
+  </plugins>
+</metadata>

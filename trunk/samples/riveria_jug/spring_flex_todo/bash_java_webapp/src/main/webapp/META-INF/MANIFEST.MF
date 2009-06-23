@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: bash_java_core.jar 
+ bash_java_service_api.jar 
+ bash_java_webapp.jar
+

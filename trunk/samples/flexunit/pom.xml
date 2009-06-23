@@ -1,0 +1,178 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.adobe.ac.samples</groupId>
+	<artifactId>flexunit</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>swf</packaging>
+	<name>com.adobe.ac.samples flexunit</name>
+	<url>http://www.your-url-here.com</url>
+	<description>Your flex-cairngorm-flexunit application description</description>
+	<distributionManagement>
+    <site>
+      <id>on-your-disk</id>
+      <url>file:///workspaces/fna/mvn_archetypes/flex-cairngorm-flexunit-archetype/target/site</url>
+    </site>
+	</distributionManagement>
+	<parent>
+		<artifactId>flex-super-pom</artifactId>
+		<groupId>info.flex-mojos</groupId>
+		<version>2.0M8</version>
+	</parent>
+	<developers>
+		<developer>
+			<name>Your Name here</name>
+			<id>yourIdHere</id>
+			<email>you@your.domain</email>
+			<url>http://www.your-url-here.com/you</url>
+			<organization>YourOrganization</organization>
+		</developer>		
+    </developers>
+	<licenses>
+		<license>
+			<name>Your License</name>
+			<url>http://www.your-url-here.com/license</url>
+		</license>
+	</licenses>
+    <dependencies>
+	
+	    <dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexunit.version}</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+		
+	    <dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit-optional</artifactId>
+			<version>${flexunit.version}</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+      
+        <dependency>
+            <groupId>com.adobe.cairngorm</groupId>
+            <artifactId>event-source</artifactId>
+            <version>1.0</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+		
+        <dependency>
+            <groupId>com.adobe.cairngorm</groupId>
+            <artifactId>cairngorm</artifactId>
+            <version>2.2.1</version>
+            <type>swc</type>
+        </dependency>
+
+        <!-- flex sdk dependencies -->
+			
+      <dependency>
+         <groupId>com.adobe.flex.framework</groupId>
+         <artifactId>flex-framework</artifactId>
+         <version>${flex-sdk-cover.version}</version>
+         <type>pom</type>
+      </dependency>
+      
+        <!-- end of flex sdk dependencies -->
+
+    </dependencies>
+
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory >
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+		<plugins>
+         <plugin>
+               <groupId>info.flex-mojos</groupId>
+               <artifactId>flex-compiler-mojo</artifactId>
+               <extensions>true</extensions>
+           </plugin>
+           <plugin>
+               <groupId>info.flex-mojos</groupId>
+               <artifactId>flexcover-mojo</artifactId>
+            <version>${flex-mojos.version}</version>
+            <dependencies>
+               <dependency>
+                  <groupId>com.adobe.flex</groupId>
+                  <artifactId>compiler</artifactId>
+                  <version>${flex-sdk-cover.version}</version>
+                  <type>pom</type>
+               </dependency>
+            </dependencies>
+            <configuration>
+               <coverageViewerPath>${coverage-viewer.path}</coverageViewerPath>
+               <locales>
+                  <locale>en_US</locale>
+               </locales>
+               <coverage>true</coverage>
+		      </configuration>
+	      </plugin>
+      </plugins>		
+	</build>
+
+    <repositories>
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://svn.sonatype.org/flexmojos/repository/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+			<repository>
+			   <id>flex-mojos-googlecode-repository</id>
+			   <url>http://flex-mojos.googlecode.com/svn/trunk/repository/</url>
+			</repository>        
+    </repositories> 
+
+    <pluginRepositories>
+		<pluginRepository>
+			<id>flex-mojos-repository</id>
+			<url>http://svn.sonatype.org/flexmojos/repository/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+   <reporting>
+      <plugins>
+         <plugin>
+            <groupId>info.flex-mojos</groupId>
+            <artifactId>asdoc-mojo</artifactId>
+         </plugin>
+            <plugin>
+            <groupId>info.flex-mojos</groupId>
+            <artifactId>flexcover</artifactId>
+            <version>${flex-mojos.version}</version>
+            </plugin>
+      </plugins>
+   </reporting>
+
+	<properties>
+        <flex-mojos.version>2.0M8</flex-mojos.version>
+        <flex.version>3.1.0.2710</flex.version>
+        <flex-sdk-cover.version>3.0.1.1092-flexcover_0.61</flex-sdk-cover.version>
+        <flexunit.version>0.9</flexunit.version>
+        <coverage-viewer.path>"C:/Program Files/Coverage/CoverageViewer/CoverageViewer.exe"</coverage-viewer.path>
+    </properties>
+
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>Blazeds-autowired-spring-hibernate-archetype Screenshot</title>
+    </properties>
+     
+    <body>
+        <section name="Screenshot">
+			
+			<p>
+			 The following is a screenshot of the flex project that this
+			 archetype generates.
+  			</p>
+			
+            <img align="left" alt="Screenshot of this sample app" src="images/app-todo_max.jpg"/>
+            
+
+        </section>
+
+   
+    </body>
+</document>

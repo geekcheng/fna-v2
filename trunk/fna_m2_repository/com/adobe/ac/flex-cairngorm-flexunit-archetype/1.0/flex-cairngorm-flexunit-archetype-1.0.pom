@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.adobe.ac</groupId>
+  <artifactId>flex-cairngorm-flexunit-archetype</artifactId>
+  <version>1.0</version>
+  <name>Archetype - flex-cairngorm</name>
+  <url>http://maven.apache.org</url>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License</name>
+      <url>http://www.gnu.org/licenses/lgpl.html</url>
+    </license>
+  </licenses>
+  <distributionManagement>
+    <repository>
+        <id>fna-repository</id>
+       <name>fna-repository</name>
+        <url>file:///repository/fna/fna_m2_repository</url>
+    </repository>
+  </distributionManagement>
+  <description>An archetype for generating a template for a flex front end application communicating with the backend 
+  through Adobe's blazeds messaging, the backend relies on a spring hibernate architecture, 
+  the serialized actionscript object are generated through xdoclet.</description>
+</project>

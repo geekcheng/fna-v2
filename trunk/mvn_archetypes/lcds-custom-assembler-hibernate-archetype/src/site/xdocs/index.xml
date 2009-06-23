@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>Blazeds-autowired-spring-hibernate-archetype</title>
+    </properties>
+     
+    <body>
+        <section name="Blazeds-autowired-spring-hibernate-archetype">
+			
+			<p>
+			 A Adobe Consulting Maven Archetype : blazeds-autowired-spring-hibernate-archetype.
+  			</p>
+  			<p>
+  			
+  			Blazeds-autowired-spring-hibernate-archetype helps you generate a multi-module maven project :
+  			a flex front-end application communicating with the backend through Adobe's blazeds messaging.
+  			The back-end relies on a spring hibernate architecture. 
+  			</p>
+ 
+        </section>
+
+        <section name="The Generated Modules">
+        
+        <subsection name="java_core">
+        <p>
+        Java_core holds the java back-end :
+        the core services implementations (based on spring) as well as the DAO layer (based on hibernate JPA). 
+		The default db is set to be hsqldb (unit tests are performed through dbunit).
+    	Note that the spring service implementation exposed to a flex front-end are annotated with @Service.
+    	These Java5 annotations will lead to blazeDS service configuration auto-wiring (thanks to flex-contrib-spring)  
+         </p>        
+        </subsection>
+        
+        <subsection name="java_service_api">
+        <p>
+        Java_service_api  holds the service and DTOs/VOs interfaces 
+        exposed to the flex front-end (from the java_core).
+   		The DTOs are annotated with @ActionScript and @ActionScriptProperty to prepare the flex VOs code generation.
+   		(through aixcept flex-annotations maven plugin)
+        </p>    
+        </subsection>
+        
+        <subsection name="blazeds_service_config">
+        <p>
+        Blazeds_service_config holds the blazeds service configuration files 
+        (services-config.xml and remoting-config.xml) 
+		that are required to package a java blazeds back-end application and to compile the associated flex front-end.
+    	That's where we'll specify the flex-contrib-spring SpringAutowiringBootstrapService.
+        </p>        
+        </subsection>
+        
+        <subsection name="flex_remoted_objects">
+        <p>
+        Flex_remoted_objects: a one file (pom.xml) project
+        that holds the generated as3 value object.
+    	Those VOs are generated from the java_service_api Java VOs (through flex-annotation).
+    	The plugin produces the AS3 source files, and those are compiled and packaged into a swc.
+        </p>        
+        </subsection>
+        
+        <subsection name="flex_app">
+        <p>
+        Flex_app : this project hold the flex (blazeds enabled) flex front-end.
+		Its architecture is based on adobe consulting mvn framework: cairngorm.
+        </p>        
+        </subsection>
+        
+        <subsection name="java_webapp">
+        <p>
+        Java_webapp : this project hold the web application files (mainly configuration and deployment file). 
+	It will package all the above project into a single coherent war ready to deploy and test (launching mvn:jetty-exploded for instance)
+        
+        </p>        
+        </subsection>
+        
+        </section>
+        
+        <section name="About flex-contrib-spring">
+        <p>
+         <a href="../../flex-contrib-spring/index.html">flex-contrib-spring is a remix  of different flex remoting and spring integration contributions available on the web.</a>
+          </p>        
+        </section>
+ 
+    </body>
+</document>

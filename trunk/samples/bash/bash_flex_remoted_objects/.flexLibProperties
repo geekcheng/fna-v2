@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="com.adobe.ac.samples.model.ClassRegistry"/>
+    <classEntry path="com.adobe.ac.samples.model.TodoItem"/>
+    <classEntry path="com.adobe.ac.samples.model.TodoItemBase"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

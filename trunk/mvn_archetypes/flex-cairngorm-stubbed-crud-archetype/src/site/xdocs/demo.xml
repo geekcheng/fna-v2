@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Francois Le Droff</author>
+        <title>flex-cairngorm-stubbed-crud-archetype Screenshot</title>
+    </properties>
+     
+    <body>
+        <section name="Demo">
+			
+			<p>
+			 If you have flash player installed <a href="swf/index.swf">here is the swf file</a>.
+ 			</p>
+
+        </section>
+
+   
+    </body>
+</document>

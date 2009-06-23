@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<document>
+    <properties>
+        <author>Xavier Agnetti</author>
+        <title>flex-cairngorm-flexunit-archetype</title>
+    </properties>
+     
+     <body>
+        <section name="Demo">
+			
+			<p>
+			 If you have flash player installed <a href="swf/index.swf">here is the swf file</a>.
+ 			</p>
+
+        </section>
+
+   
+    </body>
+</document>
