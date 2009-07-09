@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+   xmlns:mx="http://www.adobe.com/2006/mxml"
+   xmlns:todo="com.adobe.ac.samples.view.gridview.*"
+   width="100%" height="100%"
+   verticalScrollPolicy="off"
+   horizontalScrollPolicy="off"
+   verticalGap="2"
+   >
+	<mx:Script>
+   	<![CDATA[
+		import com.adobe.ac.samples.view.pmodel.MainModel;   		
+   		[Bindable]
+		public var pModel:MainModel; // injected in the view
+   	]]>
+   </mx:Script>
+   
+    <mx:Label
+      text="{resourceManager.getString(MainModel.TODO_BUNDLE,'LIST')}"
+      />
+
+   <mx:HRule
+      styleName="HRule"
+      width="100%" 
+      />
+   
+       
+          	<mx:DataGrid id="todoDatagrid" width="100%" height="100%" dataProvider="{pModel.todoList}" 
+        	change="pModel.selectItem(todoDatagrid.selectedItem)">
+            <mx:columns>
+                <mx:DataGridColumn headerText="{resourceManager.getString(MainModel.TODO_BUNDLE,'ID')}" dataField="id" width="30" />
+                <mx:DataGridColumn headerText="{resourceManager.getString(MainModel.TODO_BUNDLE,'TITLE')}" dataField="title"/>
+                <mx:DataGridColumn headerText="" dataField="id" width="20" >
+                   	<mx:itemRenderer><mx:Component>
+                    	<todo:TodoItemDeleteButton pModel="{outerDocument.pModel}"/>
+                   	</mx:Component></mx:itemRenderer>
+                </mx:DataGridColumn>
+            </mx:columns>
+        	</mx:DataGrid>
+            <mx:ControlBar>
+            	<mx:Button label="{resourceManager.getString(MainModel.TODO_BUNDLE,'REFRESH')}" click="pModel.refreshList()" />
+                <mx:Button label="{resourceManager.getString(MainModel.TODO_BUNDLE,'NEW')}" click="pModel.newItem()" />
+             </mx:ControlBar>
+
+</mx:VBox>
+ 

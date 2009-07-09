@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns:ai="http://ns.adobe.com/ai/2008">
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<fx:Metadata>[HostComponent("spark.components.VScrollBar")]</fx:Metadata>
+	<s:Button skinClass="com.adobe.ac.samples.view.common.i18n_list.VertScrollBarUpButtonSkin" id="decrementButton"/>
+	<s:Button x="2" y="144" skinClass="com.adobe.ac.samples.view.common.i18n_list.VertScrollBarDownButton" id="incrementButton"/>
+	<s:Button x="2" y="16" skinClass="com.adobe.ac.samples.view.common.i18n_list.VertScrollBarTrackSkin" id="track"/>
+	<s:Button x="1" y="62" skinClass="com.adobe.ac.samples.view.common.i18n_list.VertScrollBarThumbSkin" id="thumb"/>
+</s:Skin>
