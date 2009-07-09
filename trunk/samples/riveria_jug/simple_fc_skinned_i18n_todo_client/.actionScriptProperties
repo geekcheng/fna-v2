@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionScriptProperties mainApplicationPath="Main.mxml" projectUUID="82c26458-24ed-4a69-a544-834fe13df0d8" version="6">
+  <compiler additionalCompilerArguments="-allow-source-path-overlap=true -locale en_US fr_FR pt_BR nb_NO it_IT -source-path=${simple_skinned_i18n_todo_client}/src/main/locales/{locale}" autoRSLOrdering="true" copyDependentFiles="true" flexSDK="Flex 4.0" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="target" sourceFolderPath="src/main/flex" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
+    <compilerSourcePath>
+      <compilerSourcePathEntry kind="1" linkType="1" path="src/main/resources"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="src/main/locales/{locale}"/>
+    </compilerSourcePath>
+    <libraryPath defaultLinkType="1">
+      <libraryPathEntry kind="4" path=""/>
+      <libraryPathEntry kind="1" linkType="1" path="libs"/>
+    </libraryPath>
+    <sourceAttachmentPath/>
+  </compiler>
+  <applications>
+    <application path="Principal.mxml"/>
+    <application path="Main.mxml"/>
+  </applications>
+  <modules/>
+  <buildCSSFiles/>
+</actionScriptProperties>

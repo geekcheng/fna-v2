@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:ai="http://ns.adobe.com/ai/2008"
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<fx:Metadata>[HostComponent("spark.components.List")]</fx:Metadata>
+	<s:Group ai:knockout="0">
+		<s:Path 
+				x="2" y="2"
+				data="M 117 169.138 C 117 174.688 112.976 179.184 108.013 179.184 L 8.987 179.184 C 4.024 179.184 0 174.688 0 169.138 L 0 10.047 C 0 4.499 4.024 0 8.987 0 L 108.013 0 C 112.976 0 117 4.499 117 10.047 L 117 169.138 Z"
+				winding="nonZero" ai:knockout="0">
+			<s:fill>
+				<s:RadialGradient 
+								  x="54.6859" y="-25.3188"
+								  scaleX="378.263" scaleY="463.43">
+					<s:GradientEntry 
+									 color="0xffffff" ratio="0"/>
+					<s:GradientEntry ratio="1"/>
+				</s:RadialGradient>
+			</s:fill>
+		</s:Path>
+		<s:Path 
+				x="2" y="2"
+				data="M 118 170.138 C 118 175.688 113.976 180.184 109.013 180.184 L 9.987 180.184 C 5.024 180.184 1 175.688 1 170.138 L 1 11.047 C 1 5.499 5.024 1 9.987 1 L 109.013 1 C 113.976 1 118 5.499 118 11.047 L 118 170.138 Z"
+				winding="nonZero" ai:knockout="0">
+			<s:stroke>
+				<s:SolidColorStroke 
+									color="0x333479" caps="none" weight="2" joints="miter" miterLimit="4"/>
+			</s:stroke>
+		</s:Path>
+		<s:Path 
+				data="M 118 170.138 C 118 175.688 113.976 180.184 109.013 180.184 L 9.987 180.184 C 5.024 180.184 1 175.688 1 170.138 L 1 11.047 C 1 5.499 5.024 1 9.987 1 L 109.013 1 C 113.976 1 118 5.499 118 11.047 L 118 170.138 Z"
+				winding="nonZero" ai:knockout="0">
+			<s:stroke>
+				<s:SolidColorStroke 
+									color="0xb2b2b2" caps="none" weight="2" joints="miter" miterLimit="4"/>
+			</s:stroke>
+		</s:Path>
+		<s:Path 
+				x="1" y="1"
+				data="M 118 170.138 C 118 175.688 113.976 180.184 109.013 180.184 L 9.987 180.184 C 5.024 180.184 1 175.688 1 170.138 L 1 11.047 C 1 5.499 5.024 1 9.987 1 L 109.013 1 C 113.976 1 118 5.499 118 11.047 L 118 170.138 Z"
+				winding="nonZero" ai:knockout="0">
+			<s:stroke>
+				<s:SolidColorStroke 
+									color="0x8c8c8c" caps="none" weight="2" joints="miter" miterLimit="4"/>
+			</s:stroke>
+		</s:Path>
+	</s:Group>
+	<s:Group 
+			 x="11" y="9" d:id="3">
+		<s:Rect 
+				width="100" height="166" alpha="0.1" ai:knockout="0">
+			<s:fill>
+				<s:RadialGradient 
+								  x="49.9997" y="82.8943"
+								  scaleX="96.0653" scaleY="173.186">
+					<s:GradientEntry 
+									 color="0xffffff" ratio="0"/>
+					<s:GradientEntry 
+									 color="0x666666" ratio="1"/>
+				</s:RadialGradient>
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	<s:VScrollBar 
+				  x="106" y="8" skinClass="com.adobe.ac.samples.view.common.i18n_list.VertScrollBarSkin" fixedThumbSize="true" viewport="{dataGroup}"/>
+	<s:DataGroup id="dataGroup"
+				 x="10" y="13" width="101" height="157" itemRenderer="com.adobe.ac.samples.view.common.i18n_list.ListItemSkin" clipAndEnableScrolling="true">
+		<s:layout>
+			<s:VerticalLayout gap.normal="7"/>
+		</s:layout>
+	</s:DataGroup>
+</s:Skin>

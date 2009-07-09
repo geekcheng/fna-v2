@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application 
+			   width="800" height="600"
+			   backgroundColor="#ffffff" 
+xmlns:mx="http://ns.adobe.com/mxml/2009" 
+xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:ai="http://ns.adobe.com/ai/2008" xmlns:lib="Principal_library.*" xmlns:fc="http://ns.adobe.com/thermo/2009">
+	<s:List 
+			x="247" y="46" skinClass="com.adobe.ac.samples.view.common.i18n_list.ListSkin">
+		<s:ArrayCollection>
+			<mx:Object image="@Embed('/assets/i18nList/fr_FR.png')" locale="fr_FR"/>
+			<mx:Object image="@Embed('/assets/i18nList/en_GB.png')" locale="en_GB"/>
+			<mx:Object image="@Embed('/assets/i18nList/es_AR.png')" locale="en_GB"/>
+		</s:ArrayCollection>
+	</s:List>
+</s:Application>

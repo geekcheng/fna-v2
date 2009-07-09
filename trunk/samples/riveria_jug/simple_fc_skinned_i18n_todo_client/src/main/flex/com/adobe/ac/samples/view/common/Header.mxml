@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox 
+	width="100%" 
+	horizontalGap="0" verticalAlign="bottom"  
+	xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="http://www.adobe.com/2006/mxml" >
+	
+	<mx:Script>
+		<![CDATA[
+			import com.adobe.ac.samples.view.pmodel.MainModel;
+			[Bindable]
+			public var pModel : MainModel; // injected in the view
+		]]>
+	</mx:Script>
+	
+	<mx:HBox 
+		width="65%"
+		horizontalGap="0" verticalAlign="bottom">
+		
+		<mx:Box 
+			width="10"/>
+		<mx:Box 
+			width="70" height="50"
+			styleName="panelTitleLogo"/>
+		
+		<mx:Label 
+			width="80%"
+			text="Todo List" styleName="panelTitleStyle"/>
+	</mx:HBox>
+	
+	<mx:HBox 
+		width="25%"
+		horizontalGap="0" verticalAlign="bottom">
+		<mx:Label 
+			textAlign="right"
+			text="Powered by Adobe" styleName="panelTitleSubStyle" useHandCursor="true" buttonMode="true" mouseChildren="false"
+			click="navigateToURL( new URLRequest( 'http://www.adobe.com' ) )"/>
+		<mx:Label 
+			textAlign="right"
+			text="TXI" styleName="acPanelTitleSubStyle" useHandCursor="true" buttonMode="true" mouseChildren="false" click="navigateToURL( new URLRequest( 'http://www.adobe.com' ) )"/>
+	</mx:HBox>
+	
+	
+	
+</mx:HBox>
+

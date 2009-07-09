@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.adobe.fna.samples</groupId>
+	<artifactId>simple_fc_skinned_i18n_todo_client</artifactId>
+	<version>1.0</version>
+	<packaging>swf</packaging>
+	<name>simple_fc_skinned_i18n_todo_client</name>
+	<url>http://www.your-url-here.com</url>
+
+	<developers>
+		<developer>
+			<name>Your Name here</name>
+			<id>yourIdHere</id>
+			<email>you@your.domain</email>
+			<url>http://www.your-url-here.com/you</url>
+			<organization>YourOrganization</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Your License</name>
+			<url>http://www.your-url-here.com/license</url>
+		</license>
+	</licenses>
+
+	<properties>
+		<flex.sdk.version>4.0.0.7219</flex.sdk.version>
+		<flexunit.version>0.9</flexunit.version>
+		<blazeds.version>3.2.0.3978</blazeds.version>
+		<flex-mojos.version>3.2.0</flex-mojos.version>
+		<flashPlayerCommand>${env.FLASH_EXE}</flashPlayerCommand> <!--must be in the systempath -->
+	</properties>
+
+	<dependencies>
+
+		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+			<exclusions>
+				<exclusion>
+					<!-- automation pt and fr resource bunldes not available on all flex sdk -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>automation</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- automation_agent pt and fr resource bunldes not available on all flex sdk -->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>automation_agent</artifactId>
+				</exclusion>
+				<exclusion>
+					<!-- datavisualization pt and fr resource bunldes not available on all	flex sdk-->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>datavisualization</artifactId>
+				</exclusion>
+				<exclusion>
+					<!--datavisualization pt and fr resource bunldes not available on all	flex sdk-->
+					<groupId>com.adobe.flex.framework</groupId>
+					<artifactId>qtp_air</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<version>10-${flex.sdk.version}</version>
+			<type>swc</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
+
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexunit.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- flexmojos Unit testing support -->
+		<dependency>
+			<groupId>org.sonatype.flexmojos</groupId>
+			<artifactId>flexmojos-unittest-support</artifactId>
+			<version>${flex-mojos.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex/unit</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		
+		<plugins>
+			<plugin> <!-- Flex (SWC and SWF) compilation -->
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<targetPlayer>10.0.0</targetPlayer>
+					<compiledLocales>
+						<locale>en_US</locale>
+						<locale>pt_BR</locale>
+						<locale>fr_FR</locale>
+						<locale>nb_NO</locale>
+						<locale>it_IT</locale>
+					</compiledLocales>
+					<resourceBundlePath>${basedir}/src/main/locales/{locale}</resourceBundlePath>
+					<allowSourcePathOverlap>true</allowSourcePathOverlap>
+					<debug>false</debug>
+					<allowSourcePathOverlap>true</allowSourcePathOverlap>
+					<showWarnings>true</showWarnings>
+					<sourceFile>Main.mxml</sourceFile>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

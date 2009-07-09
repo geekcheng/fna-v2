@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns:ai="http://ns.adobe.com/ai/2008">
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+	<s:Group>
+		<s:Group d:id="10">
+			<s:Group ai:knockout="0">
+				<s:Path winding="nonZero" ai:knockout="0" data="M 1.731 17.011 C 0.912 17.011 0 15.675 0 13.759 L 0 3.252 C 0 1.336 0.912 0 1.731 0 L 7.977 0 C 8.796 0 9.709 1.336 9.709 3.252 L 9.709 13.759 C 9.709 15.675 8.796 17.011 7.977 17.011 L 1.731 17.011 Z" y="1">
+					<s:fill>
+						<s:RadialGradient x="1.12061" y="4.24512" scaleX="24.2325" scaleY="24.2325">
+							<s:GradientEntry color="0xffffff" ratio="0"/>
+							<s:GradientEntry ratio="1"/>
+						</s:RadialGradient>
+					</s:fill>
+				</s:Path>
+				<s:Group ai:knockout="0">
+					<s:Path winding="nonZero" ai:knockout="0" data="M 8.477 1 C 8.967 1 9.709 2.098 9.709 3.752 L 9.709 14.259 C 9.709 15.914 8.967 17.011 8.477 17.011 L 2.231 17.011 C 1.741 17.011 1 15.914 1 14.259 L 1 3.752 C 1 2.098 1.741 1 2.231 1 L 8.477 1 M 8.477 0 L 2.231 0 C 1.004 0 0 1.688 0 3.752 L 0 14.259 C 0 16.323 1.004 18.011 2.231 18.011 L 8.477 18.011 C 9.705 18.011 10.709 16.323 10.709 14.259 L 10.709 3.752 C 10.709 1.688 9.705 0 8.477 0 L 8.477 0 Z">
+						<s:fill>
+							<s:SolidColor color="0x666666"/>
+						</s:fill>
+					</s:Path>
+				</s:Group>
+			</s:Group>
+		</s:Group>
+		<s:Group y="1" d:id="11">
+			<s:Path blendMode="screen" winding="nonZero" ai:knockout="0" data="M 8.031 0 L 1.785 0 C 0.8 0 0 1.346 0 3.002 L 0 8.436 C 1.486 9.081 3.15 9.442 4.908 9.442 C 6.666 9.442 8.33 9.081 9.815 8.436 L 9.815 3.002 C 9.815 1.346 9.015 0 8.031 0 Z">
+				<s:fill>
+					<s:LinearGradient x="4.90771" y="-0.300781" scaleX="13.8932" rotation="90">
+						<s:GradientEntry color="0xffffff" ratio="0"/>
+						<s:GradientEntry ratio="1"/>
+					</s:LinearGradient>
+				</s:fill>
+			</s:Path>
+		</s:Group>
+	</s:Group>
+</s:Skin>
