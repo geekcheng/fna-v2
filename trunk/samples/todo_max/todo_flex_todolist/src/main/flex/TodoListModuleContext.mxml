@@ -5,12 +5,12 @@
 		   xmlns:mx="library://ns.adobe.com/flex/mx" >
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
 			import com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand;
 			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
 			import com.adobe.txi.todo.domain.TodoModel;
 			import com.adobe.txi.todo.presentation.TodoItemDetailPM;
-			import com.adobe.txi.todo.presentation.TodoListPM;
 		]]>
 	</fx:Script>
 	
@@ -21,11 +21,12 @@
 		<DynamicCommand type="{ MockRemoveTodoItemCommand }" />
 		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
 		
+		<Object type="{ TodoListController }" />
+		
 		<!-- Integration Layer -->
 		<s:RemoteObject id="todoService" />
 		
 		<!-- Presentation Layer -->
-		<Object type="{ TodoListPM }" />
 		<Object type="{ TodoItemDetailPM }" />
 		
 		<!-- Domain -->

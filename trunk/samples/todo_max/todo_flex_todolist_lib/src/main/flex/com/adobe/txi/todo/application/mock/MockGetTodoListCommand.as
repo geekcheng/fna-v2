@@ -16,32 +16,37 @@ package com.adobe.txi.todo.application.mock
 		
 		public function execute(message:GetTodoListMessage):Task
 		{
+			todoModel.todos = null;
+			
 			var todoList:ArrayCollection = new ArrayCollection();
 			
 			var todoItem:TodoItem;
-			todoItem = new TodoItem();
 			
+			todoItem = new TodoItem();			
 			todoItem.id = "1";
 			todoItem.creationDate = new Date();
 			todoItem.title = "Todo Item One";			
 			todoList.addItem(todoItem);
 			
+			todoItem = new TodoItem();
 			todoItem.id = "2";
 			todoItem.creationDate = new Date();
 			todoItem.title = "Todo Item Two";			
 			todoList.addItem(todoItem);
 			
+			todoItem = new TodoItem();
 			todoItem.id = "3";
 			todoItem.creationDate = new Date();
 			todoItem.title = "Todo Item Three";			
 			todoList.addItem(todoItem);
 			
+			todoItem = new TodoItem();
 			todoItem.id = "4";
 			todoItem.creationDate = new Date();
 			todoItem.title = "Todo Item Four";			
 			todoList.addItem(todoItem);
 			
-			return new MockASyncResultTask( todoList );
+			return new MockASyncResultTask( todoList, 3000 );
 		}
 		
 		public function result(todoList:ArrayCollection, message:GetTodoListMessage):void

@@ -31,19 +31,19 @@
 			[Bindable]
 			public var moduleManager:IModuleManager;
 			
-			private var _bootstrapper:ModuleRigBootstrapTaskGroup;
+			private var _bootstrap:ModuleRigBootstrapTaskGroup;
 			
-			public function set bootstrapper(value:ModuleRigBootstrapTaskGroup):void
+			public function set bootstrap(value:ModuleRigBootstrapTaskGroup):void
 			{
-				_bootstrapper = value;
+				_bootstrap = value;
 				
-				_bootstrapper.addEventListener(TaskEvent.COMPLETE, bootstrapperCompleteHandler);
-				_bootstrapper.addEventListener(ErrorEvent.ERROR, bootstrapperErrorHandler);
-				_bootstrapper.addEventListener(TaskEvent.CANCEL, bootstrapperErrorHandler);
+				_bootstrap.addEventListener(TaskEvent.COMPLETE, bootstrapperCompleteHandler);
+				_bootstrap.addEventListener(ErrorEvent.ERROR, bootstrapperErrorHandler);
+				_bootstrap.addEventListener(TaskEvent.CANCEL, bootstrapperErrorHandler);
 				
-				if( _bootstrapper )
+				if( _bootstrap )
 				{
-					_bootstrapper.start();
+					_bootstrap.start();
 				}
 			}
 			

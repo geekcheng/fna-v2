@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:parsley="http://www.spicefactory.org/parsley">
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 width="100%" height="100%" xmlns:parsley="http://www.spicefactory.org/parsley"
+		 visible="{ pm.currentTodoItem ? true : false }">
 	
 	<s:layout>
 		<s:FormLayout />
@@ -13,12 +15,14 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.domain.TodoModel;
 			[Inject]
 			[Bindable]
 			public var pm:TodoItemDetailPM;
 		]]>
 	</fx:Script>
 	
+		
 	<s:FormItem label="ID" width="100%">
 		<s:TextInput text="{ pm.currentTodoItem.id }" width="30" />
 	</s:FormItem>
@@ -29,8 +33,8 @@
 	
 	<s:FormItem width="100%">
 		<s:HGroup>
-			<!--<s:Button label="Save" enabled="{ pm.canSave }" click="pm.save()"/>
-			<s:Button label="Cancel" enabled="{ pm.canCancel }" click="pm.cancel()" />-->
+			<s:Button label="Save" enabled="{ pm.canSave }" click="pm.save()"/>
+			<s:Button label="Cancel" enabled="{ pm.canCancel }" click="pm.cancel()" />
 		</s:HGroup>
 	</s:FormItem>
 </s:Group>

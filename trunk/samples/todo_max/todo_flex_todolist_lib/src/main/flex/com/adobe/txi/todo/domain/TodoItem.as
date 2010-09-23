@@ -1,5 +1,6 @@
 package com.adobe.txi.todo.domain
 {
+	[Bindable]
 	public class TodoItem
 	{
 		public var check:Boolean;

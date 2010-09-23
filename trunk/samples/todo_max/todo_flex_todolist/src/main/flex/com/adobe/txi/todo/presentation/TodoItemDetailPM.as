@@ -1,9 +1,31 @@
 package com.adobe.txi.todo.presentation
 {
+	import com.adobe.txi.todo.domain.TodoItem;
+
 	public class TodoItemDetailPM
 	{
 		[Bindable]
-		[PublishSubscribe(objectId="currentTodoItem")]
-		public var currentTodoItem:Object;
+		[Subscribe(objectId="currentTodoItem")]
+		public var currentTodoItem:TodoItem;
+		
+		public function get canSave():Boolean
+		{
+			return true;
+		}
+		
+		public function get canCancel():Boolean
+		{
+			return true;
+		}
+		
+		public function save():void
+		{
+			
+		}
+			
+		public function cancel():void
+		{
+			
+		}
 	}
 }
