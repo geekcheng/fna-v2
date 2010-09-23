@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.adobe.txi.todo</groupId>
+	<artifactId>todo</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>todo</name>
+	<url>http://www.your-url-here.com</url>
+	<description>
+	Your blazeds spring hibernate application created from an archetype
+	</description>
+	<distributionManagement>
+		<site>
+			<id>on-your-disk</id>
+			<url>file:///somewhere</url>
+		</site>
+		<repository>
+			<id>fna</id>
+			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna</url>
+		</repository>
+		<snapshotRepository>
+			<id>fna_snapshots</id>
+			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna_snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<developers>
+		<developer>
+			<name>Your Name here</name>
+			<id>yourIdHere</id>
+			<email>you@your.domain</email>
+			<url>http://www.your-url-here.com/you</url>
+			<organization>YourOrganization</organization>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Your License</name>
+			<url>http://www.your-url-here.com/license</url>
+		</license>
+	</licenses>
+
+
+	<properties>
+		<!--  TODO fix the failing bugs if any -->
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+
+		<blazeds.version>4.0.0.14748</blazeds.version>
+		<lcds.version>3.1.0.273931</lcds.version>
+		<flex.sdk.version>4.0.0.14159</flex.sdk.version>
+
+		<flexunit.version>4.0-beta-2</flexunit.version>
+		<flex-mojos.version>3.6</flex-mojos.version>
+
+		<spring.version>3.0.2.RELEASE</spring.version>
+		<spring.security.version>3.0.2.RELEASE</spring.security.version>
+		<spring-flex.version>1.5.0.SNAPSHOT</spring-flex.version>
+		<blazeds.version>4.0.0.14748</blazeds.version>
+		<aspectj.version>1.6.2</aspectj.version>
+		<commons-lang.version>2.4</commons-lang.version>
+		<commons-beanutils>1.8.0</commons-beanutils>
+		<concurrent.version>1.3.4</concurrent.version>
+		<testng.version>5.9</testng.version>
+		<jstl.version>1.1.2</jstl.version>
+
+		<flashPlayerCommand>${env.FLASH_EXE}</flashPlayerCommand>
+		<!--must be in the systempath -->
+		<player.version>10.0</player.version>
+
+		<flexpmd.version>1.0</flexpmd.version>
+		<flex-pmd-cpd.max.token>50</flex-pmd-cpd.max.token>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+	</properties>
+
+	<modules>
+		<module>todo_java_flex_ds</module>
+	</modules>
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<!-- as3 generation annotation -->
+			<dependency>
+				<groupId>com.adobe.txi</groupId>
+				<artifactId>flex-annotations</artifactId>
+				<version>1.2.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>com.sun</groupId>
+						<artifactId>tools</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- test -->
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>5.8</version>
+				<scope>test</scope>
+				<classifier>jdk15</classifier>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons-lang.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.8.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-common</artifactId>
+				<version>${blazeds.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.adobe.blazeds</groupId>
+				<artifactId>blazeds-core</artifactId>
+				<version>${blazeds.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.4</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>1.0</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0</version>
+				<!-- Please check http://jira.codehaus.org/browse/MRELEASE-271 -->
+				<configuration>
+					<preparationGoals>clean install</preparationGoals>
+					<goals>clean deploy</goals>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.release</groupId>
+						<artifactId>maven-release-manager</artifactId>
+						<version>2.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<flex-debug>true</flex-debug>
+				<flex-optimize>true</flex-optimize>
+				<flex-verbose-stacktraces>true</flex-verbose-stacktraces>
+			</properties>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<flex-debug>false</flex-debug>
+				<flex-optimize>true</flex-optimize>
+				<flex-verbose-stacktraces>false</flex-verbose-stacktraces>
+			</properties>
+		</profile>
+		<profile>
+			<id>ci</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<doclet>org.jboss.apiviz.APIviz</doclet>
+					<docletArtifact>
+						<groupId>org.jboss.apiviz</groupId>
+						<artifactId>apiviz</artifactId>
+						<version>1.3.0.GA</version>
+					</docletArtifact>
+					<useStandardDocletOptions>true</useStandardDocletOptions>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<docencoding>UTF-8</docencoding>
+					<breakiterator>true</breakiterator>
+					<version>true</version>
+					<author>true</author>
+					<keywords>true</keywords>
+					<additionalparam>
+						-sourceclasspath ${project.build.outputDirectory}
+                  </additionalparam>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.4.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+				<version>2.0-beta-2</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+
+	<repositories>
+		<repository>
+			<id>fna-repository</id>
+			<name>fna-repository</name>
+			<url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>flex-mojos-repository</id>
+			<url>http://svn.sonatype.org/flexmojos/repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>aixcept</id>
+			<url>http://maven.aixcept.net/repository</url>
+		</repository>
+		<repository>
+			<id>c5-public-repository</id>
+			<url>http://mvn.carbonfive.com/public</url>
+		</repository>
+		<repository>
+			<id>jboss-maven2-release-repository</id>
+			<url>http://repository.jboss.org/maven2</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>flex-mojos-repository</id>
+			<name>flex-mojos-repository</name>
+			<url>http://svn.sonatype.org/flexmojos/repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>fna-repository</id>
+			<name>fna-repository</name>
+			<url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
