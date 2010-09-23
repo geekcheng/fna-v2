@@ -8,6 +8,7 @@
 			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.authentication.LoginController;
 			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+			import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
 			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
 			import com.adobe.txi.todo.domain.TodoModel;
 			import com.adobe.txi.todo.domain.UserModel;
@@ -21,6 +22,7 @@
 		<Object type="{ TodoListController }" />
 		
 		<DynamicCommand type="{ MockLoginCommand }" />
+		<DynamicCommand type="{ MockLogoutCommand }" />
 		<DynamicCommand type="{ MockGetTodoListCommand }" />
 		
 		<!-- Domain Layer -->

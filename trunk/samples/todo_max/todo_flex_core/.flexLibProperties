@@ -10,6 +10,8 @@
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginController"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LogoutMessage"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LogoutCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

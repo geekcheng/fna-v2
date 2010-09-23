@@ -7,6 +7,7 @@
 		<![CDATA[
 			import com.adobe.txi.todo.application.authentication.LoginController;
 			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+			import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
 			import com.adobe.txi.todo.domain.UserModel;
 			import com.adobe.txi.todo.shell.login.LoginContainerPM;
 			
@@ -26,7 +27,7 @@
 		<Object type="{ LoginController }" />
 		
 		<DynamicCommand type="{ MockLoginCommand }" />
-		
+		<DynamicCommand type="{ MockLogoutCommand }" />
 		
 		<!-- Domain Layer -->
 		<Object type="{ UserModel }" />
