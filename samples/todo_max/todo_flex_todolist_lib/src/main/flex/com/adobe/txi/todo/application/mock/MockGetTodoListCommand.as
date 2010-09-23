@@ -16,8 +16,6 @@ package com.adobe.txi.todo.application.mock
 		
 		public function execute(message:GetTodoListMessage):Task
 		{
-			todoModel.todos = null;
-			
 			var todoList:ArrayCollection = new ArrayCollection();
 			
 			var todoItem:TodoItem;

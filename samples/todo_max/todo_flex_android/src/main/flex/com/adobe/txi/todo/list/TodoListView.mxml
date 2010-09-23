@@ -38,12 +38,6 @@
 		<s:State name="loading"/>
 	</s:states>
 	
-	<s:actionContent>
-		<s:Button 
-			label="Refresh"
-			click="todoListController.getAll()"/>
-	</s:actionContent>
-	
 	<s:navigationContent>
 		<s:Button 
 			label="Logout"
@@ -51,7 +45,7 @@
 	</s:navigationContent>
 	
 	<s:List id="list" 
-			left="0" right="0" top="0" bottom="0" 
+			left="0" right="0" top="0" bottom="50" 
 			dataProvider="{todoListController.todos}"
 			selectedItem="@{ todoListController.currentTodoItem }"
 			change="list1_changeHandler(event)"
@@ -61,7 +55,7 @@
 	
 	<s:SkinnableContainer 
 		width="100%"
-		top="0" bottom="0"
+		top="0" bottom="50"
 		backgroundAlpha=".4"
 		backgroundColor="#000000"
 		includeIn="loading">
@@ -70,4 +64,15 @@
 			verticalCenter="0"
 			message="Retrieving todo list..."/>
 	</s:SkinnableContainer>
+	
+	<s:ActionBar left="0" right="0" bottom="0" height="80">
+		<s:navigationContent>
+			<s:Button label="Add Todo" enabled="{!todoListController.getAllInProgress}" />
+		</s:navigationContent>
+		<s:actionContent>
+			<s:Button 
+				label="Refresh"
+				click="todoListController.getAll()" enabled="{!todoListController.getAllInProgress}"/>
+		</s:actionContent>
+	</s:ActionBar>
 </s:View>

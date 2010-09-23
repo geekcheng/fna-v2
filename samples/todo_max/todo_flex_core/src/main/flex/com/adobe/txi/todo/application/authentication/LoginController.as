@@ -1,9 +1,15 @@
 package com.adobe.txi.todo.application.authentication
 {
+	import com.adobe.txi.todo.domain.UserModel;
+
 	public class LoginController
 	{
 		[Bindable]
 		public var isLoggedIn:Boolean;
+		
+		[Inject]
+		[Bindable]
+		public var userModel:UserModel;
 		
 		[CommandStatus(type="com.adobe.txi.todo.application.authentication.LoginMessage")]
 		[Bindable]
@@ -32,6 +38,8 @@ package com.adobe.txi.todo.application.authentication
 		public function logoutCompleteHandler(message:LogoutMessage):void
 		{
 			isLoggedIn=false;
+			
+			userModel.user = null;
 		}
 
 	}
