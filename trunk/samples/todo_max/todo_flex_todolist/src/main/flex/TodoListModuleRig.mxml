@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   xmlns:module="com.adobe.cairngorm.module.*" xmlns:cairngorm="http://ns.adobe.com/cairngorm" xmlns:parsley="http://www.spicefactory.org/parsley" xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.module.IModuleManager;
+			import com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrapTaskGroup;
+			
+			import org.spicefactory.parsley.core.messaging.ErrorPolicy;
+			
+			[Inject(id="todoListModule")]
+			[Bindable]
+			public var moduleManager:IModuleManager;
+			
+			[Inject(id="todoListBootstrap")]
+			[Bindable]
+			public var bootstrapper:ModuleRigBootstrapTaskGroup;
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<parsley:Configure/>
+		
+		<parsley:ContextBuilder>
+			<parsley:MessageSettings unhandledErrors="{ErrorPolicy.RETHROW}"/>
+			<parsley:FlexConfig type="{ TodoListModuleRigContext }"/>
+			<parsley:TaskCommandSupport />
+			<cairngorm:CairngormModuleSupport />
+		</parsley:ContextBuilder>
+	</fx:Declarations>
+	
+	<modulerig:ModuleRigContainer 
+		title="Todo Module Rig"
+		left="0" right="0" bottom="0" top="0" 
+		moduleManager="{ moduleManager }"
+		bootstrapper="{ bootstrapper }" />
+	
+</s:Application>

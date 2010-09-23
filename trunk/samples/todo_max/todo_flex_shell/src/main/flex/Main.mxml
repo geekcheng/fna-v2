@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   xmlns:header="com.adobe.txi.todo.shell.header.*" 
+			   xmlns:module="com.adobe.cairngorm.module.*" 
+			   xmlns:login="com.adobe.txi.todo.shell.login.*" 
+			   currentState="{ loginController.isLoggedIn ? 'main' : 'login' }" 
+			   xmlns:spicefactory="http://www.spicefactory.org/parsley" 
+			   xmlns:ns="http://ns.adobe.com/cairngorm">
+	
+	<fx:Declarations>
+		<spicefactory:Configure />
+		
+		<spicefactory:ContextBuilder>
+			<spicefactory:MessageSettings unhandledErrors="{ErrorPolicy.RETHROW}"/>
+			<spicefactory:FlexConfig type="{ MainContext }"/>
+			<spicefactory:TaskCommandSupport />
+			<ns:CairngormModuleSupport />
+		</spicefactory:ContextBuilder>
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.module.IModuleManager;
+			import com.adobe.txi.todo.application.authentication.LoginController;
+			import com.adobe.txi.todo.application.authentication.LoginMessage;
+			
+			import org.spicefactory.parsley.core.messaging.ErrorPolicy;
+			
+			[Inject(id="todoListModule")]
+			[Bindable]
+			public var moduleManager:IModuleManager;
+			
+			[Inject]
+			[Bindable]
+			public var loginController:LoginController;
+		]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="login" />
+		<s:State name="main" />
+	</s:states>
+	
+	<header:ApplicationHeader left="0" top="0" right="0" height="90" />
+	
+	<login:LoginContainer left="0" top="90" right="0" bottom="0" includeIn="login" />
+	
+	<module:ModuleViewLoader id="moduleLoader" 
+							 left="0" right="0" top="90" bottom="0" moduleManager="{ moduleManager }" 
+							 skinClass="com.adobe.cairngorm.module.ModuleViewLoaderSkin" includeIn="main">
+		<module:loadPolicy>
+			<module:BasicLoadPolicy />
+		</module:loadPolicy>
+	</module:ModuleViewLoader>
+	
+</s:Application>

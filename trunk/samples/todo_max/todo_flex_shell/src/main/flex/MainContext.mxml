@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns="http://www.spicefactory.org/parsley"
+		   xmlns:s="library://ns.adobe.com/flex/spark" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:ns="http://ns.adobe.com/cairngorm" >
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.txi.todo.application.authentication.LoginController;
+			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+			import com.adobe.txi.todo.domain.UserModel;
+			import com.adobe.txi.todo.shell.login.LoginContainerPM;
+			
+			import org.spicefactory.lib.reflect.ClassInfo;
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		
+		<!-- Module Definition -->
+		<ns:ParsleyModuleDescriptor objectId="todoListModule"
+										   url="TodoListModule.swf" 
+										   applicationDomain="{ ClassInfo.currentDomain }"/>
+		
+		
+		<!-- Application Layer -->
+		<Object type="{ LoginController }" />
+		
+		<DynamicCommand type="{ MockLoginCommand }" />
+		
+		
+		<!-- Domain Layer -->
+		<Object type="{ UserModel }" />
+		
+		<!-- Presentation Layer -->
+		
+		<Object type="{ LoginContainerPM }" />
+		
+	</fx:Declarations>
+	
+</fx:Object>

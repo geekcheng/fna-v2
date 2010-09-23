@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" 
+		 xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*" 
+		 width="100%" height="100%" 
+		 currentState="loading"
+		 creationComplete="creationCompleteHandler(event)" 
+		 xmlns:module="com.adobe.cairngorm.module.*">
+	
+	<fx:Metadata>
+		[DefaultProperty("rigHeaderPlaceholder")]
+	</fx:Metadata>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.cairngorm.module.IModuleManager;
+			
+			import mx.core.IVisualElement;
+			import mx.events.FlexEvent;
+			
+			import org.spicefactory.lib.task.events.TaskEvent;
+			
+			[Bindable]
+			[ArrayElementType("mx.core.IVisualElement")]
+			public var rigHeaderPlaceholder:Array;
+			
+			[Bindable]
+			public var title:String;
+			
+			[Bindable]
+			public var moduleManager:IModuleManager;
+			
+			private var _bootstrapper:ModuleRigBootstrapTaskGroup;
+			
+			public function set bootstrapper(value:ModuleRigBootstrapTaskGroup):void
+			{
+				_bootstrapper = value;
+				
+				_bootstrapper.addEventListener(TaskEvent.COMPLETE, bootstrapperCompleteHandler);
+				_bootstrapper.addEventListener(ErrorEvent.ERROR, bootstrapperErrorHandler);
+				_bootstrapper.addEventListener(TaskEvent.CANCEL, bootstrapperErrorHandler);
+				
+				if( _bootstrapper )
+				{
+					_bootstrapper.start();
+				}
+			}
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				for each (var element:IVisualElement in rigHeaderPlaceholder)
+				{
+					headerBarContent.addElement(element);
+				}
+			}
+			
+			private function bootstrapperCompleteHandler(event:TaskEvent):void
+			{
+				currentState = "main";
+			}
+			
+			private function bootstrapperErrorHandler(event:Event):void
+			{
+				currentState = "error";
+			}
+		]]>
+	</fx:Script>	
+	
+	<s:states>
+		<s:State name="loading" />
+		<s:State name="error" />
+		<s:State name="main" />
+	</s:states>
+	
+	<s:Label text="LOADING..." includeIn="loading" top="100" left="15" />
+	
+	<s:Label text="An Error Occured during the boostrap" includeIn="error" top="100" left="15"/>
+	
+	<module:ModuleViewLoader id="moduleLoader" left="0" right="0" top="90" bottom="0" moduleManager="{ moduleManager }" skinClass="com.adobe.cairngorm.module.ModuleViewLoaderSkin" includeIn="main">
+		<module:loadPolicy>
+			<module:BasicLoadPolicy />
+		</module:loadPolicy>
+	</module:ModuleViewLoader>
+	
+	<s:Rect 
+		left="0" right="0" top="50" height="40">
+		<s:fill>
+			<s:LinearGradient 
+				x="447.992" y="0"
+				scaleX="50"
+				rotation="90">
+				<s:GradientEntry 
+					color="#BEBEC3"
+					ratio="0"/>
+				<s:GradientEntry 
+					color="#979BA5"
+					ratio="1"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	
+	<s:HGroup id="headerBarContent"
+			  left="15" right="15" top="50" height="40"
+			  verticalAlign="middle"
+			  verticalCenter="0"/>
+	
+	<s:SkinnableContainer 
+		width="100%" height="50"
+		backgroundColor="#565b65">
+		
+		<s:Label 
+			left="15"
+			color="#FFFFFF"
+			fontSize="24"
+			fontWeight="bold"
+			verticalCenter="0"
+			text="{ title }"/>
+		
+	</s:SkinnableContainer>
+	
+</s:Group>
