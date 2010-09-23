@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.adobe.txi.todo.domain.TodoModel"/>
+    <classEntry path="com.adobe.txi.todo.application.GetTodoListCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.GetTodoListMessage"/>
+    <classEntry path="com.adobe.txi.todo.application.RemoveTodoItemCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.RemoveTodoItemMessage"/>
+    <classEntry path="com.adobe.txi.todo.application.SaveTodoItemCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.SaveTodoItemMessage"/>
+    <classEntry path="com.adobe.txi.todo.domain.TodoItem"/>
+    <classEntry path="com.adobe.txi.todo.application.mock.MockGetTodoListCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

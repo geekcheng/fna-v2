@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns="http://www.spicefactory.org/parsley"
+		   xmlns:s="library://ns.adobe.com/flex/spark" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" >
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
+			import com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand;
+			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
+			import com.adobe.txi.todo.domain.TodoModel;
+			import com.adobe.txi.todo.presentation.TodoItemDetailPM;
+			import com.adobe.txi.todo.presentation.TodoListPM;
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		
+		<!-- Application Layer -->
+		<DynamicCommand type="{ MockGetTodoListCommand }" />
+		<DynamicCommand type="{ MockRemoveTodoItemCommand }" />
+		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
+		
+		<!-- Integration Layer -->
+		<s:RemoteObject id="todoService" />
+		
+		<!-- Presentation Layer -->
+		<Object type="{ TodoListPM }" />
+		<Object type="{ TodoItemDetailPM }" />
+		
+		<!-- Domain -->
+		<Object type="{ TodoModel }" />
+		
+	</fx:Declarations>
+	
+</fx:Object>

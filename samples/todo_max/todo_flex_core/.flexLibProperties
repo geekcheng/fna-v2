@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigContainer"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LoginCommand"/>
+    <classEntry path="com.adobe.txi.todo.domain.UserModel"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LoginMessage"/>
+    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrap"/>
+    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrapTaskGroup"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LoginController"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LogoutMessage"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>
