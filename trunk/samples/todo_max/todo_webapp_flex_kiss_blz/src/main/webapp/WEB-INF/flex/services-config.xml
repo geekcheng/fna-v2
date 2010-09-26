@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+
+    <services>
+        <service-include file-path="remoting-config.xml" />
+
+        <!--
+            The primary reason that channels are contained in a channel set is to
+            provide a fallback mechanism from one channel to the next listed in
+            the channel set, and so on, in case the first choice is unable to
+            establish a connection to the server. For example, you could define a
+            channel set that falls back from a StreamingAMFChannel to an
+            AMFChannel with polling enabled to work around network components
+            such as web server connectors, HTTP proxies, or reverse proxies that
+            could buffer chunked responses incorrectly. You can also use this
+            functionality to provide different protocol options so that a client
+            can first try to connect using RTMP and if that fails, can fall back
+            to HTTP.
+        -->
+        <default-channels>
+            <channel ref="my-prefered-channel" />
+        </default-channels>
+    </services>
+
+
+    <channels>
+
+
+        <channel-definition id="secure-channel-amf"
+            class="mx.messaging.channels.SecureAMFChannel">
+            <endpoint class="flex.messaging.endpoints.AMFEndpoint"
+                url="https://{server.name}:{server.port}/{context.root}/messagebroker/samf" />
+            <properties>
+                <polling-enabled>false</polling-enabled>
+                <connect-timeout-seconds>5</connect-timeout-seconds>
+            </properties>
+        </channel-definition>
+        
+        <channel-definition id="my-prefered-channel"
+         class="mx.messaging.channels.AMFChannel">
+            <endpoint url="http://{server.name}:{server.port}/{context.root}/messagebroker/amfpolling" class="flex.messaging.endpoints.AMFEndpoint"/>
+            <properties>
+                <polling-enabled>true</polling-enabled>
+                <polling-interval-seconds>8</polling-interval-seconds>
+            </properties>
+        </channel-definition>
+        
+        
+        <!--   -->
+        <channel-definition id="channel-amf"
+            class="mx.messaging.channels.AMFChannel">
+            <endpoint class="flex.messaging.endpoints.AMFEndpoint"
+                url="http://{server.name}:{server.port}/{context.root}/messagebroker/amf" />
+            <properties>
+                <polling-enabled>false</polling-enabled>
+                <connect-timeout-seconds>5</connect-timeout-seconds>
+            </properties>
+        </channel-definition>
+
+
+    </channels>
+
+    <logging>
+        <target class="flex.messaging.log.ConsoleTarget" level="Debug">
+            <properties>
+                <prefix>[LCDS]</prefix>
+                <includeDate>true</includeDate>
+                <includeTime>true</includeTime>
+                <includeLevel>true</includeLevel>
+                <includeCategory>true</includeCategory>
+            </properties>
+            <filters>
+                <pattern>Endpoint.*</pattern>
+                <pattern>Service.*</pattern>
+                <pattern>Message.*</pattern>
+                <pattern>DataService.*</pattern>
+                <pattern>Configuration.*</pattern>
+                <pattern>Security.*</pattern>
+            </filters>
+        </target>
+    </logging>
+
+    <system>
+        <redeploy>
+            <enabled>true</enabled>
+            <watch-interval>20</watch-interval>
+            <watch-file>{context.root}/WEB-INF/flex/services-config.xml
+            </watch-file>
+            <watch-file>{context.root}/WEB-INF/flex/remoting-config.xml
+            </watch-file>
+            <touch-file>{context.root}/WEB-INF/web.xml</touch-file>
+        </redeploy>
+    </system>
+
+</services-config>

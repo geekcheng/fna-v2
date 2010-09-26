@@ -7,10 +7,10 @@
 	<artifactId>todo</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>todo</name>
+	<name>${project.groupId} ${project.artifactId}</name>
 	<url>http://www.your-url-here.com</url>
 	<description>
-	Your blazeds spring hibernate application created from an archetype
+		Your blazeds spring hibernate application created from an archetype
 	</description>
 	<distributionManagement>
 		<site>
@@ -19,11 +19,13 @@
 		</site>
 		<repository>
 			<id>fna</id>
-			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna</url>
+			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna
+			</url>
 		</repository>
 		<snapshotRepository>
 			<id>fna_snapshots</id>
-			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna_snapshots</url>
+			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna_snapshots
+			</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -45,20 +47,21 @@
 
 
 	<properties>
-		<!--  TODO fix the failing bugs if any -->
-		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 
-		<blazeds.version>4.0.0.14748</blazeds.version>
 		<lcds.version>3.1.0.273931</lcds.version>
+
 		<flex.sdk.version>4.0.0.14159</flex.sdk.version>
+		<player.version>10.0</player.version>
 
 		<flexunit.version>4.0-beta-2</flexunit.version>
-		<flex-mojos.version>3.6</flex-mojos.version>
+		<flex-mojos.version>3.7.1</flex-mojos.version>
 
 		<spring.version>3.0.2.RELEASE</spring.version>
 		<spring.security.version>3.0.2.RELEASE</spring.security.version>
+
 		<spring-flex.version>1.5.0.SNAPSHOT</spring-flex.version>
-		<blazeds.version>4.0.0.14748</blazeds.version>
+		<blazeds.version>4.5.0.0-SNAPSHOT</blazeds.version>
+
 		<aspectj.version>1.6.2</aspectj.version>
 		<commons-lang.version>2.4</commons-lang.version>
 		<commons-beanutils>1.8.0</commons-beanutils>
@@ -79,12 +82,124 @@
 	</properties>
 
 	<modules>
-		<module>todo_java_flex_ds</module>
+		<module>todo_java_persistence</module>
+		<module>todo_java_remoting_service</module>
+		<module>todo_flex_remoting_dto</module>
+		<module>todo_flex_kiss</module>
+		<module>todo_webapp_flex_kiss_blz</module>
 	</modules>
 
 	<dependencyManagement>
 
 		<dependencies>
+
+			<!-- flex sdk dependencies -->
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>flex</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+				<scope>external</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>com.adobe.flex.framework</groupId>
+						<artifactId>playerglobal</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>framework</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+				<scope>external</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>framework</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>zip</type>
+				<classifier>configs</classifier>
+				<scope>external</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>rpc</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+				<scope>external</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>utilities</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>playerglobal</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+				<classifier>${player.version}</classifier>
+
+			</dependency>
+
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>framework</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>rb.swc</type>
+
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>rpc</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>rb.swc</type>
+
+			</dependency>
+
+
+
+			<!-- lcds dependencies  -->
+			<dependency>
+				<groupId>com.adobe.lcds</groupId>
+				<artifactId>fds_rb</artifactId>
+				<version>${lcds.version}</version>
+				<type>rb.swc</type>
+				<classifier>en_US</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.lcds</groupId>
+				<artifactId>fds</artifactId>
+				<version>${lcds.version}</version>
+				<type>swc</type>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.lcds</groupId>
+				<artifactId>playerfds</artifactId>
+				<version>${lcds.version}</version>
+				<type>swc</type>
+			</dependency>
+			<!-- eof lcds dependencies  -->
+
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>spark</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>swc</type>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.flex.framework</groupId>
+				<artifactId>spark</artifactId>
+				<version>${flex.sdk.version}</version>
+				<type>rb.swc</type>
+				<classifier>en_US</classifier>
+			</dependency>
+
 
 			<!-- as3 generation annotation -->
 			<dependency>
@@ -121,29 +236,174 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-common</artifactId>
-				<version>${blazeds.version}</version>
+				<groupId>net.sf.dozer</groupId>
+				<artifactId>dozer</artifactId>
+				<version>5.2.1</version>
+				<type>jar</type>
 			</dependency>
 
 			<dependency>
-				<groupId>com.adobe.blazeds</groupId>
-				<artifactId>blazeds-core</artifactId>
-				<version>${blazeds.version}</version>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.13</version>
 			</dependency>
+
+			<!-- servlet and taglibs  -->
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- spring-flex -->
+			<dependency>
+				<groupId>org.springframework.flex</groupId>
+				<artifactId>spring-flex-core</artifactId>
+				<version>${spring-flex.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<!-- eof spring-flex -->
+
 
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.4</version>
+				<version>4.8.1</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.version}</version>
+				<exclusions>
+					<!--
+						http://myjeepneyride.blogspot.com/2008/05/maven-flex-and-livecycle-ds-part-2.html
+						<exclusion> <groupId>javax.transaction</groupId>
+						<artifactId>jta</artifactId> </exclusion>
+					-->
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!--
+				hibernate WARNING:
+				http://in.relation.to/Bloggers/HibernateSisterProjectsAlignedWithCore330
+			-->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>3.3.0.SP1</version>
+				<exclusions>
+					<!--
+						http://myjeepneyride.blogspot.com/2008/05/maven-flex-and-livecycle-ds-part-2.html
+						http://www.mail-archive.com/flexcoders@yahoogroups.com/msg67371.html
+					-->
+					<exclusion>
+						<groupId>javax.transaction</groupId>
+						<artifactId>jta</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>3.4.0.GA</version>
+				<exclusions>
+					<!--
+						http://myjeepneyride.blogspot.com/2008/05/maven-flex-and-livecycle-ds-part-2.html
+						http://www.mail-archive.com/flexcoders@yahoogroups.com/msg67371.html
+					-->
+					<exclusion>
+						<groupId>javax.transaction</groupId>
+						<artifactId>jta</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>3.1.0.GA</version>
+				<exclusions>
+					<!--
+						http://myjeepneyride.blogspot.com/2008/05/maven-flex-and-livecycle-ds-part-2.html
+						http://www.mail-archive.com/flexcoders@yahoogroups.com/msg67371.html
+					-->
+					<exclusion>
+						<groupId>javax.transaction</groupId>
+						<artifactId>jta</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.4.3</version>
+			</dependency>
+			<!-- eof hibernate  -->
+
+			<dependency>
 				<groupId>javax.persistence</groupId>
 				<artifactId>persistence-api</artifactId>
-				<version>1.0</version>
+				<version>1.0.2</version>
 			</dependency>
+
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>1.1</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.dbunit</groupId>
+				<artifactId>dbunit</artifactId>
+				<version>2.2.3</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.carbonfive</groupId>
+				<artifactId>test-support</artifactId>
+				<version>0.9.1</version>
+				<scope>test</scope>
+			</dependency>
+
+
+			<!-- hsqldb -->
+			<dependency>
+				<groupId>hsqldb</groupId>
+				<artifactId>hsqldb</artifactId>
+				<version>1.8.0.7</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.6</version>
+			</dependency>
+
+
 
 		</dependencies>
 	</dependencyManagement>
@@ -229,6 +489,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
+				<maven.test.failure.ignore>true</maven.test.failure.ignore>
+				<maven.test.skip>true</maven.test.skip>
 				<flex-debug>true</flex-debug>
 				<flex-optimize>true</flex-optimize>
 				<flex-verbose-stacktraces>true</flex-verbose-stacktraces>
@@ -288,7 +550,7 @@
 					<keywords>true</keywords>
 					<additionalparam>
 						-sourceclasspath ${project.build.outputDirectory}
-                  </additionalparam>
+					</additionalparam>
 				</configuration>
 			</plugin>
 			<plugin>
