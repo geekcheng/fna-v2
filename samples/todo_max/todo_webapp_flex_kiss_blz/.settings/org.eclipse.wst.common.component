@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="todo_webapp_flex_kiss_blz">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <dependent-module archiveName="todo_java_remoting_service.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/todo_java_remoting_service/todo_java_remoting_service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="todo_java_persistence.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/todo_java_persistence/todo_java_persistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="flex-messaging-remoting.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/flex-messaging-remoting/flex-messaging-remoting">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="flex-messaging-common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/flex-messaging-common/flex-messaging-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="flex-messaging-proxy.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/flex-messaging-proxy/flex-messaging-proxy">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-flex-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-flex-core/spring-flex-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="flex-messaging-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/flex-messaging-core/flex-messaging-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="todo_webapp_flex_kiss_blz"/>
+        <property name="java-output-path"/>
+    </wb-module>
+</project-modules>
