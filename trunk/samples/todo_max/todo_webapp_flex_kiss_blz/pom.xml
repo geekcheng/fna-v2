@@ -20,6 +20,14 @@
 
        
     <dependencies>
+    
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>todo_flex_remoting_cairngorm2_crud</artifactId>
+            <version>${project.version}</version>
+            <type>swf</type>
+        </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>todo_java_remoting_service</artifactId>
@@ -186,7 +194,7 @@
                                         <artifactItem>
                                             <outputDirectory>${project.build.directory}/${project.build.finalName}/bin</outputDirectory>
                                             <groupId>${project.groupId}</groupId>
-                                            <artifactId>todo_flex_kiss</artifactId>
+                                            <artifactId>todo_flex_remoting_cairngorm2_crud</artifactId>
                                             <version>${project.version}</version>
                                             <type>swf</type>
                                             <destFileName>Main.swf</destFileName>

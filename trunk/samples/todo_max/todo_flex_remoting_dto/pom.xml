@@ -16,6 +16,21 @@
     The plugin produces the AS3 source files, and those are compiled and packaged into a swc.</description>
 
 	<dependencies>
+
+		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>common-framework</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<classifier>${player.version}</classifier>
+			<type>swc</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>todo_java_remoting_service</artifactId>
@@ -25,81 +40,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- flex sdk dependencies -->
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>flex</artifactId>
-			<type>swc</type>
-			<scope>external</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>com.adobe.flex.framework</groupId>
-					<artifactId>playerglobal</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>framework</artifactId>
-			<type>swc</type>
-			<scope>external</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>framework</artifactId>
-			<type>zip</type>
-			<classifier>configs</classifier>
-			<scope>external</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>rpc</artifactId>
-			<type>swc</type>
-			<scope>external</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>utilities</artifactId>
-			<type>swc</type>
-			<scope>external</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>playerglobal</artifactId>
-			<type>swc</type>
-			<classifier>${player.version}</classifier>
-			<scope>external</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>framework</artifactId>
-			<type>rb.swc</type>
-			<scope>external</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>rpc</artifactId>
-			<type>rb.swc</type>
-			<scope>external</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>spark</artifactId>
-			<type>swc</type>
-			<scope>external</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.adobe.flex.framework</groupId>
-			<artifactId>spark</artifactId>
-			<type>rb.swc</type>
-			<classifier>en_US</classifier>
-			<scope>external</scope>
-		</dependency>
 
 
 	</dependencies>
