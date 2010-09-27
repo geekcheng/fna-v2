@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <mx:LinkButton xmlns:mx="http://www.adobe.com/2006/mxml"
+ 				icon="@Embed('/assets/icon_tool_trash.png')" 
+                click="todoPModel.removeItem()">
+	 <mx:Script>
+   	<![CDATA[
+   		import com.adobe.txi.todo.view.todo.TodoPModel;
+   		[Bindable]
+		public var todoPModel:TodoPModel; // injected in the view
+   	]]>
+   </mx:Script>
+</mx:LinkButton>

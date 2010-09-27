@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox 
+    width="100%" height="100%"
+    verticalGap="2"
+    verticalScrollPolicy="off" horizontalScrollPolicy="off"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:todo="com.adobe.txi.todo.view.todo.*">
+    <mx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.control.events.todo.GetTodoListEvent;
+            import com.adobe.txi.todo.view.todo.TodoPModel;
+            import com.adobe.txi.todo.dto.TodoItemDto;
+
+            [Bindable]
+            public var todoPModel:TodoPModel; // injected in the view
+
+            private function newItem():void
+            {
+                todoDatagrid.selectedIndices = [];
+                todoPModel.newItem();
+            }
+        ]]>
+    </mx:Script>
+
+    <mx:Label 
+        width="100%"
+        textAlign="center"
+        text="List"/>
+
+    <mx:HRule 
+        width="100%"
+        styleName="HRule"/>
+
+
+    <mx:DataGrid id="todoDatagrid"
+        width="100%" height="100%"
+        dataProvider="{todoPModel.todoList.todos}"
+        change="todoPModel.todoItem = todoDatagrid.selectedItem as TodoItemDto">
+        <mx:columns>
+            <mx:DataGridColumn 
+                width="30"
+                headerText="ID"
+                dataField="id"/>
+            <mx:DataGridColumn headerText="Title"
+                dataField="title"/>
+            <mx:DataGridColumn 
+                width="20"
+                headerText=""
+                dataField="id">
+                <mx:itemRenderer>
+                    <mx:Component>
+                        <todo:TodoItemDeleteButton todoPModel="{outerDocument.todoPModel}"/>
+                    </mx:Component>
+                </mx:itemRenderer>
+            </mx:DataGridColumn>
+        </mx:columns>
+    </mx:DataGrid>
+    <mx:ControlBar>
+        <mx:Button 
+            label="Refresh"
+            click="new GetTodoListEvent(todoPModel).dispatch()"/>
+        <mx:Button 
+            label="New"
+            click="newItem()"/>
+    </mx:ControlBar>
+
+</mx:VBox>
