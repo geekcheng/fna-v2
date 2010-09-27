@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+    width="90%" height="95%"
+    horizontalAlign="center"
+    verticalAlign="middle"
+    layout="vertical" minHeight="600" minWidth="850" verticalScrollPolicy="off"
+    horizontalScrollPolicy="off"
+    preinitialize="onPreinitialize()"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:todo="com.adobe.txi.todo.view.todo.*"
+    xmlns:model="com.adobe.txi.todo.model.*">
+
+    <mx:Style source="/css/default.css"/>
+
+    <mx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.model.ApplicationModel;
+            import com.adobe.txi.todo.view.todo.TodoPModel;
+            import com.adobe.txi.todo.control.Controller;
+
+            private var cairngormController:Controller
+
+            private var mainModel:ApplicationModel
+
+            [Bindable]
+            private var todoPresentationModel:TodoPModel;
+
+            public function onPreinitialize():void
+            {
+                cairngormController = new Controller(); // our instance of cairngorm frontController
+                mainModel = new ApplicationModel(); // our application business model instance
+                todoPresentationModel = new TodoPModel(mainModel.todoList); // the todoForm Presentation Model
+            }
+        ]]>
+    </mx:Script>
+
+    <todo:TodoForm id="todoList"
+        label="TodoList"
+        todoPModel="{todoPresentationModel}"/>
+
+</mx:Application>
