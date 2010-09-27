@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:LinkButton 
+    icon="@Embed('/assets/todoLogo_big.png')"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    click="navigateToURL(new URLRequest('http://code.google.com/p/fna-v2/wiki/todo_webapp_flex_kiss_blz'))">
+</mx:LinkButton>
