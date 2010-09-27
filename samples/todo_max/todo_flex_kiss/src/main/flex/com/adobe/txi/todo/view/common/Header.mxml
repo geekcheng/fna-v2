@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox 
+    width="100%"
+    horizontalGap="0"
+    verticalAlign="bottom"
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:common="com.adobe.txi.todo.view.common.*">
+
+    <mx:HBox 
+        width="65%"
+        horizontalGap="0"
+        verticalAlign="bottom">
+
+        <mx:Box width="10"/>
+        <common:LogoButton/>
+
+        <mx:Label 
+            width="100%"
+            text="Remoting CRUD" styleName="panelTitleStyle"/>
+    </mx:HBox>
+
+    <mx:HBox 
+        width="35%"
+        horizontalGap="0"
+        verticalAlign="bottom">
+        <mx:Label 
+            width="50%"
+            textAlign="right"
+            text="Powered by Adobe" styleName="panelTitleSubStyle"
+            useHandCursor="true"
+            buttonMode="true"
+            mouseChildren="false"
+            click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"/>
+        <mx:Label 
+            width="50%"
+            textAlign="left"
+            text="TXI" styleName="acPanelTitleSubStyle"
+            useHandCursor="true"
+            buttonMode="true"
+            mouseChildren="false"
+            click="navigateToURL( new URLRequest( 'http://www.adobe.com/consulting/' ) )"/>
+    </mx:HBox>
+
+</mx:HBox>
+
