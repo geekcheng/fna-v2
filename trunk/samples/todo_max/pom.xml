@@ -19,15 +19,13 @@
 			<url>file:///somewhere</url>
 		</site>
 		<repository>
-			<id>fna</id>
-			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna
-			</url>
-		</repository>
-		<snapshotRepository>
-			<id>fna_snapshots</id>
-			<url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna_snapshots
-			</url>
-		</snapshotRepository>
+            <id>fna_V2</id>
+            <url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna-V2</url>
+        </repository>
+        <snapshotRepository>
+            <id>fna_V2_snapshots</id>
+            <url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna-V2_snapshot</url>
+        </snapshotRepository>
 	</distributionManagement>
 
 	<developers>
