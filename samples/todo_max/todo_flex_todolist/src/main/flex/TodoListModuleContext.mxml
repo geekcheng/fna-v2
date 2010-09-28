@@ -2,15 +2,15 @@
 <fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		   xmlns="http://www.spicefactory.org/parsley"
 		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" >
+		   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:data="com.adobe.cairngorm.integration.data.*" >
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
 			import com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand;
 			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
 			import com.adobe.txi.todo.domain.TodoModel;
-			import com.adobe.txi.todo.presentation.TodoItemDetailPM;
 		]]>
 	</fx:Script>
 	
@@ -21,16 +21,24 @@
 		<DynamicCommand type="{ MockRemoveTodoItemCommand }" />
 		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
 		
+		<!--<DynamicCommand type="{ GetTodoListCommand }" />
+		<DynamicCommand type="{ RemoveTodoItemCommand }" />
+		<DynamicCommand type="{ SaveTodoItemCommand }" />-->
+		
 		<Object type="{ TodoListController }" />
+		<Object type="{ TodoItemController }" />
 		
 		<!-- Integration Layer -->
 		<s:RemoteObject id="todoService" />
 		
 		<!-- Presentation Layer -->
-		<Object type="{ TodoItemDetailPM }" />
 		
 		<!-- Domain -->
 		<Object type="{ TodoModel }" />
+		
+		<!-- Infrastructure 
+		<data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
+		-->
 		
 	</fx:Declarations>
 	

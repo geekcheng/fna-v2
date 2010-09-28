@@ -5,5 +5,10 @@ package com.adobe.txi.todo.application
 	public class SaveTodoItemMessage
 	{
 		public var todoItem:TodoItem;
+		
+		public function SaveTodoItemMessage(todoItem:TodoItem)
+		{
+			this.todoItem = todoItem;
+		}
 	}
 }

@@ -12,36 +12,21 @@ package com.adobe.txi.todo.domain
 		[PublishSubscribe(objectId="currentTodoItem")]
 		public var currentTodoItem:TodoItem;
 		
-		public function checkAllItems():void
-		{
-			for each( var todo:TodoItem in todos)
-			{
-				todo.check = true;
-			}
-		}
-		
-		public function changeCheckedTodoItemsToComplete():void
-		{
-			for each( var todo:TodoItem in todos)
-			{
-				if( todo.check )
-				{
-					todo.completed = true;
-				}
-			}
-		}
-		
-		public function deleteItem(todo:Object):void
+		public function deleteItem(todo:TodoItem):void
 		{
 			todos.removeItemAt(todos.getItemIndex(todo));
 		}
 		
-		public function createNewTodoItem():Object
+		public function createNewTodoItem():TodoItem
 		{
 			var newItem:TodoItem= new TodoItem();
-			newItem.creationDate = new Date();
-			
+
 			return newItem;
+		}
+		
+		public function isNewTodoItem(item:TodoItem):Boolean
+		{
+			return item.id == 0;
 		}
 	}
 }

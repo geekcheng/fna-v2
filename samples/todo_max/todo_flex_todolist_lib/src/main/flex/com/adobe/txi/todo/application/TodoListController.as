@@ -45,6 +45,15 @@ package com.adobe.txi.todo.application
 			dispatcher( new GetTodoListMessage() );	
 		}
 		
+		public function addNewTodoItem():void
+		{
+			var newTodoItem:TodoItem = _todoModel.createNewTodoItem();
+			
+			todos.addItem( newTodoItem );
+			
+			currentTodoItem = newTodoItem;
+		}
+		
 		
 	
 	}
