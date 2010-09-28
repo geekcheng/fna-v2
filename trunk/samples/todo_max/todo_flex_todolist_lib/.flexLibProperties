@@ -8,12 +8,12 @@
     <classEntry path="com.adobe.txi.todo.application.RemoveTodoItemMessage"/>
     <classEntry path="com.adobe.txi.todo.application.SaveTodoItemCommand"/>
     <classEntry path="com.adobe.txi.todo.application.SaveTodoItemMessage"/>
-    <classEntry path="com.adobe.txi.todo.domain.TodoItem"/>
     <classEntry path="com.adobe.txi.todo.application.mock.MockGetTodoListCommand"/>
     <classEntry path="com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand"/>
     <classEntry path="com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand"/>
     <classEntry path="com.adobe.txi.todo.application.TodoListController"/>
     <classEntry path="com.adobe.txi.todo.application.TodoItemController"/>
+    <classEntry path="com.adobe.txi.todo.domain.TodoItem"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

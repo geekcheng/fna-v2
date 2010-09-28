@@ -9,19 +9,32 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
 			
 			[Inject]
 			[Bindable]
 			public var todoListController:TodoListController;
+			
+			[Inject]
+			[Bindable]
+			public var todoItemController:TodoItemController;
 		]]>
 	</fx:Script>
 	
-	<s:List left="0" right="0" top="0" bottom="40" dataProvider="{todoListController.todos}" selectedItem="@{ todoListController.currentTodoItem }"/>
+	<s:List left="0" right="0" top="0" bottom="40" 
+			dataProvider="{todoListController.todos}" 
+			selectedItem="@{ todoListController.currentTodoItem }" 
+			itemRenderer="com.adobe.txi.todo.presentation.TodoListItemRenderer"
+			enabled="{ !todoItemController.saveInProgress }"/>
 	
 	<s:HGroup left="0" bottom="0">
-		<s:Button  label="Add New" enabled="{ !todoListController.getAllInProgress }"/>
-		<s:Button label="Refresh" click="todoListController.getAll()" enabled="{ !todoListController.getAllInProgress }" />
+		<s:Button  label="Add New" 
+				   enabled="{ !todoListController.getAllInProgress }" 
+				   click="{ todoListController.addNewTodoItem() }"/>
+		<s:Button label="Refresh" 
+				  click="todoListController.getAll()" 
+				  enabled="{ !todoListController.getAllInProgress }" />
 	</s:HGroup>
 	
 </s:Group> 

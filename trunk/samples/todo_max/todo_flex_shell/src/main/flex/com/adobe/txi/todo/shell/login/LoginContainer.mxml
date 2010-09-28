@@ -19,7 +19,7 @@
 		]]>
 	</fx:Script>
 	
-	<s:SkinnableContainer width="320" height="250" horizontalCenter="0" verticalCenter="0">
+	<s:SkinnableContainer width="340" height="200" horizontalCenter="0" verticalCenter="0">
 		<s:Form>
 			<s:layout>
 				<s:FormLayout gap="-10" />

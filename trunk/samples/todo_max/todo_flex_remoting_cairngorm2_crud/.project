@@ -19,7 +19,7 @@
 		<link>
 			<name>bin-debug</name>
 			<type>2</type>
-			<location>C:/apps/java/jboss-4.2.3.GA/server/hendrix-flex/deploy/todo_webapp_flex_kiss_blz.war/bin</location>
+			<locationURI>TODO_BLZ_KISS/bin</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

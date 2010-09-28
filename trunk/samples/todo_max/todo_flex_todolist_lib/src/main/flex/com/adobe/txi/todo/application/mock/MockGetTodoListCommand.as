@@ -21,26 +21,22 @@ package com.adobe.txi.todo.application.mock
 			var todoItem:TodoItem;
 			
 			todoItem = new TodoItem();			
-			todoItem.id = "1";
-			todoItem.creationDate = new Date();
+			todoItem.id = 1;
 			todoItem.title = "Todo Item One";			
 			todoList.addItem(todoItem);
 			
 			todoItem = new TodoItem();
-			todoItem.id = "2";
-			todoItem.creationDate = new Date();
+			todoItem.id = 2;
 			todoItem.title = "Todo Item Two";			
 			todoList.addItem(todoItem);
 			
 			todoItem = new TodoItem();
-			todoItem.id = "3";
-			todoItem.creationDate = new Date();
+			todoItem.id = 3;
 			todoItem.title = "Todo Item Three";			
 			todoList.addItem(todoItem);
 			
 			todoItem = new TodoItem();
-			todoItem.id = "4";
-			todoItem.creationDate = new Date();
+			todoItem.id = 4;
 			todoItem.title = "Todo Item Four";			
 			todoList.addItem(todoItem);
 			

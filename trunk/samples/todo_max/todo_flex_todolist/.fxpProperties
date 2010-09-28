@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="1f12486d-2060-440e-9091-47c1e0a2f829" projectUUID="1f12486d-2060-440e-9091-47c1e0a2f829" sdkVersion="4.5.0" uuid="c6de1e4b-6d69-4fa5-b4ae-7845220f0349" version="9">
+  <projects>
+    <project filename="todo_flex_todolist_lib.fxpl" position="2" projectUUID="798c3e67-aeb6-45c8-9a3b-eb0c326552b0" uuid="c6de1e4b-6d69-4fa5-b4ae-7845220f0349"/>
+    <project filename="todo_flex_core.fxpl" position="3" projectUUID="1a80a0d2-9f9c-4592-85ca-a759a50eed44" uuid="c6de1e4b-6d69-4fa5-b4ae-7845220f0349"/>
+  </projects>
+  <src/>
+  <swc>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="c6de1e4b-6d69-4fa5-b4ae-7845220f0349"/>
+    <linked location="/libs" path="\libs" position="1" uuid="c6de1e4b-6d69-4fa5-b4ae-7845220f0349"/>
+  </swc>
+  <misc/>
+  <theme/>
+  <mxmlFormattingPrefs groupAttributesByState="true" maxLineWidth="100" mxmlAlignAttributes="true" mxmlAttributeOrder="id,userLabel,includeIn,excludeFrom,visible,x,y,z,left,right,top,bottom,width,height,minWidth,minHeight,maxWidth,maxHeight,label" mxmlKeepAttributeValuesOrganized="true"/>
+</fxpProperties>

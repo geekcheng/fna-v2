@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+				autoDrawBackground="true">
+	
+	<s:Label text="{ data.id == 0 ? 'New Todo Item' : data.id}" top="5" left="5"/>
+	
+	<s:Label maxDisplayedLines="3" text="{data.title}" top="25" left="5" right="5" bottom="5" />
+	
+</s:ItemRenderer>

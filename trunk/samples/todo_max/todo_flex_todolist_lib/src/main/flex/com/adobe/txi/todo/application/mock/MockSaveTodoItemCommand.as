@@ -13,17 +13,15 @@ package com.adobe.txi.todo.application.mock
 		
 		public function execute(message:SaveTodoItemMessage):Task
 		{
-			if( message.todoItem.id == null )
-			{				
-				message.todoItem.id = (todoModel.todos.length + 1).toString();				
-			}
-			
-			return new MockASyncResultTask( message.todoItem );
+			return new MockASyncResultTask( message.todoItem, 3000 );
 		}
 		
 		public function result(result:Object, message:SaveTodoItemMessage):void
 		{
-			//NOTHING
+			if( todoModel.isNewTodoItem(message.todoItem) )
+			{				
+				message.todoItem.id = todoModel.todos.length + 1;				
+			}
 		}
 	}
 }

@@ -1,13 +1,19 @@
 package com.adobe.txi.todo.domain
 {
+	import com.adobe.txi.todo.dto.TodoItemDto;
+	
 	[Bindable]
-	public class TodoItem
+	public class TodoItem extends TodoItemDto
 	{
-		public var check:Boolean;
-		public var completed:Boolean;
+		override public function get id():int
+		{
+			return super.id;
+		}
 		
-		public var id:String;
-		public var title:String;
-		public var creationDate:Date;
+		[SyncId]
+		override public function set id(value:int):void
+		{
+			super.id = value;
+		}
 	}
 }
