@@ -2,7 +2,10 @@
 <s:View 
 	currentState="{ todoListController.getAllInProgress ? 'loading' : 'normal' }"
 	xmlns:fx="http://ns.adobe.com/mxml/2009" 
-	xmlns:s="library://ns.adobe.com/flex/spark" title="Todo List" xmlns:components="com.adobe.txi.todo.components.*" xmlns:parsley="http://www.spicefactory.org/parsley">
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	title="Todo List" 
+	xmlns:components="com.adobe.txi.todo.components.*" 
+	xmlns:parsley="http://www.spicefactory.org/parsley">
 	
 	<fx:Declarations>
 		<parsley:Configure/>
@@ -14,8 +17,6 @@
 			import com.adobe.txi.todo.application.authentication.LoginController;
 			import com.adobe.txi.todo.detail.TodoItemView;
 			
-			import spark.events.IndexChangeEvent;
-			
 			[Inject]
 			[Bindable]
 			public var todoListController:TodoListController;
@@ -25,7 +26,7 @@
 			public var loginController:LoginController;
 			
 
-			protected function list1_changeHandler(event:IndexChangeEvent):void
+			protected function goToDetailView():void
 			{
 				navigator.pushView(TodoItemView);
 			}
@@ -48,7 +49,8 @@
 			left="0" right="0" top="0" bottom="50" 
 			dataProvider="{todoListController.todos}"
 			selectedItem="@{ todoListController.currentTodoItem }"
-			change="list1_changeHandler(event)"
+			change="goToDetailView()"
+			labelField="title"
 			borderVisible="false">
 		
 	</s:List>
@@ -67,7 +69,8 @@
 	
 	<s:ActionBar left="0" right="0" bottom="0" height="80">
 		<s:navigationContent>
-			<s:Button label="Add Todo" enabled="{!todoListController.getAllInProgress}" />
+			<s:Button label="Add Todo" enabled="{!todoListController.getAllInProgress}"
+					  click="todoListController.addNewTodoItem();goToDetailView()"/>
 		</s:navigationContent>
 		<s:actionContent>
 			<s:Button 
