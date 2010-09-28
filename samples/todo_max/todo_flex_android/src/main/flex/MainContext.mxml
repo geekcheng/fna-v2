@@ -5,11 +5,13 @@
 		   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.authentication.LoginController;
 			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
 			import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
 			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
+			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
 			import com.adobe.txi.todo.domain.TodoModel;
 			import com.adobe.txi.todo.domain.UserModel;
 		]]>
@@ -20,10 +22,12 @@
 		<!-- Application Layer -->
 		<Object type="{ LoginController }" />
 		<Object type="{ TodoListController }" />
+		<Object type="{ TodoItemController }" />
 		
 		<DynamicCommand type="{ MockLoginCommand }" />
 		<DynamicCommand type="{ MockLogoutCommand }" />
 		<DynamicCommand type="{ MockGetTodoListCommand }" />
+		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
 		
 		<!-- Domain Layer -->
 		<Object type="{ UserModel }" />
