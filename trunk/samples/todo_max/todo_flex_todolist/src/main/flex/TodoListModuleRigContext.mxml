@@ -2,7 +2,10 @@
 <fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		   xmlns="http://www.spicefactory.org/parsley"
 		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:rig="com.adobe.txi.todo.rig.*" xmlns:cairngorm="http://ns.adobe.com/cairngorm" xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*">
+		   xmlns:mx="library://ns.adobe.com/flex/mx" 
+		   xmlns:cairngorm="http://ns.adobe.com/cairngorm"
+		   xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*" 
+		   xmlns:rig="com.adobe.txi.todo.application.rig.*">
 	<fx:Script>
 		<![CDATA[
 			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
