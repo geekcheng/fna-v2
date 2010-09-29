@@ -33,7 +33,8 @@
 		</parsley:ContextBuilder>
 	</fx:Declarations>
 	
-	<modulerig:ModuleRigContainer 
+	<modulerig:ModuleRigContainer
+		skinClass="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigContainerSkin"
 		title="Todo Module Rig"
 		left="0" right="0" bottom="0" top="0" 
 		moduleManager="{ moduleManager }"
