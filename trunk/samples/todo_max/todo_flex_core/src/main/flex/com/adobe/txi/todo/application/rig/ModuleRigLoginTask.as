@@ -1,4 +1,4 @@
-package com.adobe.txi.todo.rig
+package com.adobe.txi.todo.application.rig
 {
 	import com.adobe.txi.todo.application.authentication.LoginMessage;
 	
