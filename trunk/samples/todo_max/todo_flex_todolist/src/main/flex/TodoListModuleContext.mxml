@@ -5,6 +5,9 @@
 		   xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:data="com.adobe.cairngorm.integration.data.*" >
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.GetTodoListCommand;
+			import com.adobe.txi.todo.application.RemoveTodoItemCommand;
+			import com.adobe.txi.todo.application.SaveTodoItemCommand;
 			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
@@ -17,9 +20,9 @@
 	<fx:Declarations>
 		
 		<!-- Application Layer -->
-		<DynamicCommand type="{ MockGetTodoListCommand }" />
-		<DynamicCommand type="{ MockRemoveTodoItemCommand }" />
-		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
+		<DynamicCommand type="{ GetTodoListCommand }" />
+		<DynamicCommand type="{ RemoveTodoItemCommand }" />
+		<DynamicCommand type="{ SaveTodoItemCommand }" />
 		
 		<!--<DynamicCommand type="{ GetTodoListCommand }" />
 		<DynamicCommand type="{ RemoveTodoItemCommand }" />
@@ -29,16 +32,16 @@
 		<Object type="{ TodoItemController }" />
 		
 		<!-- Integration Layer -->
-		<s:RemoteObject id="todoService" />
+		<s:RemoteObject id="todoService" destination="todoService" />
 		
 		<!-- Presentation Layer -->
 		
 		<!-- Domain -->
 		<Object type="{ TodoModel }" />
 		
-		<!-- Infrastructure 
+		<!-- Infrastructure
 		<data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
-		-->
+		--> 
 		
 	</fx:Declarations>
 	

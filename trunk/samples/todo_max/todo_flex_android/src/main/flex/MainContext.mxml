@@ -5,6 +5,8 @@
 		   xmlns:mx="library://ns.adobe.com/flex/mx">
 	<fx:Script>
 		<![CDATA[
+			import com.adobe.txi.todo.application.GetTodoListCommand;
+			import com.adobe.txi.todo.application.SaveTodoItemCommand;
 			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
 			import com.adobe.txi.todo.application.authentication.LoginController;
@@ -14,10 +16,18 @@
 			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
 			import com.adobe.txi.todo.domain.TodoModel;
 			import com.adobe.txi.todo.domain.UserModel;
+			
+			//Android Emulator Host loopback interface IP
+			public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
+			
+			//Development machine loopback
+			//public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
+		
+		
 		
 		<!-- Application Layer -->
 		<Object type="{ LoginController }" />
@@ -26,8 +36,11 @@
 		
 		<DynamicCommand type="{ MockLoginCommand }" />
 		<DynamicCommand type="{ MockLogoutCommand }" />
-		<DynamicCommand type="{ MockGetTodoListCommand }" />
-		<DynamicCommand type="{ MockSaveTodoItemCommand }" />
+		<DynamicCommand type="{ GetTodoListCommand }" />
+		<DynamicCommand type="{ SaveTodoItemCommand }" />
+		
+		<!-- Integration Layer -->
+		<s:RemoteObject id="todoService" destination="todoService" endpoint="{RPC_ENDPOINT}" />
 		
 		<!-- Domain Layer -->
 		<Object type="{ UserModel }" />
