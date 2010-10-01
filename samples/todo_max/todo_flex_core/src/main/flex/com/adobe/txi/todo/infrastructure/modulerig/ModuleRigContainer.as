@@ -13,8 +13,11 @@ package com.adobe.txi.todo.infrastructure.modulerig
 	import spark.components.Group;
 	import spark.components.SkinnableContainer;
 	
+	[SkinState("normal")]
+	[SkinState("error")]
+	
 	public class ModuleRigContainer extends SkinnableContainer
-	{
+	{	
 		[SkinPart(required="true")]
 		public var headerBarContent:Group;
 		
@@ -30,6 +33,11 @@ package com.adobe.txi.todo.infrastructure.modulerig
 		
 		private var _bootstrap:ModuleRigBootstrapTaskGroup;
 		
+		private var skinState:String;
+		
+		private static const NORMAL_STATE:String="normal";
+		private static const ERROR_STATE:String="error";
+
 		public function set bootstrap(value:ModuleRigBootstrapTaskGroup):void
 		{
 			_bootstrap = value;
@@ -44,6 +52,11 @@ package com.adobe.txi.todo.infrastructure.modulerig
 			}
 		}
 		
+		override protected function getCurrentSkinState():String
+		{
+			return skinState;
+		}
+		
 		protected function creationCompleteHandler(event:FlexEvent):void
 		{
 			for each (var element:IVisualElement in rigHeaderPlaceholder)
@@ -54,14 +67,14 @@ package com.adobe.txi.todo.infrastructure.modulerig
 		
 		private function bootstrapperCompleteHandler(event:TaskEvent):void
 		{
-			currentState = "normal";
+			skinState = NORMAL_STATE;
 			
 			invalidateSkinState();
 		}
 		
 		private function bootstrapperErrorHandler(event:Event):void
 		{
-			currentState = "error";
+			skinState = ERROR_STATE;
 			
 			invalidateSkinState();
 		}

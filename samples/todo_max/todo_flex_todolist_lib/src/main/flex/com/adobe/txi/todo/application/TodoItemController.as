@@ -4,6 +4,7 @@ package com.adobe.txi.todo.application
 	import com.adobe.txi.todo.domain.TodoModel;
 	
 	import mx.collections.ArrayCollection;
+	import mx.controls.Alert;
 	import mx.events.CollectionEvent;
 	import mx.utils.ObjectUtil;
 

@@ -7,7 +7,8 @@
 		 currentState="{ todoItemController.isNewItem ? 'new' : 'update' }">
 	
 	<s:layout>
-		<s:FormLayout />
+		<!--<s:FormLayout />-->
+		<s:VerticalLayout />
 	</s:layout>
 	
 	<fx:Declarations>
@@ -33,19 +34,19 @@
 	
 	<s:Label text="Add new Todo Item" fontSize="20" includeIn="new" />
 		
-	<s:FormItem label="ID" width="100%" includeIn="update">
+	<!--<s:FormItem label="ID" width="100%" includeIn="update">-->
 		<s:Label text="{ todoItemController.currentTodoItem.id }" width="30" />
-	</s:FormItem>
+	<!--</s:FormItem>-->
 	
-	<s:FormItem label="TODO" width="100%" >
+	<!--<s:FormItem label="TODO" width="100%" >-->
 		<s:TextArea text="@{ todoItemController.currentTodoItem.title }" width="400" height="120"/>
-	</s:FormItem>
+	<!--</s:FormItem>-->
 	
-	<s:FormItem width="100%">
+	<!--<s:FormItem width="100%">-->
 		<s:HGroup visible="{!todoItemController.saveInProgress}">
 			<s:Button label="Save" click="todoItemController.save()" enabled="{ todoItemController.currentTodoItemChanged }"/>
 			<s:Button label="Cancel" click="todoItemController.cancel()" enabled="{ todoItemController.currentTodoItemChanged }" />
 		</s:HGroup>
 		<s:Label text="Save in progress. Please wait..." visible="{todoItemController.saveInProgress}"/>
-	</s:FormItem>
+	<!--</s:FormItem>-->
 </s:Group>

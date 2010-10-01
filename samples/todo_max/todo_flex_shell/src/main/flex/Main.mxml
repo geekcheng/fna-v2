@@ -43,7 +43,7 @@
 		<s:State name="main" />
 	</s:states>
 	
-	<header:ApplicationHeader left="0" top="0" right="0" height="90" />
+	<header:ApplicationHeader left="0" top="0" right="0" height="90" skinClass="com.adobe.txi.todo.shell.ApplicationHeaderSkin" />
 	
 	<login:LoginContainer left="0" top="90" right="0" bottom="0" includeIn="login" />
 	
