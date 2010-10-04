@@ -51,11 +51,8 @@
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
       <libraryPathEntry kind="3" linkType="1" path="/todo_flex_todolist_lib/bin/todo_flex_todolist_lib.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/todo_flex_core/bin/todo_flex_core.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="/Integration/bin/Integration.swc" useDefaultLinkType="false"/>
     </libraryPath>
-    <sourceAttachmentPath>
-      <sourceAttachmentPathEntry kind="3" linkType="1" path="/Developer/Workspaces/todo_max/todo_flex_todolist/libs/integration-0.14.swc" sourcepath="/Developer/Workspaces/cairngorm/Integration/src" useDefaultLinkType="false"/>
-    </sourceAttachmentPath>
+    <sourceAttachmentPath/>
   </compiler>
   <applications>
     <application path="TodoListModuleRig.mxml"/>

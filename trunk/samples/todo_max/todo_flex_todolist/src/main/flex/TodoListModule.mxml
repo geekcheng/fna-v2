@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Module xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" 
-		   layout="absolute" width="100%" height="100%" 
-		   xmlns:parsley="http://www.spicefactory.org/parsley" xmlns:cairngorm="http://ns.adobe.com/cairngorm" xmlns:presentation="com.adobe.txi.todo.presentation.*">
-	<fx:Script>
-		<![CDATA[
-			import org.spicefactory.parsley.core.messaging.ErrorPolicy;
-		]]>
-	</fx:Script>
-	
-	<fx:Declarations>
-		<parsley:Configure/>
-		
-		<parsley:ContextBuilder>
-			<parsley:MessageSettings unhandledErrors="{ErrorPolicy.RETHROW}"/>
-			<parsley:FlexConfig type="{ TodoListModuleContext }"/>
-			<parsley:TaskCommandSupport />
-			<cairngorm:CairngormModuleSupport />
-		</parsley:ContextBuilder>
-	</fx:Declarations>
-	
-	
-	<s:HGroup left="15" right="15" top="15" bottom="15">
-		<presentation:TodoList width="100%" />
-		<presentation:TodoItemDetail width="100%" />
-	</s:HGroup>
+<mx:Module 
+    width="100%" height="100%"
+    layout="absolute"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    xmlns:parsley="http://www.spicefactory.org/parsley"
+    xmlns:cairngorm="http://ns.adobe.com/cairngorm"
+    xmlns:presentation="com.adobe.txi.todo.presentation.*">
+    <fx:Script>
+        <![CDATA[
+            import org.spicefactory.parsley.core.messaging.ErrorPolicy;
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+        <parsley:Configure/>
+
+        <parsley:ContextBuilder>
+            <parsley:MessageSettings unhandledErrors="{ErrorPolicy.RETHROW}"/>
+            <parsley:FlexConfig type="{ TodoListModuleContext }"/>
+            <parsley:TaskCommandSupport/>
+            <cairngorm:CairngormModuleSupport/>
+        </parsley:ContextBuilder>
+    </fx:Declarations>
+
+
+    <s:HGroup 
+        left="15" right="15" top="15" bottom="15">
+        <presentation:TodoList width="100%"/>
+        <presentation:TodoItemDetail width="100%"/>
+    </s:HGroup>
 </mx:Module>

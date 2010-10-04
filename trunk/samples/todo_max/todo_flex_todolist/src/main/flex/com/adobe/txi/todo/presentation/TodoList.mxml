@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:parsley="http://www.spicefactory.org/parsley">
-	
-	<fx:Declarations>
-		<parsley:Configure />
-	</fx:Declarations>
-	
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.TodoItemController;
-			import com.adobe.txi.todo.application.TodoListController;
-			
-			[Inject]
-			[Bindable]
-			public var todoListController:TodoListController;
-			
-			[Inject]
-			[Bindable]
-			public var todoItemController:TodoItemController;
-		]]>
-	</fx:Script>
-	
-	<s:List left="0" right="0" top="0" bottom="40" 
-			dataProvider="{todoListController.todos}" 
-			selectedItem="@{ todoListController.currentTodoItem }" 
-			itemRenderer="com.adobe.txi.todo.presentation.TodoListItemRenderer"
-			enabled="{ !todoItemController.saveInProgress }"/>
-	
-	<s:HGroup left="0" bottom="0">
-		<s:Button  label="Add New" 
-				   enabled="{ !todoListController.getAllInProgress }" 
-				   click="{ todoListController.addNewTodoItem() }"/>
-		<s:Button label="Refresh" 
-				  click="todoListController.getAll()" 
-				  enabled="{ !todoListController.getAllInProgress }" />
-	</s:HGroup>
-	
-</s:Group> 
+<s:Group 
+    width="100%" height="100%"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    xmlns:parsley="http://www.spicefactory.org/parsley">
+
+    <fx:Declarations>
+        <parsley:Configure/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.TodoItemController;
+            import com.adobe.txi.todo.application.TodoListController;
+
+            [Inject]
+            [Bindable]
+            public var todoListController:TodoListController;
+
+            [Inject]
+            [Bindable]
+            public var todoItemController:TodoItemController;
+        ]]>
+    </fx:Script>
+
+    <s:List 
+        left="0" right="0" top="0" bottom="40"
+        dataProvider="{todoListController.todos}"
+        enabled="{ !todoItemController.saveInProgress }"
+        selectedItem="@{ todoListController.currentTodoItem }"
+        itemRenderer="com.adobe.txi.todo.presentation.TodoListItemRenderer"/>
+
+    <s:HGroup 
+        left="0" bottom="0">
+        <s:Button 
+            label="Add New" enabled="{ !todoListController.getAllInProgress }"
+            click="{ todoListController.addNewTodoItem() }"/>
+        <s:Button 
+            label="Refresh" enabled="{ !todoListController.getAllInProgress }"
+            click="todoListController.getAll()"/>
+    </s:HGroup>
+
+</s:Group>

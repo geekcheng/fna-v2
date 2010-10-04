@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		   xmlns="http://www.spicefactory.org/parsley"
-		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx">
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.GetTodoListCommand;
-			import com.adobe.txi.todo.application.SaveTodoItemCommand;
-			import com.adobe.txi.todo.application.TodoItemController;
-			import com.adobe.txi.todo.application.TodoListController;
-			import com.adobe.txi.todo.application.authentication.LoginController;
-			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
-			import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
-			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
-			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
-			import com.adobe.txi.todo.domain.TodoModel;
-			import com.adobe.txi.todo.domain.UserModel;
-			
-			//Android Emulator Host loopback interface IP
-			public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
-			
-			//Development machine loopback
-			//public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
-		]]>
-	</fx:Script>
-	
-	<fx:Declarations>
-		
-		
-		
-		<!-- Application Layer -->
-		<Object type="{ LoginController }" />
-		<Object type="{ TodoListController }" />
-		<Object type="{ TodoItemController }" />
-		
-		<DynamicCommand type="{ MockLoginCommand }" />
-		<DynamicCommand type="{ MockLogoutCommand }" />
-		<DynamicCommand type="{ GetTodoListCommand }" />
-		<DynamicCommand type="{ SaveTodoItemCommand }" />
-		
-		<!-- Integration Layer -->
-		<s:RemoteObject id="todoService" destination="todoService" endpoint="{RPC_ENDPOINT}" />
-		
-		<!-- Domain Layer -->
-		<Object type="{ UserModel }" />
-		<Object type="{ TodoModel }" />
-	
-		<!-- Presentation Layer -->
+<fx:Object 
+    xmlns="http://www.spicefactory.org/parsley"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx">
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.GetTodoListCommand;
+            import com.adobe.txi.todo.application.SaveTodoItemCommand;
+            import com.adobe.txi.todo.application.TodoItemController;
+            import com.adobe.txi.todo.application.TodoListController;
+            import com.adobe.txi.todo.application.authentication.LoginController;
+            import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+            import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
+            import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
+            import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
+            import com.adobe.txi.todo.domain.TodoModel;
+            import com.adobe.txi.todo.domain.UserModel;
 
-		
-	</fx:Declarations>
-	
+            //Android Emulator Host loopback interface IP
+            public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
+
+            //Development machine loopback
+            //public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+
+
+
+        <!-- Application Layer -->
+        <Object type="{ LoginController }"/>
+        <Object type="{ TodoListController }"/>
+        <Object type="{ TodoItemController }"/>
+
+        <DynamicCommand type="{ MockLoginCommand }"/>
+        <DynamicCommand type="{ MockLogoutCommand }"/>
+        <DynamicCommand type="{ GetTodoListCommand }"/>
+        <DynamicCommand type="{ SaveTodoItemCommand }"/>
+
+        <!-- Integration Layer -->
+        <s:RemoteObject id="todoService"
+            destination="todoService"
+            endpoint="{RPC_ENDPOINT}"/>
+
+        <!-- Domain Layer -->
+        <Object type="{ UserModel }"/>
+        <Object type="{ TodoModel }"/>
+
+        <!-- Presentation Layer -->
+
+
+    </fx:Declarations>
+
 </fx:Object>

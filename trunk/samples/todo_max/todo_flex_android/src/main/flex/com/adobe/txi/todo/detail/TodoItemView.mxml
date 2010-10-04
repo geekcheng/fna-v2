@@ -1,75 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="Todo Item Details" 
-		xmlns:parsley="http://www.spicefactory.org/parsley" 
-		xmlns:components="com.adobe.txi.todo.components.*"
-		currentState="{ todoItemController.saveInProgress ? 'loading' : 'normal' }">
-	
-	<fx:Declarations>
-		<parsley:Configure />
-	</fx:Declarations>
-	
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.SaveTodoItemMessage;
-			import com.adobe.txi.todo.application.TodoItemController;
-			import com.adobe.txi.todo.list.TodoListView;
-			
-			[Inject]
-			[Bindable]
-			public var todoItemController:TodoItemController;
-			
-			public function cancel():void
-			{
-				todoItemController.cancel();
-				
-				navigator.popView();
-			}
-			
-			[CommandComplete]
-			public function saveCompleteHandler(message:SaveTodoItemMessage):void
-			{
-				navigator.popView();
-			}
-		]]>
-	</fx:Script>
-	
-	<s:states>
-		<s:State name="normal"/>
-		<s:State name="loading"/>
-	</s:states>
-	
-	<s:VGroup paddingBottom="15" paddingLeft="15" paddingRight="15" paddingTop="15" gap="30">
-		<s:VGroup left="0" right="0" top="0" bottom="0" gap="10" includeInLayout="{ !todoItemController.isNewItem }" visible="{ !todoItemController.isNewItem }">
-			<s:Label text="ID" color="#000000" />
-			<s:TextInput text="{todoItemController.currentTodoItem.id}" color="#FFFFFF" width="100%" enabled="false" /> 
-		</s:VGroup>
-		<s:VGroup left="0" right="0" top="0" bottom="0" gap="10">
-			<s:Label text="Title" color="#000000"/>
-			<s:TextArea text="@{todoItemController.currentTodoItem.title}" height="200" width="100%"/> 
-		</s:VGroup>
-	</s:VGroup>
-	
-	<s:SkinnableContainer 
-		width="100%"
-		top="0" bottom="50"
-		backgroundAlpha=".4"
-		backgroundColor="#000000"
-		includeIn="loading">
-		<components:LoadingFeedback
-			horizontalCenter="0"
-			verticalCenter="0"
-			message="Saving Todo Item..."/>
-	</s:SkinnableContainer>
-	
-	<s:ActionBar left="0" right="0" bottom="0" height="80">
-		<s:navigationContent>
-			<s:Button label="Save" click="todoItemController.save();" enabled="{!todoItemController.saveInProgress}" />
-		</s:navigationContent>
-		<s:actionContent>
-			<s:Button label="Cancel" click="cancel()" enabled="{!todoItemController.saveInProgress}"/>
-		</s:actionContent>
-	</s:ActionBar>
-	
+<s:View 
+    currentState="{ todoItemController.saveInProgress ? 'loading' : 'normal' }"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    title="Todo Item Details"
+    xmlns:parsley="http://www.spicefactory.org/parsley"
+    xmlns:components="com.adobe.txi.todo.components.*">
+
+    <fx:Declarations>
+        <parsley:Configure/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.SaveTodoItemMessage;
+            import com.adobe.txi.todo.application.TodoItemController;
+            import com.adobe.txi.todo.list.TodoListView;
+
+            [Inject]
+            [Bindable]
+            public var todoItemController:TodoItemController;
+
+            public function cancel():void
+            {
+                todoItemController.cancel();
+
+                navigator.popView();
+            }
+
+            [CommandComplete]
+            public function saveCompleteHandler(message:SaveTodoItemMessage):void
+            {
+                navigator.popView();
+            }
+        ]]>
+    </fx:Script>
+
+    <s:states>
+        <s:State name="normal"/>
+        <s:State name="loading"/>
+    </s:states>
+
+    <s:VGroup 
+        paddingBottom="15"
+        paddingLeft="15"
+        paddingRight="15"
+        paddingTop="15"
+        gap="30">
+        <s:VGroup 
+            left="0" right="0" top="0" bottom="0"
+            includeInLayout="{ !todoItemController.isNewItem }"
+            gap="10"
+            visible="{ !todoItemController.isNewItem }">
+            <s:Label 
+                color="#000000"
+                text="ID"/>
+            <s:TextInput 
+                width="100%"
+                color="#FFFFFF"
+                text="{todoItemController.currentTodoItem.id}" enabled="false"/>
+        </s:VGroup>
+        <s:VGroup 
+            left="0" right="0" top="0" bottom="0"
+            gap="10">
+            <s:Label 
+                color="#000000"
+                text="Title"/>
+            <s:TextArea 
+                width="100%" height="200"
+                text="@{todoItemController.currentTodoItem.title}"/>
+        </s:VGroup>
+    </s:VGroup>
+
+    <s:SkinnableContainer 
+        width="100%"
+        top="0" bottom="50"
+        backgroundAlpha=".4"
+        backgroundColor="#000000"
+        includeIn="loading">
+        <components:LoadingFeedback 
+            horizontalCenter="0"
+            verticalCenter="0"
+            message="Saving Todo Item..."/>
+    </s:SkinnableContainer>
+
+    <s:ActionBar 
+        height="80"
+        left="0" right="0" bottom="0">
+        <s:navigationContent>
+            <s:Button 
+                label="Save" enabled="{!todoItemController.saveInProgress}"
+                click="todoItemController.save();"/>
+        </s:navigationContent>
+        <s:actionContent>
+            <s:Button 
+                label="Cancel" enabled="{!todoItemController.saveInProgress}"
+                click="cancel()"/>
+        </s:actionContent>
+    </s:ActionBar>
+
 </s:View>

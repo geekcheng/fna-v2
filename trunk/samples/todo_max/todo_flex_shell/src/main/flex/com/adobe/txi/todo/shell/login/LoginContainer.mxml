@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" xmlns:spicefactory="http://www.spicefactory.org/parsley">
-	
-	<s:layout>
-		<s:BasicLayout />
-	</s:layout>
-	
-	<fx:Declarations>
-		<spicefactory:Configure />
-	</fx:Declarations>
-	
-	<fx:Script>
-		<![CDATA[
-			[Inject]
-			[Bindable]
-			public var pm:LoginContainerPM;
-		]]>
-	</fx:Script>
-	
-	<s:SkinnableContainer width="340" height="200" horizontalCenter="0" verticalCenter="0">
-		<s:Form>
-			<s:layout>
-				<s:FormLayout gap="-10" />
-			</s:layout>
-			<s:FormItem label="Username" width="100%">
-				<s:TextInput text="@{ pm.username }" width="100%" />
-			</s:FormItem>
-			
-			<s:FormItem label="Password" width="100%">
-				<s:TextInput text="@{ pm.password }" width="200" />
-			</s:FormItem>
-			
-			<s:FormItem width="100%">
-				<s:Button label="Login" click="pm.login()" enabled="{!pm.loginController.loginInProgress}" />
-			</s:FormItem>
-		</s:Form>
-	</s:SkinnableContainer>
-	
+<s:Group 
+    width="100%" height="100%"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    xmlns:spicefactory="http://www.spicefactory.org/parsley">
+
+    <s:layout>
+        <s:BasicLayout/>
+    </s:layout>
+
+    <fx:Declarations>
+        <spicefactory:Configure/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+            [Inject]
+            [Bindable]
+            public var pm:LoginContainerPM;
+        ]]>
+    </fx:Script>
+
+    <s:SkinnableContainer 
+        width="340" height="200"
+        horizontalCenter="0"
+        verticalCenter="0">
+        <s:Form>
+            <s:layout>
+                <s:FormLayout gap="-10"/>
+            </s:layout>
+            <s:FormItem 
+                width="100%"
+                label="Username">
+                <s:TextInput 
+                    width="100%"
+                    text="@{ pm.username }"/>
+            </s:FormItem>
+
+            <s:FormItem 
+                width="100%"
+                label="Password">
+                <s:TextInput 
+                    width="200"
+                    text="@{ pm.password }"/>
+            </s:FormItem>
+
+            <s:FormItem width="100%">
+                <s:Button 
+                    label="Login"
+                    enabled="{!pm.loginController.loginInProgress}"
+                    click="pm.login()"/>
+            </s:FormItem>
+        </s:Form>
+    </s:SkinnableContainer>
+
 </s:Group>

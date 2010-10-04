@@ -4,7 +4,6 @@
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginCommand"/>
     <classEntry path="com.adobe.txi.todo.domain.UserModel"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginMessage"/>
-    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrap"/>
     <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrapTaskGroup"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginController"/>
@@ -12,7 +11,6 @@
     <classEntry path="com.adobe.txi.todo.application.authentication.LogoutCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand"/>
     <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigContainerSkin"/>
-    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigContainer"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
