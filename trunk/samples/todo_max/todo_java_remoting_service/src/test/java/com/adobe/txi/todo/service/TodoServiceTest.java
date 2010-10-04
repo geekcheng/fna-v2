@@ -9,7 +9,8 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 
 import com.adobe.txi.todo.dto.TodoItemDto;
 
-@ContextConfiguration(locations = { "classpath:/applicationContext-orm.xml", "classpath:/applicationContext-fds.xml" })
+@ContextConfiguration(locations = { "classpath:/applicationContext-persistence.xml",
+        "classpath:/applicationContext-remoting.xml" })
 public class TodoServiceTest extends AbstractTransactionalJUnit4SpringContextTests
 {
     @Autowired

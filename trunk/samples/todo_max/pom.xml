@@ -19,12 +19,12 @@
 			<url>file:///somewhere</url>
 		</site>
 		<repository>
-            <id>fna_V2</id>
-            <url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna-V2</url>
+            <id>releases</id>
+            <url>http://localhost:9999/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
-            <id>fna_V2_snapshots</id>
-            <url>http://txici.can.adobe.com:9999/nexus/content/repositories/fna-V2_snapshot</url>
+            <id>snapshots</id>
+            <url>http://localhost:9999/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
 	</distributionManagement>
 
@@ -85,8 +85,8 @@
 		<module>todo_java_persistence</module>
 		<module>todo_java_remoting_service</module>
 		<module>todo_flex_remoting_dto</module>
+		<module>todo_flex_app_kiss</module>
 		<module>todo_webapp_flex_kiss_blz</module>
-		<module>todo_flex_remoting_cairngorm2_crud</module>
 	</modules>
 
 	<dependencyManagement>
@@ -412,11 +412,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -429,7 +424,7 @@
 			</activation>
 			<properties>
 				<maven.test.failure.ignore>true</maven.test.failure.ignore>
-				<maven.test.skip>true</maven.test.skip>
+				<maven.test.skip>false</maven.test.skip>
 				<flex-debug>true</flex-debug>
 				<flex-optimize>true</flex-optimize>
 				<flex-verbose-stacktraces>true</flex-verbose-stacktraces>
@@ -500,7 +495,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.2</version>
+				<version>2.3</version>
 				<configuration>
 					<formats>
 						<format>html</format>
@@ -536,10 +531,11 @@
 
 
 	<repositories>
+		
+		
 		<repository>
-			<id>fna-repository</id>
-			<name>fna-repository</name>
-			<url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
+			<id>flex-mojos</id>
+			<url>http://repository.sonatype.org/content/repositories/flexmojos-releases/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -548,15 +544,17 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>flex-mojos-repository</id>
-			<url>http://svn.sonatype.org/flexmojos/repository</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
+            <id>jboss</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+		
+		<!--  
 		<repository>
 			<id>aixcept</id>
 			<url>http://maven.aixcept.net/repository</url>
@@ -565,34 +563,20 @@
 			<id>c5-public-repository</id>
 			<url>http://mvn.carbonfive.com/public</url>
 		</repository>
-		<repository>
-			<id>jboss-maven2-release-repository</id>
-			<url>http://repository.jboss.org/maven2</url>
-		</repository>
+		-->
+		
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>flex-mojos-repository</id>
-			<name>flex-mojos-repository</name>
-			<url>http://svn.sonatype.org/flexmojos/repository</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>fna-repository</id>
-			<name>fna-repository</name>
-			<url>http://fna.googlecode.com/svn/trunk/fna/fna_m2_repository</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
+			<id>flex-mojos</id>
+            <url>http://repository.sonatype.org/content/repositories/flexmojos-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 
