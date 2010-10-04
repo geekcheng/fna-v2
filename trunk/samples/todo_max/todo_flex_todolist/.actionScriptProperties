@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="todo_flex_todolist.mxml" projectUUID="1f12486d-2060-440e-9091-47c1e0a2f829" version="7">
+<actionScriptProperties analytics="false" mainApplicationPath="TodoListModuleRig.mxml" projectUUID="1f12486d-2060-440e-9091-47c1e0a2f829" version="7">
   <compiler additionalCompilerArguments="-services &quot;${TODO_BLZ_KISS}/WEB-INF/flex/services-config.xml&quot; -locale en_US -keep-as3-metadata+=SyncId" autoRSLOrdering="true" copyDependentFiles="true" flexSDK="Flex Hero" fteInMXComponents="false" generateAccessible="true" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderLocation="${TODO_BLZ_KISS}/bin" outputFolderPath="bin-debug" sourceFolderPath="src/main/flex" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="src/main/resources"/>
@@ -51,6 +51,9 @@
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
       <libraryPathEntry kind="3" linkType="1" path="/todo_flex_todolist_lib/bin/todo_flex_todolist_lib.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="/todo_flex_core/bin/todo_flex_core.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/org/spicefactory/parsley-flex4/2.3.1/parsley-flex4-2.3.1.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/org/spicefactory/spicelib-flex/2.3.1/spicelib-flex-2.3.1.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/module/0.13-SNAPSHOT/module-0.13-SNAPSHOT.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -58,7 +61,7 @@
     <application path="TodoListModuleRig.mxml"/>
   </applications>
   <modules>
-    <module application="src/main/flex/TodoListModuleRig.mxml" destPath="TodoListModule.swf" optimize="true" sourcePath="src/main/flex/TodoListModule.mxml"/>
+    <module application="src/main/flex/TodoListModuleRig.mxml" destPath="TodoListModule.swf" optimize="false" sourcePath="src/main/flex/TodoListModule.mxml"/>
   </modules>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
