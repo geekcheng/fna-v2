@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		   xmlns="http://www.spicefactory.org/parsley"
-		   xmlns:s="library://ns.adobe.com/flex/spark" 
-		   xmlns:mx="library://ns.adobe.com/flex/mx" 
-		   xmlns:cairngorm="http://ns.adobe.com/cairngorm"
-		   xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*" 
-		   xmlns:rig="com.adobe.txi.todo.application.rig.*">
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
-			import com.adobe.txi.todo.domain.UserModel;
-			
-			import org.spicefactory.lib.reflect.ClassInfo;
-		]]>
-	</fx:Script>
-	
-	<fx:Declarations>
-		
-		<!-- Module Rig Bootstrap -->
-		
-		<modulerig:ModuleRigBootstrap objectId="todoListBootstrap">
-			<rig:ModuleRigLoginTask username="test" password="test" />
-		</modulerig:ModuleRigBootstrap>
-		
-		<!-- Module Definition -->
-		<cairngorm:ParsleyModuleDescriptor objectId="todoListModule"
-										url="TodoListModule.swf" 
-										applicationDomain="{ ClassInfo.currentDomain }"/>
-		
-		
-		<!-- Application Layer -->
-		<DynamicCommand type="{ MockLoginCommand }" />
-		
-		<!-- Integration Layer -->
-		<s:RemoteObject id="loginService" />
-		
-		<!-- Domain -->
-		<Object type="{ UserModel }" />
-		
-	</fx:Declarations>
-	
+<fx:Object 
+    xmlns="http://www.spicefactory.org/parsley"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    xmlns:cairngorm="http://ns.adobe.com/cairngorm"
+    xmlns:modulerig="com.adobe.txi.todo.infrastructure.modulerig.*"
+    xmlns:rig="com.adobe.txi.todo.application.rig.*">
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.authentication.LoginCommand;
+            import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+            import com.adobe.txi.todo.domain.UserModel;
+
+            import org.spicefactory.lib.reflect.ClassInfo;
+        ]]>
+    </fx:Script>
+
+    <fx:Declarations>
+
+        <!-- Module Rig Bootstrap -->
+
+        <cairngorm:ModuleRigBootstrap objectId="todoListBootstrap">
+            <rig:ModuleRigLoginTask username="test"
+                password="test"/>
+        </cairngorm:ModuleRigBootstrap>
+
+        <!-- Module Definition -->
+        <cairngorm:ParsleyModuleDescriptor objectId="todoListModule"
+            url="TodoListModule.swf"
+            applicationDomain="{ ClassInfo.currentDomain }"/>
+
+
+        <!-- Application Layer -->
+        <DynamicCommand type="{ LoginCommand }"/>
+
+        <!-- Integration Layer -->
+        <s:RemoteObject id="loginService"/>
+
+        <!-- Domain -->
+        <Object type="{ UserModel }"/>
+
+    </fx:Declarations>
+
 </fx:Object>

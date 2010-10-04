@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Login" xmlns:spicefactory="http://www.spicefactory.org/parsley" xmlns:components="com.adobe.txi.todo.components.*">
-	
-	<fx:Declarations>
-		<spicefactory:Configure/>
-	</fx:Declarations>
-	
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.authentication.LoginController;
-			
-			[Inject]
-			[Bindable]
-			public var loginController:LoginController;
-		]]>
-	</fx:Script>
-	
-	<s:layout>
-		<s:VerticalLayout paddingLeft="30" paddingTop="30" paddingRight="30" paddingBottom="30" gap="10" />
-	</s:layout>
-	
-	<s:states>
-		<s:State name="normal"/>
-		<s:State name="loading"/>
-	</s:states>
-	
-	<components:AdvancedTextInput id="username"
-								  width="100%"
-								  promptText="User ID" />
-	<components:AdvancedTextInput id="password"
-								  width="100%"
-								  displayAsPassword="true"
-								  promptText="Password" />
-	
-	
-	
-	<s:HGroup horizontalAlign="center" width="100%">
-		<s:Button 
-			cornerRadius="20"
-			label="Login"
-			click="loginController.login(username.text,password.text)"
-			excludeFrom="loading"/>
-		
-		<components:LoadingFeedback 
-			message="Signing in..."
-			includeIn="loading"/>
-	</s:HGroup>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    title="Login"
+    xmlns:spicefactory="http://www.spicefactory.org/parsley"
+    xmlns:components="com.adobe.txi.todo.components.*">
+
+    <fx:Declarations>
+        <spicefactory:Configure/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.authentication.LoginController;
+
+            [Inject]
+            [Bindable]
+            public var loginController:LoginController;
+        ]]>
+    </fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout 
+            paddingBottom="30"
+            paddingLeft="30"
+            paddingRight="30"
+            paddingTop="30"
+            gap="10"/>
+    </s:layout>
+
+    <s:states>
+        <s:State name="normal"/>
+        <s:State name="loading"/>
+    </s:states>
+
+    <components:AdvancedTextInput id="username"
+        width="100%"
+        promptText="User ID"/>
+    <components:AdvancedTextInput id="password"
+        width="100%"
+        displayAsPassword="true"
+        promptText="Password"/>
+
+
+
+    <s:HGroup 
+        width="100%"
+        horizontalAlign="center">
+        <s:Button 
+            cornerRadius="20"
+            label="Login"
+            click="loginController.login(username.text,password.text)"
+            excludeFrom="loading"/>
+
+        <components:LoadingFeedback message="Signing in..."
+            includeIn="loading"/>
+    </s:HGroup>
 </s:View>

@@ -1,52 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		 xmlns:s="library://ns.adobe.com/flex/spark" 
-		 xmlns:mx="library://ns.adobe.com/flex/mx" 
-		 width="100%" height="100%" xmlns:parsley="http://www.spicefactory.org/parsley"
-		 visible="{ todoItemController.currentTodoItem ? true : false }"
-		 currentState="{ todoItemController.isNewItem ? 'new' : 'update' }">
-	
-	<s:layout>
-		<!--<s:FormLayout />-->
-		<s:VerticalLayout />
-	</s:layout>
-	
-	<fx:Declarations>
-		<parsley:Configure />
-	</fx:Declarations>
-	
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.txi.todo.application.TodoItemController;
-			
-			[Inject]
-			[Bindable]
-			public var todoItemController:TodoItemController;
-		]]>
-	</fx:Script>
-	
-	<s:states>
-		<s:State name="new"/>
-		<s:State name="update" />
-	</s:states>
-	
-	<s:Label text="Update Todo Item" fontSize="20" includeIn="update" />
-	
-	<s:Label text="Add new Todo Item" fontSize="20" includeIn="new" />
-		
-	<!--<s:FormItem label="ID" width="100%" includeIn="update">-->
-		<s:Label text="{ todoItemController.currentTodoItem.id }" width="30" />
-	<!--</s:FormItem>-->
-	
-	<!--<s:FormItem label="TODO" width="100%" >-->
-		<s:TextArea text="@{ todoItemController.currentTodoItem.title }" width="400" height="120"/>
-	<!--</s:FormItem>-->
-	
-	<!--<s:FormItem width="100%">-->
-		<s:HGroup visible="{!todoItemController.saveInProgress}">
-			<s:Button label="Save" click="todoItemController.save()" enabled="{ todoItemController.currentTodoItemChanged }"/>
-			<s:Button label="Cancel" click="todoItemController.cancel()" enabled="{ todoItemController.currentTodoItemChanged }" />
-		</s:HGroup>
-		<s:Label text="Save in progress. Please wait..." visible="{todoItemController.saveInProgress}"/>
-	<!--</s:FormItem>-->
+<s:Group 
+    width="100%" height="100%"
+    currentState="{ todoItemController.isNewItem ? 'new' : 'update' }"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+    xmlns:parsley="http://www.spicefactory.org/parsley"
+    visible="{ todoItemController.currentTodoItem ? true : false }">
+
+    <s:layout>
+        <s:FormLayout/>
+    </s:layout>
+
+    <fx:Declarations>
+        <parsley:Configure/>
+    </fx:Declarations>
+
+    <fx:Script>
+        <![CDATA[
+            import com.adobe.txi.todo.application.TodoItemController;
+
+            [Inject]
+            [Bindable]
+            public var todoItemController:TodoItemController;
+        ]]>
+    </fx:Script>
+
+    <s:states>
+        <s:State name="new"/>
+        <s:State name="update"/>
+    </s:states>
+
+    <s:Label 
+        fontSize="20"
+        text="Update Todo Item"
+        includeIn="update"/>
+
+    <s:Label 
+        fontSize="20"
+        text="Add new Todo Item"
+        includeIn="new"/>
+
+    <s:FormItem 
+        width="100%"
+        label="ID"
+        includeIn="update">
+        <s:Label 
+            width="30"
+            text="{ todoItemController.currentTodoItem.id }"/>
+    </s:FormItem>
+
+    <s:FormItem 
+        width="100%"
+        label="TODO">
+        <s:TextArea 
+            width="400" height="120"
+            text="@{ todoItemController.currentTodoItem.title }"/>
+    </s:FormItem>
+
+    <s:FormItem width="100%">
+        <s:HGroup visible="{!todoItemController.saveInProgress}">
+            <s:Button 
+                label="Save"
+                enabled="{ todoItemController.currentTodoItemChanged }"
+                click="todoItemController.save()"/>
+            <s:Button 
+                label="Cancel"
+                enabled="{ todoItemController.currentTodoItemChanged }"
+                click="todoItemController.cancel()"/>
+        </s:HGroup>
+        <s:Label 
+            text="Save in progress. Please wait..."
+            visible="{todoItemController.saveInProgress}"/>
+    </s:FormItem>
 </s:Group>

@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
-        xmlns:s="library://ns.adobe.com/flex/spark" 
-        xmlns:mx="library://ns.adobe.com/flex/mx">
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark"
+    xmlns:mx="library://ns.adobe.com/flex/mx">
 
     <fx:Declarations>
         <!-- Place non-visual elements (e.g., services, value objects) here -->
     </fx:Declarations>
-    
+
     <fx:Metadata>
         [HostComponent("com.adobe.txi.todo.components.LoadingFeedback")]
     </fx:Metadata>
-    
+
     <s:states>
         <s:State name="disabled"/>
         <s:State name="normal"/>
     </s:states>
-    
+
     <s:layout>
-        <s:HorizontalLayout gap="0" verticalAlign="middle" />
+        <s:HorizontalLayout 
+            verticalAlign="middle"
+            gap="0"/>
     </s:layout>
-    
+
     <s:Label text="{ hostComponent.message }">
         <s:filters>
-            <s:DropShadowFilter angle="90" color="#000000" distance="2" alpha="0.25" quality="1" inner="true"/>
-            <s:DropShadowFilter angle="90" color="#ffffff" distance="1" alpha="0.3" quality="0"/>
+            <s:DropShadowFilter 
+                color="#000000"
+                angle="90"
+                distance="2"
+                alpha="0.25"
+                quality="1"
+                inner="true"/>
+            <s:DropShadowFilter 
+                color="#ffffff"
+                angle="90"
+                distance="1"
+                alpha="0.3"
+                quality="0"/>
         </s:filters>
     </s:Label>
-    
-	<mx:SWFLoader width="30" height="30"
-				  visible="{ hostComponent.showSpinning }"
-				  source="@Embed( source='/assets/icons/spinning.swf' , symbol = 'LoadingDataAnim' )"/>
-	
-        
-    
+
+    <mx:SWFLoader 
+        width="30" height="30"
+        source="@Embed( source='/assets/icons/spinning.swf' , symbol = 'LoadingDataAnim' )"
+        visible="{ hostComponent.showSpinning }"/>
+
+
+
 </s:Skin>
