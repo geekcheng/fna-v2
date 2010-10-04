@@ -1,7 +1,7 @@
 package com.adobe.txi.todo.components
 {
     import flash.events.FocusEvent;
-
+    
     import spark.components.TextInput;
 
     public class AdvancedTextInput extends TextInput
@@ -82,14 +82,18 @@ package com.adobe.txi.todo.components
 
         override protected function getCurrentSkinState():String
         {
+			var skinState:String;
+			
             if (focused)
             {
-                return "focused";
+                skinState = "focused";
             }
             else
             {
-                return super.getCurrentSkinState();
+                skinState = super.getCurrentSkinState();
             }
+			
+			return skinState;
         }
 
         //----------------------------------------------------------------------
