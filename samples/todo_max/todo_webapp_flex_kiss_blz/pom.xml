@@ -23,7 +23,7 @@
     
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>todo_flex_remoting_cairngorm2_crud</artifactId>
+            <artifactId>todo_flex_app_kiss</artifactId>
             <version>${project.version}</version>
             <type>swf</type>
         </dependency>
@@ -194,7 +194,7 @@
                                         <artifactItem>
                                             <outputDirectory>${project.build.directory}/${project.build.finalName}/bin</outputDirectory>
                                             <groupId>${project.groupId}</groupId>
-                                            <artifactId>todo_flex_remoting_cairngorm2_crud</artifactId>
+                                            <artifactId>todo_flex_app_kiss</artifactId>
                                             <version>${project.version}</version>
                                             <type>swf</type>
                                             <destFileName>Main.swf</destFileName>
