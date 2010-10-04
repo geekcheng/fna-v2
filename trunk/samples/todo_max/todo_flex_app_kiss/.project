@@ -16,10 +16,10 @@
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
 	<linkedResources>
-        <link>
-            <name>bin-debug</name>
-            <type>2</type>
-            <locationURI>TODO_BLZ_KISS/bin</locationURI>
-        </link>
-    </linkedResources>
+		<link>
+			<name>bin-debug</name>
+			<type>2</type>
+			<locationURI>TODO_BLZ_KISS/bin</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
