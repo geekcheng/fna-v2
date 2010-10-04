@@ -9,10 +9,9 @@
     xmlns:rig="com.adobe.txi.todo.application.rig.*">
     <fx:Script>
         <![CDATA[
-            import com.adobe.txi.todo.application.authentication.LoginCommand;
             import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
             import com.adobe.txi.todo.domain.UserModel;
-
+            
             import org.spicefactory.lib.reflect.ClassInfo;
         ]]>
     </fx:Script>
@@ -33,7 +32,7 @@
 
 
         <!-- Application Layer -->
-        <DynamicCommand type="{ LoginCommand }"/>
+        <DynamicCommand type="{ MockLoginCommand }"/>
 
         <!-- Integration Layer -->
         <s:RemoteObject id="loginService"/>
