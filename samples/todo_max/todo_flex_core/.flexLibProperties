@@ -2,15 +2,13 @@
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginCommand"/>
-    <classEntry path="com.adobe.txi.todo.domain.UserModel"/>
-    <classEntry path="com.adobe.txi.todo.application.authentication.LoginMessage"/>
-    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigBootstrapTaskGroup"/>
-    <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LoginController"/>
-    <classEntry path="com.adobe.txi.todo.application.authentication.LogoutMessage"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LoginMessage"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.LogoutCommand"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LogoutMessage"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand"/>
-    <classEntry path="com.adobe.txi.todo.infrastructure.modulerig.ModuleRigContainerSkin"/>
+    <classEntry path="com.adobe.txi.todo.domain.UserModel"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

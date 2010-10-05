@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <actionScriptProperties analytics="false" mainApplicationPath="todo_flex_todolist_lib.as" projectUUID="798c3e67-aeb6-45c8-9a3b-eb0c326552b0" version="7">
-  <compiler additionalCompilerArguments="-locale en_US -keep-as3-metadata+=SyncId" autoRSLOrdering="true" copyDependentFiles="false" flexSDK="Flex Hero" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin" sourceFolderPath="src/main/flex" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
-    <compilerSourcePath/>
+  <compiler additionalCompilerArguments="-load-config+=additional_compiler_arguments.xml" autoRSLOrdering="true" copyDependentFiles="false" flexSDK="Flex Hero" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin" sourceFolderPath="src/main/flex" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
+    <compilerSourcePath>
+      <compilerSourcePathEntry kind="1" linkType="1" path="src/main/resources"/>
+    </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
         <modifiedEntries>
