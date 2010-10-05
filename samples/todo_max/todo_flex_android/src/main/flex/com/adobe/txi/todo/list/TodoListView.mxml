@@ -23,7 +23,7 @@
 
             [Inject]
             [Bindable]
-            public var loginController:LoginController;
+            public var loginController:LoginController; //NOPMD
 
 
             protected function goToDetailView():void
