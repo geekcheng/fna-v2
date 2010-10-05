@@ -29,7 +29,7 @@
             }
 
             [CommandComplete]
-            public function saveCompleteHandler(message:SaveTodoItemMessage):void
+            public function saveCompleteHandler(message:SaveTodoItemMessage):void //NOPMD
             {
                 navigator.popView();
             }

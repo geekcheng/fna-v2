@@ -28,14 +28,14 @@
 
     <fx:Script>
         <![CDATA[
-            static private const exclusions:Array = [ "background", "textView" ];
+            static private const exclusions:Array = [ "background", "textView" ]; //NOPMD
 
             override public function get colorizeExclusions():Array
             {
                 return exclusions;
             }
 
-            static private const contentFill:Array = [ "bgFill" ];
+            static private const contentFill:Array = [ "bgFill" ]; //NOPMD
 
             override public function get contentItems():Array
             {
