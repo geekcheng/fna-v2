@@ -63,7 +63,7 @@
     <header:ApplicationHeader 
         height="90"
         left="0" right="0" top="0"
-        skinClass="com.adobe.txi.todo.shell.ApplicationHeaderSkin"/>
+        skinClass="com.adobe.txi.todo.shell.skins.ApplicationHeaderSkin"/>
 
     <login:LoginContainer 
         left="0" right="0" top="90" bottom="0"
