@@ -83,6 +83,7 @@ package com.adobe.txi.todo.application
 			{
 				_todos.removeItemAt(_todos.getItemIndex(_currentTodoItem))
 				currentTodoItemChanged=false;
+				_currentTodoItem=null;
 				todoModel.currentTodoItem=null;
 			}
 			else

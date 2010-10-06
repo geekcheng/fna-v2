@@ -16,6 +16,10 @@
     <classEntry path="com.adobe.txi.todo.domain.TodoModel"/>
     <classEntry path="com.adobe.txi.todo.infrastructure.ItemChangeDetector"/>
     <classEntry path="com.adobe.txi.todo.infrastructure.ItemChangeDetectorEvent"/>
+    <classEntry path="com.adobe.txi.todo.application.TodoListControllerTest"/>
+    <classEntry path="com.adobe.txi.todo.application.TodoItemControllerTest"/>
+    <classEntry path="com.adobe.txi.todo.infrastructure.ItemChangeDetectorTest"/>
+    <classEntry path="com.adobe.txi.todo.domain.TodoModelTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

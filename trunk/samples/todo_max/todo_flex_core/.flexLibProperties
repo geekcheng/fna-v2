@@ -9,6 +9,7 @@
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLoginCommand"/>
     <classEntry path="com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand"/>
     <classEntry path="com.adobe.txi.todo.domain.UserModel"/>
+    <classEntry path="com.adobe.txi.todo.application.authentication.LoginControllerTest"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
