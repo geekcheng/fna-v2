@@ -6,6 +6,10 @@ package com.adobe.txi.todo.domain
     [RemoteClass(alias="com.adobe.txi.todo.dto.TodoItemDto")]
     public class TodoItem extends TodoItemDto
     {
-
+		[SyncId]
+		override public function get id():int
+		{
+			return super.id;
+		}
     }
 }

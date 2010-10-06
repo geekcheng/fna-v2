@@ -2,15 +2,14 @@ package com.adobe.txi.todo.application
 {
     import com.adobe.txi.todo.domain.TodoItem;
     import com.adobe.txi.todo.domain.TodoModel;
-
+    import com.adobe.txi.todo.infrastructure.ChangeDetector;
+    import com.adobe.txi.todo.infrastructure.ChangeDetectorEvent;
+    
     import mx.collections.ArrayCollection;
-    import mx.controls.Alert;
-    import mx.events.CollectionEvent;
     import mx.utils.ObjectUtil;
 
     public class TodoItemController
     {
-
         [MessageDispatcher]
         public var dispatcher:Function;
 
@@ -29,9 +28,16 @@ package com.adobe.txi.todo.application
         private var _currentTodoItem:TodoItem;
 
         private var _todos:ArrayCollection;
+		
+		private var changeDetector:ChangeDetector=new ChangeDetector();
 
         [Inject]
         public var todoModel:TodoModel;
+		
+		public function TodoItemController()
+		{
+			changeDetector.addEventListener(ChangeDetectorEvent.ITEM_CHANGE,currentTodoItemChangeHandler);
+		}
 
         [Subscribe(objectId="currentTodoItem")]
         public function set currentTodoItem(value:TodoItem):void
@@ -59,18 +65,12 @@ package com.adobe.txi.todo.application
         [Subscribe(objectId="todos")]
         public function set todos(value:ArrayCollection):void
         {
-            if (value && value != _todos)
-            {
-                if (_todos)
-                {
-                    _todos.removeEventListener(CollectionEvent.COLLECTION_CHANGE,
-                                               currentTodoItemChangeHandler);
-                }
-
-                _todos = value;
-                _todos.addEventListener(CollectionEvent.COLLECTION_CHANGE, currentTodoItemChangeHandler,
-                                        false, 0, true);
-            }
+			if (value && value != _todos)
+			{
+				currentTodoItemChanged = false;
+			}
+			
+			changeDetector.collection(value);
         }
 
         public function cancel():void
@@ -99,7 +99,7 @@ package com.adobe.txi.todo.application
             invalidateCurrentTodoItemStates();
         }
 
-        private function currentTodoItemChangeHandler(event:CollectionEvent):void
+        private function currentTodoItemChangeHandler(event:ChangeDetectorEvent):void
         {
             currentTodoItemChanged = true;
         }

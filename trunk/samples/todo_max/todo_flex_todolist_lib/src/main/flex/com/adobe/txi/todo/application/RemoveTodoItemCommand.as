@@ -1,7 +1,8 @@
 package com.adobe.txi.todo.application
 {
+    import com.adobe.cairngorm.integration.data.IDataCache;
     import com.adobe.txi.todo.domain.TodoModel;
-
+    
     import mx.rpc.AsyncToken;
     import mx.rpc.remoting.RemoteObject;
 
@@ -14,8 +15,8 @@ package com.adobe.txi.todo.application
         [Inject]
         public var todoModel:TodoModel;
 
-        /*[Inject]
-         public var cache:IDataCache;*/
+        [Inject]
+        public var cache:IDataCache;
 
         public function execute(message:RemoveTodoItemMessage):AsyncToken
         {
@@ -25,7 +26,7 @@ package com.adobe.txi.todo.application
         public function result(result:*, message:RemoveTodoItemMessage):void
         {
             todoModel.deleteItem(message.todoItem);
-            //cache.clearItem(message.todoItem);
+            cache.clearItem(message.todoItem);
         }
     }
 }
