@@ -3,7 +3,7 @@
     xmlns="http://www.spicefactory.org/parsley"
     xmlns:fx="http://ns.adobe.com/mxml/2009"
     xmlns:s="library://ns.adobe.com/flex/spark"
-    xmlns:mx="library://ns.adobe.com/flex/mx">
+    xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:data="com.adobe.cairngorm.integration.data.*">
     <fx:Script>
         <![CDATA[
             import com.adobe.txi.todo.application.GetTodoListCommand;
@@ -49,7 +49,8 @@
         <Object type="{ UserModel }"/>
         <Object type="{ TodoModel }"/>
 
-        <!-- Presentation Layer -->
+		<!-- Infrastructure -->
+		<data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
 
 
     </fx:Declarations>

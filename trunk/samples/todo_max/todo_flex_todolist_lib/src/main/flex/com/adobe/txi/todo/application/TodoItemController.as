@@ -67,10 +67,11 @@ package com.adobe.txi.todo.application
         {
 			if (value && value != _todos)
 			{
+				_todos=value;
 				currentTodoItemChanged = false;
 			}
 			
-			changeDetector.collection(value);
+			changeDetector.collection = value;
         }
 
         public function cancel():void
@@ -78,7 +79,8 @@ package com.adobe.txi.todo.application
             if (isNewItem)
             {
                 _todos.removeItemAt(_todos.getItemIndex(_currentTodoItem))
-                todoModel.currentTodoItem = null;
+				currentTodoItemChanged = false;
+				todoModel.currentTodoItem = null;
             }
             else
             {
@@ -101,7 +103,11 @@ package com.adobe.txi.todo.application
 
         private function currentTodoItemChangeHandler(event:ChangeDetectorEvent):void
         {
-            currentTodoItemChanged = true;
+			//Make sure that the item modified is the currently edited item
+			if( event.items && event.items[0] == _currentTodoItem )
+			{
+	            currentTodoItemChanged = true;
+			}
         }
 
         private function invalidateCurrentTodoItemStates():void
