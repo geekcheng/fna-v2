@@ -9,12 +9,12 @@ package com.adobe.txi.todo.infrastructure.task
     {
 
 
-        private var _result:*;
+        private var _result:*; //NOPMD
 
         private var synchronous:Boolean;
 
 
-        function MockResultTask(result:*, synchronous:Boolean = false)
+        function MockResultTask(result:*, synchronous:Boolean = false) //NOPMD
         {
             _result = result;
             this.synchronous = synchronous;

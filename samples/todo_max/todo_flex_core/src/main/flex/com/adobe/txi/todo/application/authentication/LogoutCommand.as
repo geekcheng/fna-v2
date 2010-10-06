@@ -15,7 +15,7 @@ package com.adobe.txi.todo.application.authentication
         [Inject]
         public var userModel:UserModel;
 
-        public function execute(message:LogoutMessage):Task
+        public function execute(message:LogoutMessage):Task //NOPMD
         {
             return new LogoutChannelSetTask(service);
         }

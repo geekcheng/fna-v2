@@ -19,10 +19,10 @@
             import com.adobe.txi.todo.domain.UserModel;
 
             //Android Emulator Host loopback interface IP
-            public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
+            //public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
 
             //Development machine loopback
-            //public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
+            public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
         ]]>
     </fx:Script>
 

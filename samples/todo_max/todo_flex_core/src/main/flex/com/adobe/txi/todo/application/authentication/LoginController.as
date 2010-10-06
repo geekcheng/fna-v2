@@ -30,13 +30,13 @@ package com.adobe.txi.todo.application.authentication
         }
 
         [CommandComplete]
-        public function loginCompleteHandler(message:LoginMessage):void
+        public function loginCompleteHandler(message:LoginMessage):void //NOPMD
         {
             isLoggedIn = true;
         }
 
         [CommandComplete]
-        public function logoutCompleteHandler(message:LogoutMessage):void
+        public function logoutCompleteHandler(message:LogoutMessage):void //NOPMD
         {
             isLoggedIn = false;
 
