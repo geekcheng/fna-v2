@@ -42,9 +42,9 @@
         <!-- Domain -->
         <Object type="{ TodoModel }"/>
 
-        <!-- Infrastructure
-             <data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
-        -->
+        <!-- Infrastructure -->
+        <data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
+        
 
     </fx:Declarations>
 

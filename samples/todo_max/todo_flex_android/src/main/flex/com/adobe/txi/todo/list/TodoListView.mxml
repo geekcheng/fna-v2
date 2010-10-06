@@ -13,9 +13,10 @@
 
     <fx:Script>
         <![CDATA[
-            import com.adobe.txi.todo.application.TodoListController;
-            import com.adobe.txi.todo.application.authentication.LoginController;
-            import com.adobe.txi.todo.detail.TodoItemView;
+			import com.adobe.txi.todo.application.TodoListController;
+			import com.adobe.txi.todo.application.authentication.LoginController;
+			import com.adobe.txi.todo.detail.TodoItemView;
+			import com.adobe.txi.todo.domain.TodoItem;
 
             [Inject]
             [Bindable]
@@ -32,7 +33,7 @@
             }
         ]]>
     </fx:Script>
-
+	
     <s:states>
         <s:State name="normal"/>
         <s:State name="loading"/>
@@ -45,7 +46,7 @@
     </s:navigationContent>
 
     <s:List id="list"
-        left="0" right="0" top="0" bottom="50"
+        left="0" right="0" top="0" bottom="80"
         dataProvider="{todoListController.todos}" labelField="title"
         change="goToDetailView()"
         selectedItem="@{ todoListController.currentTodoItem }"
@@ -55,7 +56,7 @@
 
     <s:SkinnableContainer 
         width="100%"
-        top="0" bottom="50"
+        top="0" bottom="80"
         backgroundAlpha=".4"
         backgroundColor="#000000"
         includeIn="loading">
