@@ -21,7 +21,7 @@ package com.adobe.txi.todo.application
 
         public function execute(message:SaveTodoItemMessage):AsyncToken
         {
-            return service.save(new Object());
+            return service.save(message.todoItem);
         }
 
         public function result(todoItem:TodoItem, message:SaveTodoItemMessage):void

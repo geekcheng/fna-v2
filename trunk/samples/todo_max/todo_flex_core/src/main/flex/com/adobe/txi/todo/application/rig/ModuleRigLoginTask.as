@@ -24,13 +24,13 @@ package com.adobe.txi.todo.application.rig
         }
 
         [CommandComplete]
-        public function loginComplete(message:LoginMessage):void
+        public function loginComplete(message:LoginMessage):void //NOPMD
         {
             complete();
         }
 
         [CommandError]
-        public function loginError(result:*, message:LoginMessage):void
+        public function loginError(result:*, message:LoginMessage):void //NOPMD
         {
             error(StringUtil.substitute(ERROR_MSG, username, password));
         }

@@ -7,7 +7,7 @@ package com.adobe.txi.todo.infrastructure.task
     {
         private var timer:Timer;
 
-        public function MockASyncResultTask(result:*, duration:int = 100)
+        public function MockASyncResultTask(result:*, duration:int = 100) //NOPMD
         {
             timer = new Timer(duration, 1);
 

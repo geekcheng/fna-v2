@@ -12,15 +12,15 @@ package com.adobe.txi.todo.application.authentication.mock
         [Inject]
         public var userModel:UserModel;
 
-        public function execute(message:LoginMessage):Task
+        public function execute(message:LoginMessage):Task //NOPMD
         {
-            var userToReturn:Object = new Object();
+            var userToReturn:Object = new Object(); 
             userToReturn.username = "test";
 
             return new MockASyncResultTask(userToReturn);
         }
 
-        public function result(user:Object, message:LoginMessage):void
+        public function result(user:Object, message:LoginMessage):void //NOPMD
         {
             userModel.user = user;
         }
