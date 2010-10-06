@@ -22,6 +22,7 @@
             <parsley:FlexConfig type="{ TodoListModuleContext }"/>
             <parsley:TaskCommandSupport/>
             <cairngorm:CairngormModuleSupport/>
+			<cairngorm:CairngormIntegrationSupport />
         </parsley:ContextBuilder>
     </fx:Declarations>
 

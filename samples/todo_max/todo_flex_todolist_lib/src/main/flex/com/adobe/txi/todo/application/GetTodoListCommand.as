@@ -1,7 +1,8 @@
 package com.adobe.txi.todo.application
 {
+    import com.adobe.cairngorm.integration.data.IDataCache;
     import com.adobe.txi.todo.domain.TodoModel;
-
+    
     import mx.collections.ArrayCollection;
     import mx.rpc.AsyncToken;
     import mx.rpc.remoting.RemoteObject;
@@ -15,8 +16,8 @@ package com.adobe.txi.todo.application
         [Inject]
         public var todoModel:TodoModel;
 
-        /*[Inject]
-         public var cache:IDataCache;*/
+        [Inject]
+        public var cache:IDataCache;
 
         public function execute(message:GetTodoListMessage):AsyncToken
         {
@@ -25,7 +26,7 @@ package com.adobe.txi.todo.application
 
         public function result(todoList:ArrayCollection, message:GetTodoListMessage):void
         {
-            //todoModel.todos = cache.synchronize(todoList) as ArrayCollection;
+            todoModel.todos = cache.synchronize(todoList) as ArrayCollection;
             todoModel.todos = todoList;
         }
 

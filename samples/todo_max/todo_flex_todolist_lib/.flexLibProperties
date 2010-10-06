@@ -14,6 +14,8 @@
     <classEntry path="com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand"/>
     <classEntry path="com.adobe.txi.todo.domain.TodoItem"/>
     <classEntry path="com.adobe.txi.todo.domain.TodoModel"/>
+    <classEntry path="com.adobe.txi.todo.infrastructure.ChangeDetector"/>
+    <classEntry path="com.adobe.txi.todo.infrastructure.ChangeDetectorEvent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
