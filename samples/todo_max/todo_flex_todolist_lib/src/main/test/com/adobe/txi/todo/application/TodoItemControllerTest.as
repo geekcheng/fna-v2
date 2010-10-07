@@ -58,7 +58,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function setCurrentTodoItem_firstTimeWithExistingTodoItem():void
+		public function testSetCurrentTodoItem_firstTimeWithExistingTodoItem():void
 		{
 			todoItemController.currentTodoItem = existingTodoItem;
 			
@@ -68,7 +68,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function setCurrentTodoItem_firstTimeWithNewTodoItem():void
+		public function testSetCurrentTodoItem_firstTimeWithNewTodoItem():void
 		{
 			todoItemController.currentTodoItem = newTodoItem;
 			
@@ -78,7 +78,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function cancel_existingItem():void
+		public function testCancel_existingItem():void
 		{
 			todoItemController.currentTodoItem = existingTodoItem;
 			existingTodoItem.title = "change existing Item";
@@ -89,7 +89,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function cancel_newItem():void
+		public function testCancel_newItem():void
 		{
 			todos.addItem(newTodoItem);
 			assertThat("the todos collection must contain the newTodoItem", todos.contains(newTodoItem), equalTo(true));
@@ -109,7 +109,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function setCurrentTodoItem_secondTimeWithExistingTodoItem_cancel():void
+		public function testSetCurrentTodoItem_secondTimeWithExistingTodoItem_cancel():void
 		{
 			todoItemController.currentTodoItem = existingTodoItem;
 			existingTodoItem.title = "change existing Item";
@@ -120,7 +120,7 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
-		public function save():void
+		public function testSave():void
 		{
 			todoItemController.dispatcher = function( m:SaveTodoItemMessage ):void {
 				dispatcherCalledFlag = true;
@@ -129,6 +129,18 @@ package com.adobe.txi.todo.application
 			todoItemController.save();
 			
 			assertThat("SaveTodoItemMessage should have been dispatched", dispatcherCalledFlag, equalTo(true));
+		}
+		
+		[Test]
+		public function testSaveCompleteHandler():void
+		{
+			todoItemController.currentTodoItemChanged = true;
+			todoItemController.isNewItem = true;
+			
+			todoItemController.saveCompleteHandler(new SaveTodoItemMessage(new TodoItem())); 				
+				
+			assertThat("the currentTodoItemChanged flag must have been reset", todoItemController.currentTodoItemChanged, equalTo(false));
+			assertThat("the isNewItem flag must have been reset", todoItemController.isNewItem, equalTo(false));
 		}
 	}
 }
