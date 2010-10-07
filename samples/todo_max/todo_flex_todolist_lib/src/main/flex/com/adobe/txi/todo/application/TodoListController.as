@@ -49,8 +49,6 @@ package com.adobe.txi.todo.application
         {
             var newTodoItem:TodoItem = _todoModel.createNewTodoItem();
 
-            todos.addItem(newTodoItem);
-
             currentTodoItem = newTodoItem;
         }
 

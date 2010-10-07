@@ -70,7 +70,7 @@ package com.adobe.txi.todo.application
 		[Test]
 		public function testSetCurrentTodoItem_firstTimeWithNewTodoItem():void
 		{
-			todoItemController.currentTodoItem = newTodoItem;
+			todoItemController.currentTodoItem = todoModel.currentTodoItem = newTodoItem;
 			
 			assertThat("the currentTodoItem should be the same as newTodoItem", newTodoItem, equalTo(todoItemController.currentTodoItem));			
 			assertThat("the currentTodoItemChanged flag should be set to true", todoItemController.currentTodoItemChanged, equalTo(true));
@@ -80,7 +80,7 @@ package com.adobe.txi.todo.application
 		[Test]
 		public function testCancel_existingItem():void
 		{
-			todoItemController.currentTodoItem = existingTodoItem;
+			todoItemController.currentTodoItem = todoModel.currentTodoItem = existingTodoItem;
 			existingTodoItem.title = "change existing Item";
 			
 			todoItemController.cancel();
@@ -111,7 +111,7 @@ package com.adobe.txi.todo.application
 		[Test]
 		public function testSetCurrentTodoItem_secondTimeWithExistingTodoItem_cancel():void
 		{
-			todoItemController.currentTodoItem = existingTodoItem;
+			todoItemController.currentTodoItem = todoModel.currentTodoItem = existingTodoItem;
 			existingTodoItem.title = "change existing Item";
 			
 			todoItemController.currentTodoItem = existingTodoItem2;
@@ -141,6 +141,37 @@ package com.adobe.txi.todo.application
 				
 			assertThat("the currentTodoItemChanged flag must have been reset", todoItemController.currentTodoItemChanged, equalTo(false));
 			assertThat("the isNewItem flag must have been reset", todoItemController.isNewItem, equalTo(false));
+		}
+		
+		[Test]
+		public function testCreateNewTodoItemThenEditAndCancel():void
+		{
+			//creating a new Todo Item
+			var newItem:TodoItem = todoModel.createNewTodoItem();
+			
+			//setting the current Item to mimic the behavior of [PublishSubscribe] and [Subscribe]
+			todoModel.currentTodoItem = newItem;
+			todoItemController.currentTodoItem = newItem; 
+			
+			//simulate the user typing a title ...
+			todoItemController.currentTodoItem.title = TITLE_1;
+			
+			//saving the new Todo Item
+			todoItemController.save();
+			
+			//This is to mimic the result coming back with a valid ID
+			todoItemController.currentTodoItem.id = 1;
+
+			//simulate the result callback of the command operation
+			todoItemController.saveCompleteHandler(new SaveTodoItemMessage(null));
+						
+			assertThat("the currentTodoItem should have the initial title", todoItemController.currentTodoItem.title, equalTo(TITLE_1));
+			
+			todoItemController.currentTodoItem.title = TITLE_1 + "change";
+			
+			todoItemController.cancel();
+			
+			assertThat("the currentTodoItem should have the initial title", todoItemController.currentTodoItem.title, equalTo(TITLE_1));
 		}
 	}
 }
