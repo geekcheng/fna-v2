@@ -12,23 +12,26 @@ package com.adobe.txi.todo.infrastructure
 		private var _collection:ArrayCollection;
 		private var _item:*;
 
-		public function set collection(value:ArrayCollection):void
-		{
-			if (value && value != _collection)
-			{
-				if (_collection)
-				{
-					_collection.removeEventListener(CollectionEvent.COLLECTION_CHANGE, itemChangeHandler);
-				}
-
-				_collection=value;
-				_collection.addEventListener(CollectionEvent.COLLECTION_CHANGE, itemChangeHandler, false, 0, true);
-			}
-		}
-		
 		public function set item(value:*):void
 		{
 			_item = value;
+			
+			initializeCollection();
+		}
+		
+		private function initializeCollection():void
+		{
+			if (_collection)
+			{
+				_collection.removeEventListener(CollectionEvent.COLLECTION_CHANGE, itemChangeHandler);
+			}
+						
+			_collection=new ArrayCollection();
+			
+			//add the item before listening to COLLECTION_CHANGE in order to prevent the add item change to be dispatched.
+			_collection.addItem(_item);
+			
+			_collection.addEventListener(CollectionEvent.COLLECTION_CHANGE, itemChangeHandler, false, 0, true);
 		}
 
 		private function itemChangeHandler(event:CollectionEvent):void

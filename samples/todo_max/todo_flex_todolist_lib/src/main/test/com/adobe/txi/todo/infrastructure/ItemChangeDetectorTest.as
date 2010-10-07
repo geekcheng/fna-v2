@@ -21,7 +21,6 @@ package com.adobe.txi.todo.infrastructure
 			
 			collection.addItem(item);
 			
-			itemChangeDetector.collection = collection;
 			itemChangeDetector.item = item;
 		}
 		
