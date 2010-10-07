@@ -24,8 +24,6 @@ package com.adobe.txi.todo.application
 		[CommandStatus(type="com.adobe.txi.todo.application.SaveTodoItemMessage")]
 		public var saveInProgress:Boolean;
 
-		private var _savedCurrentTodoItem:Object;
-
 		private var _currentTodoItem:TodoItem;
 
 		private var _todos:ArrayCollection;
@@ -39,18 +37,19 @@ package com.adobe.txi.todo.application
 		{
 			changeDetector.addEventListener(ItemChangeDetectorEvent.ITEM_CHANGE, currentTodoItemChangeHandler);
 		}
-
+		
 		[Subscribe(objectId="currentTodoItem")]
 		public function set currentTodoItem(value:TodoItem):void
 		{
-			//force cancel before moving to another item
-			if (currentTodoItemChanged && _currentTodoItem && _currentTodoItem != value)
+			//force cancel before moving to another item if that new item is different from null
+			if ( value && currentTodoItemChanged && _currentTodoItem && _currentTodoItem != value)
 			{
 				cancel();
 			}
 
 			//keep in memory a copy of the todo item in case of revert
-			_savedCurrentTodoItem=ObjectUtil.copy(value);
+			todoModel.backupCurrentTodoItem();
+			
 			_currentTodoItem=value;
 			
 			changeDetector.item = _currentTodoItem;
@@ -79,18 +78,8 @@ package com.adobe.txi.todo.application
 
 		public function cancel():void
 		{
-			if (isNewItem)
-			{
-				_todos.removeItemAt(_todos.getItemIndex(_currentTodoItem))
-				currentTodoItemChanged=false;
-				_currentTodoItem=null;
-				todoModel.currentTodoItem=null;
-			}
-			else
-			{
-				_currentTodoItem.title=_savedCurrentTodoItem.title;
-			}
-
+			todoModel.rollbackCurrentTodoItem();
+			
 			invalidateCurrentTodoItemStates();
 		}
 
@@ -102,6 +91,10 @@ package com.adobe.txi.todo.application
 		[CommandComplete]
 		public function saveCompleteHandler(message:SaveTodoItemMessage):void
 		{
+			//override the previous backup of the item with the new one.
+			todoModel.backupCurrentTodoItem();
+			
+			//force an invalidation of the states
 			invalidateCurrentTodoItemStates();
 		}
 
@@ -113,7 +106,7 @@ package com.adobe.txi.todo.application
 
 		private function invalidateCurrentTodoItemStates():void
 		{
-			if (_currentTodoItem && todoModel.isNewTodoItem(_currentTodoItem))
+			if (todoModel.currentTodoItem && todoModel.isNewTodoItem(todoModel.currentTodoItem))
 			{
 				currentTodoItemChanged=true;
 				isNewItem=true;

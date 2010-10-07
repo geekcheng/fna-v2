@@ -59,7 +59,48 @@ package com.adobe.txi.todo.domain
 			assertThat("must return false", todoModel.isNewTodoItem(item1), equalTo(false));
 		}
 		
+		[Test]
+		public function testBackupCurrentTodoItem():void
+		{
+			assertThat("the savedCurrentTodoItem is null", todoModel.savedCurentTodoItem, nullValue());
+			
+			todoModel.currentTodoItem = item1;
+			
+			todoModel.backupCurrentTodoItem();
+			
+			assertThat("the savedCurrentTodoItem is a copy of item1", todoModel.savedCurentTodoItem.title, equalTo("item 1"));
+			assertThat("the savedCurrentTodoItem is a copy of item1", todoModel.savedCurentTodoItem.id, equalTo(1));
+		}
 		
+		[Test]
+		public function testRollbackCurrentTodoItem_existingItem():void
+		{
+			todoModel.currentTodoItem = item1;
+			todoModel.backupCurrentTodoItem();
+			
+			todoModel.currentTodoItem.title = "something else";
+			
+			todoModel.rollbackCurrentTodoItem();
+			
+			assertThat("the currentTodoItem is reverted", todoModel.currentTodoItem.title, equalTo("item 1"));
+		}
+		
+		[Test]
+		public function testRollbackCurrentTodoItem_newItem():void
+		{
+			todoModel.currentTodoItem = todoModel.createNewTodoItem();
+			todoModel.backupCurrentTodoItem();
+			
+			assertThat("the todos collection contains the currentTodoItem", todoModel.todos.contains(todoModel.currentTodoItem), equalTo(true));
+			
+			todoModel.currentTodoItem.title = "something else";
+			
+			todoModel.rollbackCurrentTodoItem();
+			
+			assertThat("the currentTodoItem is reseted", todoModel.currentTodoItem, nullValue());
+			
+			assertThat("the todos collection do not contains anymore the currentTodoItem", todoModel.todos.contains(todoModel.currentTodoItem), equalTo(false));
+		}
 		
 	}
 }
