@@ -72,8 +72,6 @@ package com.adobe.txi.todo.application
 				_todos=value;
 				currentTodoItemChanged=false;
 			}
-
-			changeDetector.collection=value;
 		}
 
 		public function cancel():void
