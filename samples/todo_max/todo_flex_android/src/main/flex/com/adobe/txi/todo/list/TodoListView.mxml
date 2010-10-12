@@ -39,11 +39,15 @@
         <s:State name="loading"/>
     </s:states>
 
-    <s:navigationContent>
+	<s:navigationContent>
+		<s:BitmapImage source="@Embed('/assets/logo_transparent.png')" />
+	</s:navigationContent>
+	
+    <s:actionContent>
         <s:Button 
             label="Logout"
             click="loginController.logout()"/>
-    </s:navigationContent>
+    </s:actionContent>
 
     <s:List id="list"
         left="0" right="0" top="0" bottom="80"

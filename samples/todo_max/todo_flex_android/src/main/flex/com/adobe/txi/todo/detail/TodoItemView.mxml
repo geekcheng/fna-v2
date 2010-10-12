@@ -40,6 +40,10 @@
         <s:State name="normal"/>
         <s:State name="loading"/>
     </s:states>
+	
+	<s:navigationContent>
+		<s:BitmapImage source="@Embed('/assets/logo_transparent.png')" />
+	</s:navigationContent>
 
     <s:VGroup 
         paddingBottom="15"

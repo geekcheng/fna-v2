@@ -29,8 +29,8 @@
 
         <DynamicCommand type="{ MockLoginCommand }"/>
         <DynamicCommand type="{ MockLogoutCommand }"/>
-        <DynamicCommand type="{ GetTodoListCommand }"/>
-        <DynamicCommand type="{ SaveTodoItemCommand }"/>
+        <DynamicCommand type="{ MockGetTodoListCommand }"/>
+        <DynamicCommand type="{ MockSaveTodoItemCommand }"/>
 
         <!-- Integration Layer -->
         <s:RemoteObject id="todoService"

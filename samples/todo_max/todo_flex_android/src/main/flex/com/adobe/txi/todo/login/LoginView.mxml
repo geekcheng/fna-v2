@@ -24,7 +24,7 @@
             paddingBottom="30"
             paddingLeft="30"
             paddingRight="30"
-            paddingTop="10"
+            paddingTop="30"
             gap="10"/>
     </s:layout>
 
@@ -33,22 +33,23 @@
         <s:State name="loading"/>
     </s:states>
 	
-	<s:Group width="100%" height="220">
-		
-	<s:BitmapImage source="@Embed('/assets/todo_login_logo.jpg')" horizontalCenter="0" />
-	</s:Group>
+	<s:navigationContent>
+		<s:BitmapImage source="@Embed('/assets/logo_transparent.png')" />
+	</s:navigationContent>
 
-    <components:AdvancedTextInput id="username"
-        width="100%"
-        promptText="User ID"/>
-    <components:AdvancedTextInput id="password"
-        width="100%"
-        displayAsPassword="true"
-        promptText="Password"/>
+	<s:Label 
+		color="#000000"
+		text="Username"/>
+	
+	<s:TextInput id="username" width="100%" />
 
-
-
-    <s:HGroup 
+	<s:Label 
+		color="#000000"
+		text="Password"/>
+	
+	<s:TextInput id="password" width="100%" displayAsPassword="true" />
+				 
+	<s:HGroup 
         width="100%"
         horizontalAlign="center">
         <s:Button 
