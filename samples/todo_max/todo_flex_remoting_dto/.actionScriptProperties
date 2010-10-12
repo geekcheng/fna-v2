@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<actionScriptProperties mainApplicationPath="todo_flex_remoting_dto.as" projectUUID="1e416185-8e52-4cb1-8d5b-db7883cfed23" version="6">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionScriptProperties analytics="false" mainApplicationPath="todo_flex_remoting_dto.as" projectUUID="1e416185-8e52-4cb1-8d5b-db7883cfed23" version="7">
   <compiler additionalCompilerArguments="-locale fr_FR" autoRSLOrdering="true" copyDependentFiles="false" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin" sourceFolderPath="target/generated-sources" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
@@ -16,4 +16,5 @@
   </applications>
   <modules/>
   <buildCSSFiles/>
+  <flashCatalyst validateFlashCatalystCompatibility="false"/>
 </actionScriptProperties>
