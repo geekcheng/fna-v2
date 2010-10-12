@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.adobe.txi.todo</groupId>
+		<artifactId>todo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>todo_flex_todolist_lib</artifactId>
+	<packaging>swc</packaging>
+	<name>${project.groupId} ${project.artifactId}</name>
+	<description>${project.groupId} ${project.artifactId}</description>
+
+	<dependencies>
+
+		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>common-framework</artifactId>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<classifier>${player.version}</classifier>
+			<type>swc</type>
+			<scope>external</scope>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
+		<dependency>
+			<groupId>com.adobe.txi.todo</groupId>
+			<artifactId>todo_flex_remoting_dto</artifactId>
+			<version>${project.version}</version>
+			<type>swc</type>
+			<scope>external</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.txi.todo</groupId>
+			<artifactId>todo_flex_core</artifactId>
+			<version>${project.version}</version>
+			<type>swc</type>
+			<scope>external</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.adobe.cairngorm</groupId>
+			<artifactId>integration</artifactId>
+			<version>0.14</version>
+			<type>swc</type>
+			<scope>external</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.cairngorm</groupId>
+			<artifactId>integrationParsley</artifactId>
+			<version>0.14</version>
+			<type>swc</type>
+			<scope>external</scope>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>parsley-flex4</artifactId>
+			<version>${parsley.version}</version>
+			<type>swc</type>
+			<scope>merged</scope>
+			<!-- I'd like to use external but I cant cf. below-->
+		</dependency>
+
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>spicelib-flex</artifactId>
+			<version>${parsley.version}</version>
+			<type>swc</type>
+			<scope>merged</scope>
+			<!-- I'd like to use external but I cant cf. below-->
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexunit.version}</version>
+			<type>swc</type>
+			<scope>external</scope>
+			<!-- we are providing an AssertEvent extension to FlexUnit, therefore 
+				we have FlexUnit in an external scope and not test -->
+		</dependency>
+
+		<!--  because of a parlsey packaging issue cf. http://www.spicefactory.org/forum/viewtopic.php?p=2963
+		I cannot use   -compiler.external-library-path , even if I add the stuff below, my unit test are failing -->
+		<!-- 
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>cinnamon</artifactId>
+			<version>1.1.0</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+		-->
+
+
+	</dependencies>
+	<build>
+
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/main/test</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<version>${flex-mojos.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+				<extensions>true</extensions>
+				<configuration>
+					<configFile>src/main/resources/additional_compiler_arguments.xml</configFile>
+					<ignoreVersionIssues>true</ignoreVersionIssues> <!--  bug ? -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
