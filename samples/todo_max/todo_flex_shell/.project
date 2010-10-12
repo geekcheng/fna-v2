@@ -26,11 +26,4 @@
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 		<nature>com.adobe.ac.pmd.eclipse.flexpmdnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>bin-debug</name>
-			<type>2</type>
-			<locationURI>TODO_BLZ_KISS/bin</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
