@@ -10,8 +10,7 @@
 	<name>${project.groupId} ${project.artifactId}</name>
 	<url>http://www.your-url-here.com</url>
 	<description>
-		Your blazeds spring hibernate application created from an
-		archetype
+		Todo Max
 	</description>
 	<distributionManagement>
 		<site>
@@ -19,13 +18,14 @@
 			<url>file:///somewhere</url>
 		</site>
 		<repository>
-            <id>releases</id>
-            <url>http://localhost:9999/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://localhost:9999/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
+			<id>releases</id>
+			<url>http://localhost:9999/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://localhost:9999/nexus/content/repositories/snapshots/
+			</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 	<developers>
@@ -49,12 +49,6 @@
 
 		<lcds.version>3.1.0.273931</lcds.version>
 
-		<flex.sdk.version>4.1.0.16076</flex.sdk.version>
-		<player.version>10.0</player.version>
-
-		<flexunit.version>4.0-beta-2</flexunit.version>
-		<flex-mojos.version>3.7.1</flex-mojos.version>
-
 		<spring.version>3.0.2.RELEASE</spring.version>
 		<spring.security.version>3.0.2.RELEASE</spring.security.version>
 
@@ -68,9 +62,15 @@
 		<testng.version>5.9</testng.version>
 		<jstl.version>1.1.2</jstl.version>
 
-		<flashPlayerCommand>${env.FLASH_EXE}</flashPlayerCommand>
-		<!--must be in the systempath -->
-		<player.version>10.0</player.version>
+		<flex.sdk.version>4.5.0.17689</flex.sdk.version>
+		<flex.sdk.version>4.5.0.17077</flex.sdk.version>
+
+		<player.version>10.1</player.version>
+		<flashPlayer.command>${env.FLASH_EXE}</flashPlayer.command>
+
+		<flexunit.version>4.0-beta-2</flexunit.version>
+		<flex-mojos.version>3.7.1</flex-mojos.version>
+		<parsley.version>2.3.1</parsley.version>
 
 		<flexpmd.version>1.0</flexpmd.version>
 		<flex-pmd-cpd.max.token>50</flex-pmd-cpd.max.token>
@@ -87,6 +87,11 @@
 		<module>todo_flex_remoting_dto</module>
 		<module>todo_flex_app_kiss</module>
 		<module>todo_webapp_flex_kiss_blz</module>
+		<module>todo_flex_core</module>
+		<module>todo_flex_todolist_lib</module>
+		<module>todo_flex_shell</module>
+		<module>todo_flex_todolist</module>
+
 	</modules>
 
 	<dependencyManagement>
@@ -235,6 +240,25 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 
@@ -531,11 +555,12 @@
 
 
 	<repositories>
-		
-		
+
+
 		<repository>
 			<id>flex-mojos</id>
-			<url>http://repository.sonatype.org/content/repositories/flexmojos-releases/</url>
+			<url>http://repository.sonatype.org/content/repositories/flexmojos-releases/
+			</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -544,39 +569,37 @@
 			</snapshots>
 		</repository>
 		<repository>
-            <id>jboss</id>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-		
-		<!--  
-		<repository>
-			<id>aixcept</id>
-			<url>http://maven.aixcept.net/repository</url>
+			<id>jboss</id>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/
+			</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
-		<repository>
-			<id>c5-public-repository</id>
-			<url>http://mvn.carbonfive.com/public</url>
-		</repository>
+
+		<!--
+			<repository> <id>aixcept</id>
+			<url>http://maven.aixcept.net/repository</url> </repository>
+			<repository> <id>c5-public-repository</id>
+			<url>http://mvn.carbonfive.com/public</url> </repository>
 		-->
-		
+
 	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
 			<id>flex-mojos</id>
-            <url>http://repository.sonatype.org/content/repositories/flexmojos-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+			<url>http://repository.sonatype.org/content/repositories/flexmojos-releases/
+			</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 

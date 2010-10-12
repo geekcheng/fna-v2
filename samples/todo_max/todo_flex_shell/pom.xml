@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.adobe.txi.todo</groupId>
+		<artifactId>todo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>todo_flex_shell</artifactId>
+	<packaging>swf</packaging>
+	<name>${project.groupId} ${project.artifactId}</name>
+	<description>${project.groupId} ${project.artifactId}</description>
+
+	<dependencies>
+
+		<!-- flex sdk dependencies -->
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>common-framework</artifactId>
+			<version>${flex.sdk.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<classifier>${player.version}</classifier>
+			<type>swc</type>
+		</dependency>
+		<!-- end of flex sdk dependencies -->
+
+		<dependency>
+			<groupId>com.adobe.txi.todo</groupId>
+			<artifactId>todo_flex_remoting_dto</artifactId>
+			<version>${project.version}</version>
+			<type>swc</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.txi.todo</groupId>
+			<artifactId>todo_flex_core</artifactId>
+			<version>${project.version}</version>
+			<type>swc</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>parsley-flex4</artifactId>
+			<version>2.3.1</version>
+			<type>swc</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.spicefactory</groupId>
+			<artifactId>spicelib-flex</artifactId>
+			<version>2.3.1</version>
+			<type>swc</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.cairngorm</groupId>
+			<version>0.14</version>
+			<artifactId>module</artifactId>
+			<type>swc</type>
+		</dependency>
+
+	</dependencies>
+	
+	
+	<build>
+
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<resources>
+            <resource>
+                <directory>${basedir}/../todo_web_app_flex_kiss_blz/src/main/webapp/WEB-INF/flex</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+			</resource>
+        </resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+				<version>${flex-mojos.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.adobe.flex</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${flex.sdk.version}</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+				<extensions>true</extensions>
+				<configuration>
+					<contextRoot>todo_webapp_flex_kiss_blz</contextRoot>
+					<sourceFile>Main.mxml</sourceFile>
+					<configFile>src/main/resources/additional_compiler_arguments.xml</configFile>
+					<ignoreVersionIssues>true</ignoreVersionIssues> <!--  bug ? -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

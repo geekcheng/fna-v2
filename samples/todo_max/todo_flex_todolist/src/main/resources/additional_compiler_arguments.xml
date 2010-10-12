@@ -14,8 +14,7 @@
         </locale>
         <!-- compiler.optimize: Enable post-link SWF optimization-->
         <optimize>true</optimize>
-        <!-- compiler.services: path to Flex Data Services configuration file-->
-        <services>${TODO_BLZ_KISS}/WEB-INF/flex/services-config.xml</services>
+        
         <!-- compiler.show-actionscript-warnings: runs the AS3 compiler in a mode that detects legal but potentially incorrect code-->
         <show-actionscript-warnings>true</show-actionscript-warnings>
         <!-- compiler.show-binding-warnings: toggle whether warnings generated from data binding code are displayed-->

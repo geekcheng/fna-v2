@@ -28,6 +28,7 @@
 			<artifactId>playerglobal</artifactId>
 			<classifier>${player.version}</classifier>
 			<type>swc</type>
+			<scope>external</scope>
 		</dependency>
 		<!-- end of flex sdk dependencies -->
 

@@ -21,9 +21,25 @@
        
     <dependencies>
     
+        <!--  the deprecated c2 swf 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>todo_flex_app_kiss</artifactId>
+            <version>${project.version}</version>
+            <type>swf</type>
+        </dependency>
+        -->
+        
+         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>todo_flex_shell</artifactId>
+            <version>${project.version}</version>
+            <type>swf</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>todo_flex_todolist</artifactId>
             <version>${project.version}</version>
             <type>swf</type>
         </dependency>
@@ -194,10 +210,18 @@
                                         <artifactItem>
                                             <outputDirectory>${project.build.directory}/${project.build.finalName}/bin</outputDirectory>
                                             <groupId>${project.groupId}</groupId>
-                                            <artifactId>todo_flex_app_kiss</artifactId>
+                                            <artifactId>todo_flex_shell</artifactId>
                                             <version>${project.version}</version>
                                             <type>swf</type>
                                             <destFileName>Main.swf</destFileName>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <outputDirectory>${project.build.directory}/${project.build.finalName}/bin</outputDirectory>
+                                            <groupId>${project.groupId}</groupId>
+                                            <artifactId>todo_flex_todolist</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>swf</type>
+                                            <destFileName>TodoListModule.swf</destFileName>
                                         </artifactItem>
                                     </artifactItems>
                                 </configuration>
