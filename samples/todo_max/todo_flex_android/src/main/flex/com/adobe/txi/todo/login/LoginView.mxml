@@ -3,7 +3,7 @@
     xmlns:s="library://ns.adobe.com/flex/spark"
     title="Login"
     xmlns:spicefactory="http://www.spicefactory.org/parsley"
-    xmlns:components="com.adobe.txi.todo.components.*">
+    xmlns:components="com.adobe.txi.todo.components.*" xmlns:mx="library://ns.adobe.com/flex/mx">
 
     <fx:Declarations>
         <spicefactory:Configure/>
@@ -24,7 +24,7 @@
             paddingBottom="30"
             paddingLeft="30"
             paddingRight="30"
-            paddingTop="30"
+            paddingTop="10"
             gap="10"/>
     </s:layout>
 
@@ -32,6 +32,11 @@
         <s:State name="normal"/>
         <s:State name="loading"/>
     </s:states>
+	
+	<s:Group width="100%" height="220">
+		
+	<s:BitmapImage source="@Embed('/assets/todo_login_logo.jpg')" horizontalCenter="0" />
+	</s:Group>
 
     <components:AdvancedTextInput id="username"
         width="100%"

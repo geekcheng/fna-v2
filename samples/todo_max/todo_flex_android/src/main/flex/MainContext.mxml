@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fx:Object 
+<Objects 
     xmlns="http://www.spicefactory.org/parsley"
     xmlns:fx="http://ns.adobe.com/mxml/2009"
     xmlns:s="library://ns.adobe.com/flex/spark"
@@ -17,19 +17,11 @@
             import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
             import com.adobe.txi.todo.domain.TodoModel;
             import com.adobe.txi.todo.domain.UserModel;
-
-            //Android Emulator Host loopback interface IP
-            //public static const RPC_ENDPOINT:String = "http://10.0.2.2:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
-
-            //Development machine loopback
-            public static const RPC_ENDPOINT:String = "http://localhost:8080/todo_webapp_flex_kiss_blz/messagebroker/amf";
         ]]>
     </fx:Script>
 
     <fx:Declarations>
-
-
-
+		
         <!-- Application Layer -->
         <Object type="{ LoginController }"/>
         <Object type="{ TodoListController }"/>
@@ -43,7 +35,7 @@
         <!-- Integration Layer -->
         <s:RemoteObject id="todoService"
             destination="todoService"
-            endpoint="{RPC_ENDPOINT}"/>
+            endpoint="{properties.rpc_endpoint}"/>
 
         <!-- Domain Layer -->
         <Object type="{ UserModel }"/>
@@ -51,8 +43,7 @@
 
 		<!-- Infrastructure -->
 		<data:DataCache type="com.adobe.txi.todo.domain.TodoItem"/>
-
-
+		
     </fx:Declarations>
 
-</fx:Object>
+</Objects>

@@ -3,17 +3,23 @@
 					 xmlns:s="library://ns.adobe.com/flex/spark"
 					 firstView="com.adobe.txi.todo.login.LoginView"
 					 xmlns:spicefactory="http://www.spicefactory.org/parsley"
-					 xmlns:cairngorm="http://ns.adobe.com/cairngorm">
+					 xmlns:cairngorm="http://ns.adobe.com/cairngorm"
+					 splashScreenImage="@Embed('/assets/todo_splash.jpg')">
 	<fx:Declarations>
+		<fx:String id="serviceConfig" source="service_config.properties"/>
+		
 		<spicefactory:Configure/>
 
 		<spicefactory:ContextBuilder>
+			<spicefactory:PropertiesString source="{ serviceConfig }"/>
 			<spicefactory:FlexConfig type="{ MainContext }"/>
 			<spicefactory:MessageSettings unhandledErrors="{ ErrorPolicy.RETHROW }"/>
 			<spicefactory:TaskCommandSupport/>
 			<cairngorm:CairngormIntegrationSupport/>
 		</spicefactory:ContextBuilder>
 	</fx:Declarations>
+	
+	
 
 	<fx:Binding source="{ loginController.isLoggedIn }"
 				destination="isLoggedIn"/>
