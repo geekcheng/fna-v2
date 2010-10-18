@@ -32,7 +32,7 @@ package com.adobe.txi.todo.domain
 				return;
 			}
 			
-			if (currentTodoItem.isNewTodoItem())
+			if (currentTodoItem.isNew())
 			{
 				todos.removeItemAt(todos.getItemIndex(currentTodoItem))
 

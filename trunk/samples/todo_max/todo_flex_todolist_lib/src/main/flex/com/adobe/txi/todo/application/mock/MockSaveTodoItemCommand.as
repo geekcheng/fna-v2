@@ -19,7 +19,7 @@ package com.adobe.txi.todo.application.mock
 
         public function result(result:Object, message:SaveTodoItemMessage):void
         {
-            if (message.todoItem.isNewTodoItem())
+            if (message.todoItem.isNew())
             {
                 message.todoItem.id = todoModel.todos.length + 1;
             }
