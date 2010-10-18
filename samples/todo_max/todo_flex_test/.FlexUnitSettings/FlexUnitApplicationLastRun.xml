@@ -2,10 +2,5 @@
 <testrun name="" >
 <testsuite  name="Default Test Suite" project="todo_flex_test">
 <testsuite name="FlexUnitTestSuite" type="testsuiteclass"/>
-<testsuite name="com.adobe.txi.todo.application:TodoItemControllerTest" type="testcaseclass"/>
-<testsuite name="com.adobe.txi.todo.application:TodoListControllerTest" type="testcaseclass"/>
-<testsuite name="com.adobe.txi.todo.application.authentication:LoginControllerTest" type="testcaseclass"/>
-<testsuite name="com.adobe.txi.todo.domain:TodoModelTest" type="testcaseclass"/>
-<testsuite name="com.adobe.txi.todo.infrastructure:ItemChangeDetectorTest" type="testcaseclass"/>
 </testsuite>
 </testrun>
