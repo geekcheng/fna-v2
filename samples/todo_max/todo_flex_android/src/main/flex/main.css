@@ -3,22 +3,6 @@
 @namespace components "com.adobe.txi.todo.components.*";
 
 /**
-Global custom components skins
-**/
-components|AdvancedTextInput
-{
-    skin-class: ClassReference("com.adobe.txi.todo.skins.AdvancedTextInputSkin");
-    fontSize:24;
-    color:#666666;
-}
-
-components|AdvancedTextInput s|Label#promptView
-{
-    color:"0x999999";
-    fontStyle:"italic";
-}
-
-/**
 Loading feedback styles
 **/
 components|LoadingFeedback
@@ -28,6 +12,6 @@ components|LoadingFeedback
 
 components|LoadingFeedback s|Label
 {
-    fontSize:14;
+    fontSize:18;
     color:#FFFFFF;
 }

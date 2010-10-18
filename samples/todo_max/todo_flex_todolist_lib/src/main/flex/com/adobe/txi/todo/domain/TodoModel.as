@@ -27,7 +27,12 @@ package com.adobe.txi.todo.domain
 		
 		public function rollbackCurrentTodoItem():void
 		{
-			if (isNewTodoItem(currentTodoItem))
+			if(!_savedCurrentTodoItem)
+			{
+				return;
+			}
+			
+			if (currentTodoItem.isNewTodoItem())
 			{
 				todos.removeItemAt(todos.getItemIndex(currentTodoItem))
 
@@ -35,27 +40,32 @@ package com.adobe.txi.todo.domain
 			}
 			else
 			{
-				currentTodoItem.title=_savedCurrentTodoItem.title;
+				if(savedCurentTodoItem)
+				{
+					currentTodoItem.title=_savedCurrentTodoItem.title;
+				}
 			}
 		}
 
         public function deleteItem(todo:TodoItem):void
         {
-            todos.removeItemAt(todos.getItemIndex(todo));
+			if(todos)
+			{
+	            todos.removeItemAt(todos.getItemIndex(todo));
+			}
         }
 
         public function createNewTodoItem():TodoItem
         {
-            var newItem:TodoItem = new TodoItem();
+			var newItem:TodoItem;
 			
-			todos.addItem(newItem);
+			if(todos)
+			{
+				newItem = new TodoItem();	
+				todos.addItem(newItem);
+			}
 
             return newItem;
-        }
-
-        public function isNewTodoItem(item:TodoItem):Boolean
-        {
-            return item.id == 0;
         }
     }
 }

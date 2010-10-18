@@ -54,9 +54,9 @@ package com.adobe.txi.todo.domain
 		{
 			var newItem:TodoItem = todoModel.createNewTodoItem();
 			
-			assertThat("must return true", todoModel.isNewTodoItem(newItem), equalTo(true));
+			assertThat("must return true", newItem.isNewTodoItem(), equalTo(true));
 			
-			assertThat("must return false", todoModel.isNewTodoItem(item1), equalTo(false));
+			assertThat("must return false", item1.isNewTodoItem(), equalTo(false));
 		}
 		
 		[Test]

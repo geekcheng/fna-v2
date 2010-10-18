@@ -34,6 +34,9 @@
       <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/org/spicefactory/spicelib-flex/2.3.1/spicelib-flex-2.3.1.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integration/0.15-SNAPSHOT/integration-0.15-SNAPSHOT.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integrationParsley/0.15-SNAPSHOT/integrationParsley-0.15-SNAPSHOT.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version4libs/Common/"/>
+      <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LIB_LOCATION}/version4libs/FlexProject/"/>
+      <libraryPathEntry kind="1" linkType="1" path="${FLEXUNIT_LOCALE_LOCATION}/version4locale/"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

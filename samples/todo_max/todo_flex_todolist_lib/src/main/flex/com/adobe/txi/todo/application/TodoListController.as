@@ -2,7 +2,7 @@ package com.adobe.txi.todo.application
 {
     import com.adobe.txi.todo.domain.TodoItem;
     import com.adobe.txi.todo.domain.TodoModel;
-
+    
     import mx.collections.ArrayCollection;
 
     public class TodoListController
@@ -51,7 +51,12 @@ package com.adobe.txi.todo.application
 
             currentTodoItem = newTodoItem;
         }
-
+		
+		public function deleteItem(todoItem:TodoItem):void
+		{
+			//call server operation
+            dispatcher(new RemoveTodoItemMessage(todoItem));
+		}
 
 
     }

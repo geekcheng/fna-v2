@@ -5,7 +5,7 @@
     xmlns:s="library://ns.adobe.com/flex/spark"
     title="Todo List"
     xmlns:components="com.adobe.txi.todo.components.*"
-    xmlns:parsley="http://www.spicefactory.org/parsley">
+    xmlns:parsley="http://www.spicefactory.org/parsley" xmlns:list="com.adobe.txi.todo.list.*">
 
     <fx:Declarations>
         <parsley:Configure/>
@@ -17,6 +17,8 @@
 			import com.adobe.txi.todo.application.authentication.LoginController;
 			import com.adobe.txi.todo.detail.TodoItemView;
 			import com.adobe.txi.todo.domain.TodoItem;
+			
+			import spark.events.IndexChangeEvent;
 
             [Inject]
             [Bindable]
@@ -25,12 +27,28 @@
             [Inject]
             [Bindable]
             public var loginController:LoginController; //NOPMD
+			
+			[Bindable]
+			public var swipeInProgress:Boolean;
 
 
             protected function goToDetailView():void
             {
+				swipeInProgress = false;
+				
                 navigator.pushView(TodoItemView);
             }
+
+
+			protected function list_changingHandler(event:IndexChangeEvent):void
+			{
+				if(swipeInProgress)
+				{
+					event.preventDefault();
+					swipeInProgress = false;
+				}
+			}
+
         ]]>
     </fx:Script>
 	
@@ -54,10 +72,18 @@
         dataProvider="{todoListController.todos}" labelField="title"
         change="goToDetailView()"
         selectedItem="@{ todoListController.currentTodoItem }"
-        borderVisible="false"
-		itemRenderer="com.adobe.txi.todo.list.TodoItemRenderer">
-		
-    </s:List>
+        borderVisible="false" 
+		changing="list_changingHandler(event)">
+				<s:itemRenderer>
+			<fx:Component>
+				<list:TodoItemRenderer gestureSwipe="outerDocument.swipeInProgress = true;" 
+									   deleteTodoItem="outerDocument.todoListController.deleteItem(event.item)"/>
+			</fx:Component>
+		</s:itemRenderer>
+
+	</s:List>
+
+
 
     <s:SkinnableContainer 
         width="100%"

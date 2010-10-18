@@ -10,5 +10,10 @@ package com.adobe.txi.todo.domain
 		{
 			return super.id;
 		}
+		
+		public function isNewTodoItem():Boolean
+        {
+            return id == 0;
+        }
     }
 }
