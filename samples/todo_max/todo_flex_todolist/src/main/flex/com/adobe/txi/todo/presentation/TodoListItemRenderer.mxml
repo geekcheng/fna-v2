@@ -11,7 +11,7 @@
 
     <s:Label 
         left="5" top="5"
-        text="{ TodoItem(data).isNewTodoItem() ? 'New Todo Item' : TodoItem(data).id}"/>
+        text="{ TodoItem(data).isNew() ? 'New Todo Item' : TodoItem(data).id}"/>
 
     <s:Label 
         left="5" right="5" top="25" bottom="5"
