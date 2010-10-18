@@ -2,12 +2,9 @@ package com.adobe.txi.todo.application
 {
 	import com.adobe.txi.todo.domain.TodoItem;
 	import com.adobe.txi.todo.domain.TodoModel;
-	import com.adobe.txi.todo.infrastructure.ItemChangeDetector;
-	import com.adobe.txi.todo.infrastructure.ItemChangeDetectorEvent;
-
+	
 	import mx.collections.ArrayCollection;
 	import mx.events.PropertyChangeEvent;
-	import mx.utils.ObjectUtil;
 
 	public class TodoItemController
 	{
@@ -28,15 +25,8 @@ package com.adobe.txi.todo.application
 
 		private var _todos:ArrayCollection;
 
-		private var changeDetector:ItemChangeDetector=new ItemChangeDetector();
-
 		[Inject]
 		public var todoModel:TodoModel;
-
-		public function TodoItemController()
-		{
-			changeDetector.addEventListener(ItemChangeDetectorEvent.ITEM_CHANGE, currentTodoItemChangeHandler);
-		}
 		
 		[Subscribe(objectId="currentTodoItem")]
 		public function set currentTodoItem(value:TodoItem):void
@@ -50,9 +40,14 @@ package com.adobe.txi.todo.application
 			//keep in memory a copy of the todo item in case of revert
 			todoModel.backupCurrentTodoItem();
 			
-			_currentTodoItem=value;
 			
-			changeDetector.item = _currentTodoItem;
+			if(_currentTodoItem)
+			{
+				_currentTodoItem.removeEventListener(PropertyChangeEvent.PROPERTY_CHANGE,propertyChangeHandler);				
+			}
+			
+			_currentTodoItem=value;
+			_currentTodoItem.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE,propertyChangeHandler);
 
 			//invalidate current states
 			invalidateCurrentTodoItemStates();
@@ -96,7 +91,7 @@ package com.adobe.txi.todo.application
 			invalidateCurrentTodoItemStates();
 		}
 
-		private function currentTodoItemChangeHandler(event:ItemChangeDetectorEvent):void
+		private function propertyChangeHandler(event:PropertyChangeEvent):void
 		{
 			//Make sure that the item modified is the currently edited item
 			currentTodoItemChanged=true;

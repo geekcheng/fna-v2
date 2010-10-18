@@ -23,9 +23,8 @@
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
-  <applications />
+  <applications/>
   <modules/>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
 </actionScriptProperties>
-
