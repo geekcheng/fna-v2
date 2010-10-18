@@ -6,17 +6,18 @@
     xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:data="com.adobe.cairngorm.integration.data.*">
     <fx:Script>
         <![CDATA[
-            import com.adobe.txi.todo.application.GetTodoListCommand;
-            import com.adobe.txi.todo.application.SaveTodoItemCommand;
-            import com.adobe.txi.todo.application.TodoItemController;
-            import com.adobe.txi.todo.application.TodoListController;
-            import com.adobe.txi.todo.application.authentication.LoginController;
-            import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
-            import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
-            import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
-            import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
-            import com.adobe.txi.todo.domain.TodoModel;
-            import com.adobe.txi.todo.domain.UserModel;
+			import com.adobe.txi.todo.application.GetTodoListCommand;
+			import com.adobe.txi.todo.application.SaveTodoItemCommand;
+			import com.adobe.txi.todo.application.TodoItemController;
+			import com.adobe.txi.todo.application.TodoListController;
+			import com.adobe.txi.todo.application.authentication.LoginController;
+			import com.adobe.txi.todo.application.authentication.mock.MockLoginCommand;
+			import com.adobe.txi.todo.application.authentication.mock.MockLogoutCommand;
+			import com.adobe.txi.todo.application.mock.MockGetTodoListCommand;
+			import com.adobe.txi.todo.application.mock.MockRemoveTodoItemCommand;
+			import com.adobe.txi.todo.application.mock.MockSaveTodoItemCommand;
+			import com.adobe.txi.todo.domain.TodoModel;
+			import com.adobe.txi.todo.domain.UserModel;
         ]]>
     </fx:Script>
 
@@ -31,6 +32,7 @@
         <DynamicCommand type="{ MockLogoutCommand }"/>
         <DynamicCommand type="{ MockGetTodoListCommand }"/>
         <DynamicCommand type="{ MockSaveTodoItemCommand }"/>
+		<DynamicCommand type="{ MockRemoveTodoItemCommand }"/>
 
         <!-- Integration Layer -->
         <s:RemoteObject id="todoService"

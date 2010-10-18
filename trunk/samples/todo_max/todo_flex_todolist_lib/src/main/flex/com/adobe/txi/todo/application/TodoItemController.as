@@ -104,7 +104,7 @@ package com.adobe.txi.todo.application
 
 		private function invalidateCurrentTodoItemStates():void
 		{
-			if (todoModel.currentTodoItem && todoModel.isNewTodoItem(todoModel.currentTodoItem))
+			if (todoModel.currentTodoItem && todoModel.currentTodoItem.isNewTodoItem())
 			{
 				currentTodoItemChanged=true;
 				isNewItem=true;

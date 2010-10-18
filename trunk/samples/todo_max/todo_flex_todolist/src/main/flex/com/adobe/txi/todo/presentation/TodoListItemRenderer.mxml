@@ -3,14 +3,19 @@
     xmlns:s="library://ns.adobe.com/flex/spark"
     xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
     autoDrawBackground="true">
+	<fx:Script>
+		<![CDATA[
+			import com.adobe.txi.todo.domain.TodoItem;
+		]]>
+	</fx:Script>
 
     <s:Label 
         left="5" top="5"
-        text="{ data.id == 0 ? 'New Todo Item' : data.id}"/>
+        text="{ TodoItem(data).isNewTodoItem() ? 'New Todo Item' : TodoItem(data).id}"/>
 
     <s:Label 
         left="5" right="5" top="25" bottom="5"
-        text="{data.title}"
+        text="{TodoItem(data).title}"
         maxDisplayedLines="3"/>
 
 </s:ItemRenderer>

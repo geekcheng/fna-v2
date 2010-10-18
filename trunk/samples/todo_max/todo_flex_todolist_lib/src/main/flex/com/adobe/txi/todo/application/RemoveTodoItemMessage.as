@@ -5,5 +5,10 @@ package com.adobe.txi.todo.application
     public class RemoveTodoItemMessage
     {
         public var todoItem:TodoItem;
+		
+		public function RemoveTodoItemMessage(todoItem:TodoItem)
+		{
+			this.todoItem = todoItem;
+		}
     }
 }
