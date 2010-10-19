@@ -20,7 +20,7 @@
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
-  <applications>
+  <applications >
     <application path="todo_flex_core.as"/>
   </applications>
   <modules/>
