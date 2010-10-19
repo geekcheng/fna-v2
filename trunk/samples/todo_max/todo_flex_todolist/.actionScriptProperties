@@ -15,9 +15,9 @@
       <libraryPathEntry kind="3" linkType="1" path="/todo_flex_core/bin/todo_flex_core.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/org/spicefactory/parsley-flex4/2.3.1/parsley-flex4-2.3.1.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/org/spicefactory/spicelib-flex/2.3.1/spicelib-flex-2.3.1.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/module/0.13-SNAPSHOT/module-0.13-SNAPSHOT.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integration/0.15-SNAPSHOT/integration-0.15-SNAPSHOT.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integrationParsley/0.15-SNAPSHOT/integrationParsley-0.15-SNAPSHOT.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/module/0.14/module-0.14.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integration/0.15/integration-0.15.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="${M2_REPO}/com/adobe/cairngorm/integrationParsley/0.15/integrationParsley-0.15.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
