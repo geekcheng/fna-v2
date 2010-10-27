@@ -58,6 +58,14 @@ package com.adobe.txi.todo.application
 		}
 		
 		[Test]
+		public function testSetCurrentTodoItemToNull():void
+		{
+			todoItemController.currentTodoItem = null;
+			
+			assertThat("the currentTodoItem should be null", todoItemController.currentTodoItem, equalTo(null));
+		}
+		
+		[Test]
 		public function testSetCurrentTodoItem_firstTimeWithExistingTodoItem():void
 		{
 			todoItemController.currentTodoItem = existingTodoItem;
