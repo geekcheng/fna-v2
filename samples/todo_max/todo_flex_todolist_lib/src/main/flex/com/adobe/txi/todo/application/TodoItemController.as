@@ -47,7 +47,11 @@ package com.adobe.txi.todo.application
 			}
 			
 			_currentTodoItem=value;
-			_currentTodoItem.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE,propertyChangeHandler);
+			
+			if(_currentTodoItem)
+			{
+				_currentTodoItem.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE,propertyChangeHandler);
+			}
 
 			//invalidate current states
 			invalidateCurrentTodoItemStates();

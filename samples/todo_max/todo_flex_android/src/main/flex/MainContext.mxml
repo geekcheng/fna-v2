@@ -7,6 +7,7 @@
     <fx:Script>
         <![CDATA[
 			import com.adobe.txi.todo.application.GetTodoListCommand;
+			import com.adobe.txi.todo.application.RemoveTodoItemCommand;
 			import com.adobe.txi.todo.application.SaveTodoItemCommand;
 			import com.adobe.txi.todo.application.TodoItemController;
 			import com.adobe.txi.todo.application.TodoListController;
@@ -30,9 +31,9 @@
 
         <DynamicCommand type="{ MockLoginCommand }"/>
         <DynamicCommand type="{ MockLogoutCommand }"/>
-        <DynamicCommand type="{ MockGetTodoListCommand }"/>
-        <DynamicCommand type="{ MockSaveTodoItemCommand }"/>
-		<DynamicCommand type="{ MockRemoveTodoItemCommand }"/>
+        <DynamicCommand type="{ GetTodoListCommand }"/>
+        <DynamicCommand type="{ SaveTodoItemCommand }"/>
+		<DynamicCommand type="{ RemoveTodoItemCommand }"/>
 
         <!-- Integration Layer -->
         <s:RemoteObject id="todoService"
